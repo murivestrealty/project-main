@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp, Shield, Crown } from 'lucide-react';
 
 const Hero = () => {
-  const images = ['/kenya-night.png', 'https://images.unsplash.com/photo-1669127300649-940337f1487e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmFpcm9iaSUyMGNpdHl8ZW58MHx8MHx8fDA%3D','/ke.1.jpg']; // Add your image paths here
+  const images = ['/kenya-night.png', '/ke.1.jpg']; // Add your image paths here
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
