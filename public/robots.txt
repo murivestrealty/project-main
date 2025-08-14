@@ -1,5 +1,9 @@
 # Robots.txt for Murivest Realty Group
+<<<<<<< HEAD
 # https://murivest.co.ke/robots.txt
+=======
+# https://murivest.com/robots.txt
+>>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
 
 User-agent: *
 Allow: /
@@ -20,7 +24,11 @@ Allow: /blog
 Allow: /blog/
 
 # Sitemap location
+<<<<<<< HEAD
 Sitemap: https://murivest.co.ke/sitemap.xml
+=======
+Sitemap: https://murivest.com/sitemap.xml
+>>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
 
 # Crawl delay (optional - helps with server load)
 Crawl-delay: 1

@@ -10,7 +10,11 @@ const Home = () => {
     "@type": "WebPage",
     "name": "Home - Murivest Realty Group",
     "description": "Premier commercial real estate investment firm in Nairobi, Kenya. Discover curated investment opportunities with 15%+ annual returns.",
+<<<<<<< HEAD
     "url": "https://murivest.co.ke",
+=======
+    "url": "https://murivest.com/",
+>>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
     "mainEntity": {
       "@type": "RealEstateAgent",
       "name": "Murivest Realty Group",
@@ -29,7 +33,11 @@ const Home = () => {
         title="Commercial Real Estate Investment Kenya - Murivest Realty Group"
         description="Premier commercial real estate investment firm in Nairobi, Kenya. Discover curated investment opportunities with 15%+ annual returns. Expert property management and wealth-building strategies for discerning investors."
         keywords="commercial real estate Kenya, property investment Nairobi, real estate investment firm Kenya, commercial property Nairobi, investment properties Kenya, property management Kenya, real estate returns Kenya, Murivest Realty Group, passive income properties Kenya, commercial real estate Nairobi CBD"
+<<<<<<< HEAD
         url="https://murivest.co.ke/"
+=======
+        url="https://murivest.com/"
+>>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
         structuredData={structuredData}
       />
       <Hero />
