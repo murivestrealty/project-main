@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
+import SEOHead from './SEOHead';
 import { 
   ArrowLeft, 
   MapPin, 
@@ -519,8 +520,47 @@ const PropertyDetail = () => {
     { id: 'calculator', name: 'Calculator', icon: Calculator }
   ];
 
+  // Generate structured data for the property
+  const propertyStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": property.title,
+    "description": property.description,
+    "url": `https://murivest.com/property/${id}`,
+    "image": property.images,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": property.location,
+      "addressCountry": "KE"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": property.price,
+      "priceCurrency": "KES",
+      "availability": "https://schema.org/InStock"
+    },
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": property.details.size
+    },
+    "numberOfRooms": property.features.length,
+    "propertyType": property.type,
+    "yearBuilt": property.details.yearBuilt,
+    "occupancyRate": property.occupancyRate,
+    "investmentReturn": property.yield
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <SEOHead
+        title={`${property.title} - ${property.location} | Investment Property | Murivest Realty Group`}
+        description={`${property.description} Located in ${property.location}, this ${property.type.toLowerCase()} property offers ${property.yield} annual returns. Price: ${property.price}. Contact Murivest Realty Group for investment details.`}
+        keywords={`${property.title}, ${property.location} property, ${property.type} investment Kenya, commercial property ${property.location}, investment property Kenya, ${property.yield} returns, Murivest Realty Group, ${property.location} real estate`}
+        url={`https://murivest.com/property/${id}`}
+        image={property.images[0]}
+        type="article"
+        structuredData={propertyStructuredData}
+      />
+      
       {/* Enhanced Header */}
       <div className="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
