@@ -4,19 +4,19 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://murivest.com/</loc>
+    <loc>https://murivest.co.ke/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://murivest.com/image.png</image:loc>
+      <image:loc>https://murivest.co.ke/image.png</image:loc>
       <image:title>Murivest Realty Group - Premier Commercial Real Estate Investment</image:title>
     </image:image>
   </url>
   
   <!-- About Page -->
   <url>
-    <loc>https://murivest.com/about</loc>
+    <loc>https://murivest.co.ke/about</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -24,7 +24,7 @@
   
   <!-- Properties Page -->
   <url>
-    <loc>https://murivest.com/properties</loc>
+    <loc>https://murivest.co.ke/properties</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -32,7 +32,7 @@
   
   <!-- Individual Property Pages -->
   <url>
-    <loc>https://murivest.com/property/1</loc>
+    <loc>https://murivest.co.ke/property/1</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -50,35 +50,35 @@
   </url>
   
   <url>
-    <loc>https://murivest.com/property/3</loc>
+    <loc>https://murivest.co.ke/property/3</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://murivest.com/property/4</loc>
+    <loc>https://murivest.co.ke/property/4</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://murivest.com/property/5</loc>
+    <loc>https://murivest.co.ke/property/5</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://murivest.com/property/6</loc>
+    <loc>https://murivest.co.ke/property/6</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://murivest.com/property/7</loc>
+    <loc>https://murivest.co.ke/property/7</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -86,7 +86,7 @@
   
   <!-- Contact Page -->
   <url>
-    <loc>https://murivest.com/contact</loc>
+    <loc>https://murivest.co.ke/contact</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -94,7 +94,7 @@
   
   <!-- Blog Page -->
   <url>
-    <loc>https://murivest.com/blog</loc>
+    <loc>https://murivest.co.ke/blog</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
