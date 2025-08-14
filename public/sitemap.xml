@@ -102,33 +102,21 @@
   
   <!-- Individual Blog Posts -->
   <url>
-<<<<<<< HEAD
     <loc>https://murivest.co.ke/blog/1</loc>
-=======
-    <loc>https://murivest.com/blog/1</loc>
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
     <loc>https://murivest.co.ke/blog/2</loc>
-=======
-    <loc>https://murivest.com/blog/2</loc>
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
     <loc>https://murivest.co.ke/blog/3</loc>
-=======
-    <loc>https://murivest.com/blog/3</loc>
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

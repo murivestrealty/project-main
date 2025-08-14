@@ -8,11 +8,7 @@ const AboutPage = () => {
     "@type": "AboutPage",
     "name": "About Murivest Realty Group",
     "description": "Learn about Murivest Realty Group, a premier real estate investment firm in Nairobi, Kenya. Our mission, vision, and commitment to excellence in commercial property investment.",
-<<<<<<< HEAD
     "url": "https://murivest.co.ke/about",
-=======
-    "url": "https://murivest.com/about",
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
     "mainEntity": {
       "@type": "Organization",
       "name": "Murivest Realty Group",
@@ -32,11 +28,7 @@ const AboutPage = () => {
         title="About Us - Premier Real Estate Investment Firm | Murivest Realty Group"
         description="Learn about Murivest Realty Group, a premier real estate investment firm in Nairobi, Kenya. Our mission, vision, and commitment to excellence in commercial property investment and wealth building strategies."
         keywords="about Murivest Realty Group, real estate investment firm Kenya, commercial property experts Nairobi, property investment company Kenya, real estate advisory services Kenya, investment firm Nairobi"
-<<<<<<< HEAD
         url="https://murivest.co.ke/about"
-=======
-        url="https://murivest.com/about"
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
         structuredData={structuredData}
       />
       <About />

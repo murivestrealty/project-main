@@ -8,11 +8,7 @@ const ContactPage = () => {
     "@type": "ContactPage",
     "name": "Contact Murivest Realty Group",
     "description": "Get in touch with Murivest Realty Group for commercial real estate investment opportunities in Nairobi, Kenya. Schedule a consultation with our investment experts.",
-<<<<<<< HEAD
     "url": "https://murivest.co.ke/contact",
-=======
-    "url": "https://murivest.com/contact",
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
     "mainEntity": {
       "@type": "ContactPoint",
       "telephone": "+254-729-170-156",
@@ -28,11 +24,7 @@ const ContactPage = () => {
         title="Contact Us - Real Estate Investment Consultation | Murivest Realty Group"
         description="Get in touch with Murivest Realty Group for commercial real estate investment opportunities in Nairobi, Kenya. Schedule a consultation with our investment experts. Call +254-729-170-156 or email info@murivest.com"
         keywords="contact Murivest Realty Group, real estate investment consultation Kenya, property investment advice Nairobi, commercial real estate experts Kenya, investment consultation Nairobi, real estate advisory services Kenya"
-<<<<<<< HEAD
         url="https://murivest.co.ke/contact"
-=======
-        url="https://murivest.com/contact"
->>>>>>> ed7b6cbc8571867f4cd1ef4a108bf3bb16a9b9de
         structuredData={structuredData}
       />
       <Contact />
