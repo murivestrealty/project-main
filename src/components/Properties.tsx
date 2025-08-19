@@ -97,7 +97,31 @@ const Properties = () => {
     features: ["136 Rooms", "5-Star Rating", "2.5 Acres", "12 Meeting Rooms"],
     status: "Available",
     description: "Magnificent 5-star hotel with luxury amenities, strategic location and international clientele"
-  }
+  },
+  {
+    id: 8,
+    title: "Absa Towers",
+    location: "Loita and Market Street, Nairobi CBD",
+    type: "Office Development",
+    price: "KSh 2.035B+", 
+    yield: "9%",
+    image: "/p3/ABSA_Towers.png",
+    features: ["17 Storey", "143,300 sq.ft NLA", "160 Parking Bays", "99.8% Occupancy"],
+    status: "For Sale",
+    description: "Prime Office Development in Nairobi CBD with excellent rental income and blue-chip tenants."
+    },
+    {
+    id: 9,
+    title: "Tembo Coop House",
+    location: "Moi Avenue, Nairobi CBD",
+    type: "Commercial Building",
+    price: "KSh 385M", 
+    yield: "Details on Application",
+    image: "https://images.pexels.com/photos/1647416/pexels-photo-1647416.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    features: ["7 Upper Floors", "Ground Floor Shops", "30,174 Sq. Ft. Built Up Area", "Fully Occupied"],
+    status: "For Sale",
+    description: "A fully occupied commercial building located along Moi Avenue in Nairobi CBD, available for sale."
+    }
   ];
 
   const propertyTypes = ['All', 'Commercial', 'Residential', 'Hospitality', 'Retail', 'Industrial', 'Healthcare', 'Student Housing', 'Short-term Rental'];

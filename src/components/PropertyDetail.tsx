@@ -478,6 +478,155 @@ const PropertyDetail = () => {
         maintenanceRequirement: "High",
         regulatoryRisk: "Medium"
       }
+    },
+     8: {
+        title: "Absa Towers",
+        location: "Loita and Market Street, Nairobi CBD",
+        type: "Office Development",
+        price: "KSh 2.1B",
+        yield: "9%",
+        images: [
+            "/p3/ABSA_Towers.png", 
+            "/p3/Screenshot 2025-08-14 212635.png", 
+            "/p3/Screenshot 2025-08-14 212644.png", 
+            "/p3/Screenshot 2025-08-14 212655.png",
+            "/p3/Screenshot 2025-08-14 212707.png",
+            "/p3/Screenshot 2025-08-14 212720.png"
+        ],
+        features: [
+            "17 Storey Commercial Block", 
+            "24,768 sqm (266,602 sq.ft) Gross Built Up Area", 
+            "13,313 sqm (143,300 sq.ft) Net Lettable Area",
+            "160 Parking Bays (6 levels)",
+            "99.8% Occupancy Rate",
+            "Leased to Blue Chip Corporates"
+        ],
+        status: "For Sale",
+        riskLevel: "Low", 
+        occupancyRate: "99.8%",
+        description: "Absa Towers is a prime seventeen-storey modern office development strategically located within the City Centre of Nairobi. It boasts an excellent rental income from blue-chip corporate occupiers and high technological specifications, making it a highly desirable investment.",
+        details: {
+            size: "0.487 of an acre (0.197 Ha)",
+            floors: "17 storey commercial block",
+            parking: "160 vehicle capacity (6 levels)",
+            yearBuilt: "1992",
+            occupancy: "99.8% (blue-chip corporate occupiers)",
+            tenants: "Tier-one banks, insurance organizations, key government institutions",
+            roi: "Attractive initial yield profile north of 9.0%",
+            appreciation: "Potential for asset value enhancement" 
+        },
+        amenities: [
+            "Large reception area",
+            "4 No. passenger lifts (Schindler, 950kg, 15 persons)",
+            "2 No. Back-up generators (500 KVA & 640 KVA)",
+            "Solar panels to supplement mains power (75 No. 345 Watts Jinko Solar panels)",
+            "Fibre optic services",
+            "Fully handicapped accessible (ramps, specialised washroom facilities)",
+            "Glass curtain walling",
+            "Body scanner at reception",
+            "Access controlled doors to Tenants spaces",
+            "Secondary exit in emergency",
+            "24 hour security",
+            "CCTV surveillance provision on Tenants spaces",
+            "Barriers at entry to vehicle parking/driveways",
+            "Fire alarm system",
+            "Fire extinguishers (CO2 and dry powder)",
+            "Fire sprinkler and smoke detector systems on car parking floors",
+            "Fire exit door on each floor",
+            "Wet riser hydrant with low/high-pressure delivery hoses at every fire exit",
+            "Water pump system connected to hydrants",
+            "Piped water from NCC",
+            "Mains sewer line",
+            "120,000 litres reinforced concrete water tank (basement)",
+            "1 No. steel water tank (48,000 litres)",
+            "2 No. steel tanks (24,000 litres each) on various floors",
+            "Immediate frontage onto Loita and Market Streets (tarmacked)",
+            "Grilled metal gate entry to driveway",
+            "Tarmaced or paved concrete block driveways, service and parking areas"
+        ],
+        investment: {
+            totalInvestment: 2035000000,
+            monthlyIncome: 15500000, 
+            annualIncome: 185000000, 
+            managementFee: 100000, 
+            netYield: 9.0,
+            cashOnCash: null, 
+            capRate: null, 
+            breakEvenPoint: 11, 
+            appreciationRate: 12.0, 
+            totalROI: 9.0 
+        },
+        feasibility: {
+            marketDemand: "High", 
+            locationScore: 9.0, 
+            growthPotential: "Excellent", 
+            liquidityRating: "Medium", 
+            maintenanceRequirement: "Medium", 
+            regulatoryRisk: "Low" 
+        }
+    },
+    9: {
+        title: "Tembo Coop House",
+        location: "Moi Avenue, Nairobi CBD",
+        type: "Commercial Building",
+        price: "KSh 385,000,000",
+        yield: "Details on Application",
+        images: [
+            "https://images.pexels.com/photos/1647416/pexels-photo-1647416.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop", 
+            "https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop", 
+            "https://images.pexels.com/photos/1036838/pexels-photo-1036838.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=fit", 
+            "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop" 
+        ],
+        features: [
+            "Located along Moi Avenue, Nairobi CBD",
+            "Solid Construction",
+            "Ground Floor with shops",
+            "Seven (7) Upper Floors with offices",
+            "Built Up Area: 30,174 Sq. Ft. Approx",
+            "Land: 0.0859 Acres Approx.",
+            "Fully occupied and let to stable tenants"
+        ],
+        status: "For Sale",
+        riskLevel: "Low", 
+        occupancyRate: "100%", 
+        description: "A well-constructed commercial building situated on Moi Avenue in the heart of Nairobi CBD. The property comprises ground floor retail units and seven upper floors of offices, boasting full occupancy with stable tenants.",
+        details: {
+            size: "0.0859 Acres Approx.",
+            floors: "Ground floor + 7 upper floors",
+            parking: "Not specified",
+            yearBuilt: "Not specified", 
+            occupancy: "Fully occupied",
+            tenants: "Stable tenants",
+            roi: "Details on Application",
+            appreciation: "Not specified"
+        },
+        amenities: [
+            "Reliable Water supply and adequate storage",
+            "Electricity supplemented with Backup Generator",
+            "Firefighting equipment on site",
+            "8-passenger 630 kgs Kleemann lift serving all floors",
+            "Fibre Internet"
+        ],
+        investment: {
+            totalInvestment: 385000000,
+            monthlyIncome: null, 
+            annualIncome: null, 
+            managementFee: null, 
+            netYield: null, 
+            cashOnCash: null, 
+            capRate: null, 
+            breakEvenPoint: null, 
+            appreciationRate: null, 
+            totalROI: null 
+        },
+        feasibility: {
+            marketDemand: "High", 
+            locationScore: 8.5, 
+            growthPotential: "Good", 
+            liquidityRating: "Medium", 
+            maintenanceRequirement: "Medium", 
+            regulatoryRisk: "Medium" 
+        }
     }
   };
 
@@ -497,7 +646,7 @@ const PropertyDetail = () => {
   }
 
   const handleWhatsAppContact = (message: string) => {
-    const phoneNumber = "254700000000";
+    const phoneNumber = "254115277610";
     const encodedMessage = encodeURIComponent(
       `Hi! I'm interested in ${property.title} in ${property.location}. ${message}`
     );
@@ -563,7 +712,7 @@ const PropertyDetail = () => {
       
       {/* Enhanced Header */}
       <div className="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
           <div className="flex items-center justify-between">
             <Link 
               to="/properties"
@@ -572,7 +721,36 @@ const PropertyDetail = () => {
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Properties
             </Link>
-            
+                          {/* Property Header */}
+            <motion.div>
+              <div className="flex flex-col lg:flex-row font-luxury lg:items-start lg:justify-between mb-1">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      property.status === 'Available' 
+                        ? 'bg-green-100 text-green-800' 
+                        : 'bg-red-100 text-red-800'
+                    }`}>
+                      {property.status}
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                      {property.type}
+                    </span>
+                  </div>
+                  <h1 className="text-5xl lg:text-5xl font-bold text-gray-900 mb-3">{property.title}</h1>
+                  <div className="text-6xl font-bold text-amber-600 mb-2">{property.price}</div>
+                  <div className="flex items-center text-gray-600 mb-1">
+                    <MapPin className="h-5 w-5 mr-2 text-amber-600" />
+                    <span className="text-lg">{property.location}</span>
+                    
+                  </div>
+                </div>
+                
+                <div className="text-right">
+                  
+                </div>
+              </div>
+            </motion.div>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsLiked(!isLiked)}
@@ -855,41 +1033,6 @@ const PropertyDetail = () => {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              {/* Property Header */}
-            <motion.div 
-              className="bg-white rounded-3xl shadow-xl p-8 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex flex-col lg:flex-row font-luxury lg:items-start lg:justify-between mb-6">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      property.status === 'Available' 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-red-100 text-red-800'
-                    }`}>
-                      {property.status}
-                    </span>
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                      {property.type}
-                    </span>
-                  </div>
-                  <h1 className="text-4xl lg:text-2xl font-bold text-gray-900 mb-3">{property.title}</h1>
-                  <div className="text-3xl font-bold text-amber-600 mb-2">{property.price}</div>
-                  <div className="flex items-center text-gray-600 mb-4">
-                    <MapPin className="h-5 w-5 mr-2 text-amber-600" />
-                    <span className="text-lg">{property.location}</span>
-                    
-                  </div>
-                </div>
-                
-                <div className="text-right">
-                  
-                </div>
-              </div>
-            </motion.div>
               {/* Contact Card */}
               <motion.div 
                 className="bg-white p-8 rounded-2xl shadow-lg mb-8"
@@ -908,10 +1051,17 @@ const PropertyDetail = () => {
                     <span className="font-elegant text-gray-700">investments@murivest.com</span>
                   </div>
                 </div>
-                <button className="w-full bg-gold-600 hover:bg-gold-700 text-white py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300 mb-4">
+                <button
+                  className="w-full bg-gold-600 hover:bg-gold-700 text-white py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300 mb-4"
+                  onClick={() => handleWhatsAppContact("I would like to schedule a viewing.")}
+                >
                   Schedule Viewing
                 </button>
-                <button className="w-full border-2 border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300">
+
+                <button
+                  className="w-full border-2 border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300"
+                  onClick={() => handleWhatsAppContact("I would like to request more information.")}
+                >
                   Request Information
                 </button>
               </motion.div>

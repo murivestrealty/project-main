@@ -12,7 +12,13 @@ const Hero = () => {
     }, 5000); // Change image every 5 seconds
     return () => clearInterval(interval);
   }, []);
-
+  const handleWhatsAppContact = (message: string) => {
+    const phoneNumber = "254115277610";
+    const encodedMessage = encodeURIComponent(
+      `Hi! I'm interested in your properties ${message}`
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+  };
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden">
       {/* Dark overlay */}
@@ -97,6 +103,9 @@ const Hero = () => {
               className="border-2 border-white hover:bg-white hover:text-navy-900 text-white px-8 py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              // The 'ref="/"' seems like a mistaken prop. If it's meant to be a link, use an <a> tag or a routing component.
+              // For now, I'm focusing on the onClick for WhatsApp.
+              onClick={() => handleWhatsAppContact("I would like to schedule a consultation.")}
             >
               Schedule Consultation
             </motion.button>
