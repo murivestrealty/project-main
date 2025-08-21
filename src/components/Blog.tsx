@@ -207,6 +207,16 @@ const Blog = () => {
       readTime: "6 min read",
       image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "Commercial Trends"
+    },
+    {
+      id: 21,
+      title: "Property Tax Optimization: Legal Strategies for Real Estate Investors",
+      excerpt: "Comprehensive guide to minimizing property taxes and maximizing after-tax returns through legal optimization strategies in Kenya's real estate market.",
+      author: "Advocate Sarah Mwangi",
+      date: "Nov 24, 2024",
+      readTime: "11 min read",
+      image: "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Legal Updates"
     }
   ];
 
