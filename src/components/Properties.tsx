@@ -79,12 +79,12 @@ const Properties = () => {
 
   {
     id: 6,
-    title: "Aga Khan Walk Commercial Building",
-    location: "Central Business District",
+    title: "Uchumi House Commercial Building",
+    location: "Aga khan Walk, Nairobi CBD",
     type: "Commercial", 
-    price: "KSh 562.5M",
+    price: "KSh 570M",
     yield: "12.2%",
-    image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    image: "/p1/IMG-20250813-WA0009.jpg",
     features: ["4,491 sqm", "5 Storey + Basement", "Prime CBD Location", "Excellent Visibility"],
     status: "Available",
     description: "Premier commercial property with excellent visibility and immediate rental income in CBD"

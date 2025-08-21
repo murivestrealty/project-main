@@ -354,16 +354,14 @@ const PropertyDetail = () => {
     },
 
     6: {
-      title: "Aga Khan Walk Commercial Building",
-      location: "Central Business District",
+      title: "Uchumi House Commercial Building",
+      location: "Aga Khan Walk, Central Business District, Nairobi",
       type: "Commercial",
-      price: "KSh 562.5M",
+      price: "KSh 570M",
       yield: "12.2%",
       images: [
-        "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
+        "/p1/IMG-20250813-WA0009.jpg",
+        "/p1/IMG-20250813-WA0010.jpg"
       ],
       features: ["4,491 sqm", "5 Storey + Basement", "Prime CBD Location", "Established Tenants", "Excellent Visibility", "Landmark Neighbors"],
       status: "Available",
