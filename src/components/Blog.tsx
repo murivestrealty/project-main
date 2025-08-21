@@ -149,7 +149,7 @@ const Blog = () => {
       category: "Residential Investment"
     },
     {
-      id: 19,
+      id: 10,
       title: "REIT Dividend Strategies: Maximizing Income from Real Estate Trusts",
       excerpt: "Advanced strategies for maximizing dividend income from REIT investments, including reinvestment plans and tax optimization techniques.",
       author: "Thomas Kiplagat",
@@ -167,7 +167,7 @@ const Blog = () => {
       readTime: "7 min read",
       image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "Commercial Investment"
-    }
+    },
     {
       id: 6,
       title: "New Property Laws: What Investors Need to Know",
