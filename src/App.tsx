@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from './contexts/AuthContext';
+import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -19,6 +21,7 @@ function App() {
     <HelmetProvider>
       <AuthProvider>
         <Router>
+          <ScrollToTop />
           <div className="min-h-screen">
             <Header />
             <Routes>
@@ -39,6 +42,7 @@ function App() {
               />
             </Routes>
             <Footer />
+            <ScrollToTopButton />
           </div>
         </Router>
       </AuthProvider>

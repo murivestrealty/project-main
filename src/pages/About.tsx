@@ -1,8 +1,13 @@
 import React from 'react';
+import { useEffect } from 'react';
 import SEOHead from '../components/SEOHead';
 import About from '../components/About';
 
 const AboutPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "AboutPage",

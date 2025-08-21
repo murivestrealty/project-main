@@ -1,10 +1,15 @@
 import React from 'react';
+import { useEffect } from 'react';
 import SEOHead from '../components/SEOHead';
 import Hero from '../components/Hero';
 import FeaturedProperties from '../components/FeaturedProperties';
 import Testimonials from '../components/Testimonials';
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",

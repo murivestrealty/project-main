@@ -7,6 +7,10 @@ const Properties = () => {
   const [selectedType, setSelectedType] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const allProperties = [
     {
     id: 1,

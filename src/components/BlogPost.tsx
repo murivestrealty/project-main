@@ -1,10 +1,15 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Clock, Share2, Bookmark, ThumbsUp } from 'lucide-react';
 
 const BlogPost = () => {
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   // Mock blog post data - in a real app, this would come from Firebase
   const blogData = {
@@ -312,6 +317,226 @@ const BlogPost = () => {
       `,
       tags: ["Property Yields", "Commercial Real Estate", "Investment Analysis", "Nairobi", "ROI"]
     },
+    5: {
+      title: "The Rise of Mixed-Use Developments in Nairobi",
+      author: "Mary Njeri",
+      date: "December 5, 2024",
+      readTime: "6 min read",
+      category: "Commercial Trends",
+      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      content: `
+        <div class="executive-summary" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; border-left: 4px solid #fbbf24;">
+          <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Executive Summary</h3>
+          <p style="color: #475569; line-height: 1.7; margin: 0;">Mixed-use developments are transforming Nairobi's urban landscape, combining residential, commercial, and retail spaces in innovative ways. Discover why these developments represent the future of real estate investment in Kenya's capital.</p>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">The Mixed-Use Revolution</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">Mixed-use developments are reshaping Nairobi's skyline and urban planning approach. These integrated communities combine residential apartments, office spaces, retail outlets, and recreational facilities in single developments, creating vibrant, self-contained ecosystems.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #dcfce7; text-align: center;">
+            <div style="font-size: 2rem; font-weight: bold; color: #166534; margin-bottom: 0.5rem;">65%</div>
+            <div style="color: #6b7280; font-size: 0.875rem;">Higher Occupancy Rates</div>
+          </div>
+          <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #fde68a; text-align: center;">
+            <div style="font-size: 2rem; font-weight: bold; color: #a16207; margin-bottom: 0.5rem;">18%</div>
+            <div style="color: #6b7280; font-size: 0.875rem;">Average Annual Returns</div>
+          </div>
+          <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; text-align: center;">
+            <div style="font-size: 2rem; font-weight: bold; color: #0369a1; margin-bottom: 0.5rem;">3</div>
+            <div style="color: #6b7280; font-size: 0.875rem;">Income Streams</div>
+          </div>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Investment Advantages</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">Mixed-use developments offer unique advantages for real estate investors:</p>
+
+        <div style="background: #f8fafc; padding: 2rem; border-radius: 1rem; margin: 2rem 0; border: 1px solid #e2e8f0;">
+          <h3 style="color: #1e293b; margin-bottom: 1.5rem;">Key Benefits</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="color: #059669; margin-bottom: 0.5rem;">🏢 Diversified Income</h4>
+              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Multiple revenue streams from residential, commercial, and retail tenants reduce vacancy risks.</p>
+            </div>
+            <div>
+              <h4 style="color: #059669; margin-bottom: 0.5rem;">📈 Higher Valuations</h4>
+              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Integrated developments command premium valuations due to convenience and amenities.</p>
+            </div>
+            <div>
+              <h4 style="color: #059669; margin-bottom: 0.5rem;">🎯 Stable Tenancy</h4>
+              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Residents and businesses benefit from proximity, creating stable, long-term tenancies.</p>
+            </div>
+            <div>
+              <h4 style="color: #059669; margin-bottom: 0.5rem;">🚀 Future-Proof</h4>
+              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Aligned with urban planning trends and sustainable development goals.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Notable Nairobi Developments</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">Several successful mixed-use projects in Nairobi demonstrate the potential of this development model:</p>
+
+        <ul style="font-size: 1.125rem; line-height: 1.8; color: #374151;">
+          <li><strong>Two Rivers Mall & Residences:</strong> Integrated shopping, dining, and residential complex</li>
+          <li><strong>Garden City Mall:</strong> Mixed retail, office, and residential development</li>
+          <li><strong>Westgate Shopping Mall:</strong> Retail and office space combination</li>
+          <li><strong>The Hub Karen:</strong> Shopping, dining, and entertainment complex</li>
+        </ul>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Investment Considerations</h2>
+        <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; margin: 1.5rem 0; border-left: 4px solid #f59e0b;">
+          <h4 style="color: #a16207; margin-bottom: 1rem;">Key Factors to Evaluate:</h4>
+          <ul style="margin: 0; color: #374151;">
+            <li>Location and accessibility</li>
+            <li>Developer track record and financial stability</li>
+            <li>Tenant mix and anchor tenants</li>
+            <li>Parking and infrastructure adequacy</li>
+            <li>Management and maintenance capabilities</li>
+          </ul>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Future Outlook</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">The trend toward mixed-use developments is expected to accelerate, driven by urbanization, changing lifestyle preferences, and the need for sustainable urban planning. Investors who position themselves early in quality mixed-use projects can expect superior long-term returns.</p>
+
+        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; color: white;">
+          <h3 style="color: #fbbf24; margin-bottom: 1rem;">Invest in the Future of Urban Development</h3>
+          <p style="margin-bottom: 1.5rem;">Mixed-use developments represent the future of urban real estate. Our portfolio includes carefully selected mixed-use projects that offer diversified income streams and exceptional growth potential.</p>
+          <a href="/properties" style="background: #fbbf24; color: #1e1b4b; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block; margin-right: 1rem;">Explore Mixed-Use Properties</a>
+          <a href="/contact" style="border: 2px solid #fbbf24; color: #fbbf24; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block;">Schedule Consultation</a>
+        </div>
+      `,
+      tags: ["Mixed-Use Development", "Urban Planning", "Commercial Trends", "Nairobi", "Real Estate Investment"]
+    },
+    6: {
+      title: "New Property Laws: What Investors Need to Know",
+      author: "Peter Kamau",
+      date: "December 3, 2024",
+      readTime: "9 min read",
+      category: "Legal Updates",
+      image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      content: `
+        <div class="executive-summary" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; border-left: 4px solid #fbbf24;">
+          <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Executive Summary</h3>
+          <p style="color: #475569; line-height: 1.7; margin: 0;">Recent amendments to Kenya's property laws introduce significant changes affecting real estate investors. Stay compliant and protect your investments by understanding these new regulations and their implications for commercial property ownership and management.</p>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Key Legislative Changes</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">The Land Laws (Amendment) Act 2024 introduces several important changes that affect commercial real estate investors:</p>
+
+        <div style="background: #fee2e2; padding: 1.5rem; border-radius: 0.75rem; margin: 1.5rem 0; border-left: 4px solid #dc2626;">
+          <h4 style="color: #dc2626; margin-bottom: 1rem;">⚠️ Critical Changes:</h4>
+          <ul style="margin: 0; color: #374151;">
+            <li>Enhanced due diligence requirements for property transactions</li>
+            <li>New disclosure obligations for property sellers</li>
+            <li>Revised stamp duty calculations and payment procedures</li>
+            <li>Updated land registration and title transfer processes</li>
+            <li>Strengthened tenant protection measures</li>
+          </ul>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Impact on Commercial Property Investors</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe;">
+            <h4 style="color: #0369a1; margin-bottom: 1rem;">📋 Due Diligence</h4>
+            <p style="color: #374151; font-size: 0.875rem; margin: 0;">Enhanced search requirements and verification processes for property purchases, increasing transaction timelines by 2-3 weeks.</p>
+          </div>
+          <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #fde68a;">
+            <h4 style="color: #a16207; margin-bottom: 1rem;">💰 Tax Implications</h4>
+            <p style="color: #374151; font-size: 0.875rem; margin: 0;">Revised stamp duty rates and new capital gains tax provisions affecting property disposal strategies.</p>
+          </div>
+          <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #dcfce7;">
+            <h4 style="color: #166534; margin-bottom: 1rem;">🏢 Tenant Relations</h4>
+            <p style="color: #374151; font-size: 0.875rem; margin: 0;">New tenant protection measures requiring updated lease agreements and eviction procedures.</p>
+          </div>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Compliance Requirements</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">To ensure compliance with the new regulations, commercial property investors must:</p>
+
+        <div style="background: #f8fafc; padding: 2rem; border-radius: 1rem; margin: 2rem 0; border: 1px solid #e2e8f0;">
+          <h3 style="color: #1e293b; margin-bottom: 1.5rem;">Compliance Checklist</h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+            <div style="display: flex; align-items: start; padding: 1rem; background: white; border-radius: 0.5rem;">
+              <div style="background: #dcfce7; color: #166534; padding: 0.25rem; border-radius: 50%; margin-right: 1rem; min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">✓</div>
+              <div>
+                <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Update Legal Documentation</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Review and update all property-related contracts, leases, and agreements to comply with new requirements.</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: start; padding: 1rem; background: white; border-radius: 0.5rem;">
+              <div style="background: #dcfce7; color: #166534; padding: 0.25rem; border-radius: 50%; margin-right: 1rem; min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">✓</div>
+              <div>
+                <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Enhanced Record Keeping</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Implement comprehensive record-keeping systems for all property transactions and tenant interactions.</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: start; padding: 1rem; background: white; border-radius: 0.5rem;">
+              <div style="background: #dcfce7; color: #166534; padding: 0.25rem; border-radius: 50%; margin-right: 1rem; min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">✓</div>
+              <div>
+                <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Professional Legal Review</h4>
+                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Engage qualified legal counsel to review existing portfolios and ensure full compliance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Opportunities and Challenges</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">While the new laws introduce compliance challenges, they also create opportunities for professional investors:</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #dcfce7;">
+            <h4 style="color: #166534; margin-bottom: 1rem;">🎯 Opportunities</h4>
+            <ul style="color: #374151; font-size: 0.875rem; margin: 0; padding-left: 1rem;">
+              <li>Increased market transparency</li>
+              <li>Better protection for legitimate investors</li>
+              <li>Reduced competition from non-compliant operators</li>
+              <li>Enhanced property value stability</li>
+            </ul>
+          </div>
+          <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #fde68a;">
+            <h4 style="color: #a16207; margin-bottom: 1rem;">⚠️ Challenges</h4>
+            <ul style="color: #374151; font-size: 0.875rem; margin: 0; padding-left: 1rem;">
+              <li>Increased transaction costs and timelines</li>
+              <li>More complex compliance requirements</li>
+              <li>Need for enhanced legal and professional support</li>
+              <li>Potential short-term market adjustment period</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Implementation Timeline</h2>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">The new regulations are being implemented in phases:</p>
+
+        <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin: 2rem 0;">
+          <div style="background: #1e293b; color: white; padding: 1rem;">
+            <h4 style="margin: 0;">Implementation Schedule</h4>
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="border-left: 4px solid #fbbf24; padding-left: 1rem; margin-bottom: 1.5rem;">
+              <h5 style="color: #1e293b; margin-bottom: 0.5rem;">Phase 1 (January 2024)</h5>
+              <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Enhanced due diligence and disclosure requirements</p>
+            </div>
+            <div style="border-left: 4px solid #fbbf24; padding-left: 1rem; margin-bottom: 1.5rem;">
+              <h5 style="color: #1e293b; margin-bottom: 0.5rem;">Phase 2 (March 2024)</h5>
+              <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Revised stamp duty and tax provisions</p>
+            </div>
+            <div style="border-left: 4px solid #fbbf24; padding-left: 1rem;">
+              <h5 style="color: #1e293b; margin-bottom: 0.5rem;">Phase 3 (June 2024)</h5>
+              <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Full implementation of tenant protection measures</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; color: white;">
+          <h3 style="color: #fbbf24; margin-bottom: 1rem;">Ensure Legal Compliance for Your Property Portfolio</h3>
+          <p style="margin-bottom: 1.5rem;">Don't let new regulations catch you off-guard. Our legal experts can help you navigate the changing landscape and ensure your property investments remain compliant and profitable.</p>
+          <a href="/contact" style="background: #fbbf24; color: #1e1b4b; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block; margin-right: 1rem;">Get Legal Consultation</a>
+          <a href="/properties" style="border: 2px solid #fbbf24; color: #fbbf24; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block;">View Compliant Properties</a>
+        </div>
+      `,
+      tags: ["Property Laws", "Legal Updates", "Compliance", "Real Estate Regulation", "Kenya"]
+    },
     10: {
       title: "REITs in Kenya: Your Gateway to Real Estate Investment",
       author: "Catherine Muthoni",
@@ -560,225 +785,317 @@ const BlogPost = () => {
       `,
       tags: ["Commercial vs Residential", "Investment Strategy", "Property Comparison", "Real Estate Returns", "Portfolio Diversification"]
     },
-    5: {
-      title: "The Rise of Mixed-Use Developments in Nairobi",
-      author: "Mary Njeri",
-      date: "December 5, 2024",
-      readTime: "6 min read",
-      category: "Commercial Trends",
-      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    19: {
+      title: "REIT Dividend Strategies: Maximizing Income from Real Estate Trusts",
+      excerpt: "Advanced strategies for maximizing dividend income from REIT investments, including reinvestment plans and tax optimization techniques.",
+      author: "Patricia Wanjiku",
+      date: "Nov 22, 2024",
+      readTime: "8 min read",
+      image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "REITs",
       content: `
-        <div class="executive-summary" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; border-left: 4px solid #fbbf24;">
-          <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Executive Summary</h3>
-          <p style="color: #475569; line-height: 1.7; margin: 0;">Mixed-use developments are transforming Nairobi's urban landscape, combining residential, commercial, and retail spaces in innovative ways. Discover why these developments represent the future of real estate investment in Kenya's capital.</p>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-bold text-green-900 mb-3">💰 Executive Summary</h3>
+          <p class="text-green-800 leading-relaxed">
+            REIT dividend strategies can significantly enhance your real estate investment returns. By understanding dividend timing, reinvestment options, and tax implications, investors can optimize their income streams and build substantial wealth through compounding returns.
+          </p>
         </div>
 
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">The Mixed-Use Revolution</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">Mixed-use developments are reshaping Nairobi's skyline and urban planning approach. These integrated communities combine residential apartments, office spaces, retail outlets, and recreational facilities in single developments, creating vibrant, self-contained ecosystems.</p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-          <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #dcfce7; text-align: center;">
-            <div style="font-size: 2rem; font-weight: bold; color: #166534; margin-bottom: 0.5rem;">65%</div>
-            <div style="color: #6b7280; font-size: 0.875rem;">Higher Occupancy Rates</div>
-          </div>
-          <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #fde68a; text-align: center;">
-            <div style="font-size: 2rem; font-weight: bold; color: #a16207; margin-bottom: 0.5rem;">18%</div>
-            <div style="color: #6b7280; font-size: 0.875rem;">Average Annual Returns</div>
-          </div>
-          <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; text-align: center;">
-            <div style="font-size: 2rem; font-weight: bold; color: #0369a1; margin-bottom: 0.5rem;">3</div>
-            <div style="color: #6b7280; font-size: 0.875rem;">Income Streams</div>
-          </div>
-        </div>
-
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Investment Advantages</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">Mixed-use developments offer unique advantages for real estate investors:</p>
-
-        <div style="background: #f8fafc; padding: 2rem; border-radius: 1rem; margin: 2rem 0; border: 1px solid #e2e8f0;">
-          <h3 style="color: #1e293b; margin-bottom: 1.5rem;">Key Benefits</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-            <div>
-              <h4 style="color: #059669; margin-bottom: 0.5rem;">🏢 Diversified Income</h4>
-              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Multiple revenue streams from residential, commercial, and retail tenants reduce vacancy risks.</p>
-            </div>
-            <div>
-              <h4 style="color: #059669; margin-bottom: 0.5rem;">📈 Higher Valuations</h4>
-              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Integrated developments command premium valuations due to convenience and amenities.</p>
-            </div>
-            <div>
-              <h4 style="color: #059669; margin-bottom: 0.5rem;">🎯 Stable Tenancy</h4>
-              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Residents and businesses benefit from proximity, creating stable, long-term tenancies.</p>
-            </div>
-            <div>
-              <h4 style="color: #059669; margin-bottom: 0.5rem;">🚀 Future-Proof</h4>
-              <p style="color: #374151; font-size: 0.875rem; margin: 0;">Aligned with urban planning trends and sustainable development goals.</p>
-            </div>
-          </div>
-        </div>
-
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Notable Nairobi Developments</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">Several successful mixed-use projects in Nairobi demonstrate the potential of this development model:</p>
-
-        <ul style="font-size: 1.125rem; line-height: 1.8; color: #374151;">
-          <li><strong>Two Rivers Mall & Residences:</strong> Integrated shopping, dining, and residential complex</li>
-          <li><strong>Garden City Mall:</strong> Mixed retail, office, and residential development</li>
-          <li><strong>Westgate Shopping Mall:</strong> Retail and office space combination</li>
-          <li><strong>The Hub Karen:</strong> Shopping, dining, and entertainment complex</li>
-        </ul>
-
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Investment Considerations</h2>
-        <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; margin: 1.5rem 0; border-left: 4px solid #f59e0b;">
-          <h4 style="color: #a16207; margin-bottom: 1rem;">Key Factors to Evaluate:</h4>
-          <ul style="margin: 0; color: #374151;">
-            <li>Location and accessibility</li>
-            <li>Developer track record and financial stability</li>
-            <li>Tenant mix and anchor tenants</li>
-            <li>Parking and infrastructure adequacy</li>
-            <li>Management and maintenance capabilities</li>
-          </ul>
-        </div>
-
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Future Outlook</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">The trend toward mixed-use developments is expected to accelerate, driven by urbanization, changing lifestyle preferences, and the need for sustainable urban planning. Investors who position themselves early in quality mixed-use projects can expect superior long-term returns.</p>
-
-        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; color: white;">
-          <h3 style="color: #fbbf24; margin-bottom: 1rem;">Invest in the Future of Urban Development</h3>
-          <p style="margin-bottom: 1.5rem;">Mixed-use developments represent the future of urban real estate. Our portfolio includes carefully selected mixed-use projects that offer diversified income streams and exceptional growth potential.</p>
-          <a href="/properties" style="background: #fbbf24; color: #1e1b4b; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block; margin-right: 1rem;">Explore Mixed-Use Properties</a>
-          <a href="/contact" style="border: 2px solid #fbbf24; color: #fbbf24; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block;">Schedule Consultation</a>
-        </div>
-      `,
-      tags: ["Mixed-Use Development", "Urban Planning", "Commercial Trends", "Nairobi", "Real Estate Investment"]
-    },
-    6: {
-      title: "New Property Laws: What Investors Need to Know",
-      author: "Peter Kamau",
-      date: "December 3, 2024",
-      readTime: "9 min read",
-      category: "Legal Updates",
-      image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-      content: `
-        <div class="executive-summary" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; border-left: 4px solid #fbbf24;">
-          <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Executive Summary</h3>
-          <p style="color: #475569; line-height: 1.7; margin: 0;">Recent amendments to Kenya's property laws introduce significant changes affecting real estate investors. Stay compliant and protect your investments by understanding these new regulations and their implications for commercial property ownership and management.</p>
-        </div>
-
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Key Legislative Changes</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">The Land Laws (Amendment) Act 2024 introduces several important changes that affect commercial real estate investors:</p>
-
-        <div style="background: #fee2e2; padding: 1.5rem; border-radius: 0.75rem; margin: 1.5rem 0; border-left: 4px solid #dc2626;">
-          <h4 style="color: #dc2626; margin-bottom: 1rem;">⚠️ Critical Changes:</h4>
-          <ul style="margin: 0; color: #374151;">
-            <li>Enhanced due diligence requirements for property transactions</li>
-            <li>New disclosure obligations for property sellers</li>
-            <li>Revised stamp duty calculations and payment procedures</li>
-            <li>Updated land registration and title transfer processes</li>
-            <li>Strengthened tenant protection measures</li>
-          </ul>
-        </div>
-
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Impact on Commercial Property Investors</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Understanding REIT Dividends</h2>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-          <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe;">
-            <h4 style="color: #0369a1; margin-bottom: 1rem;">📋 Due Diligence</h4>
-            <p style="color: #374151; font-size: 0.875rem; margin: 0;">Enhanced search requirements and verification processes for property purchases, increasing transaction timelines by 2-3 weeks.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-blue-50 p-6 rounded-xl text-center border border-blue-200">
+            <div class="text-3xl font-bold text-blue-600 mb-2">80%</div>
+            <div class="text-blue-800 font-semibold">Minimum Distribution</div>
+            <div class="text-blue-600 text-sm mt-2">Of taxable income required</div>
           </div>
-          <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #fde68a;">
-            <h4 style="color: #a16207; margin-bottom: 1rem;">💰 Tax Implications</h4>
-            <p style="color: #374151; font-size: 0.875rem; margin: 0;">Revised stamp duty rates and new capital gains tax provisions affecting property disposal strategies.</p>
+          <div class="bg-green-50 p-6 rounded-xl text-center border border-green-200">
+            <div class="text-3xl font-bold text-green-600 mb-2">8-12%</div>
+            <div class="text-green-800 font-semibold">Average Yield</div>
+            <div class="text-green-600 text-sm mt-2">Annual dividend yields</div>
           </div>
-          <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #dcfce7;">
-            <h4 style="color: #166534; margin-bottom: 1rem;">🏢 Tenant Relations</h4>
-            <p style="color: #374151; font-size: 0.875rem; margin: 0;">New tenant protection measures requiring updated lease agreements and eviction procedures.</p>
+          <div class="bg-purple-50 p-6 rounded-xl text-center border border-purple-200">
+            <div class="text-3xl font-bold text-purple-600 mb-2">Quarterly</div>
+            <div class="text-purple-800 font-semibold">Payment Frequency</div>
+            <div class="text-purple-600 text-sm mt-2">Most REITs pay quarterly</div>
           </div>
         </div>
 
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Compliance Requirements</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">To ensure compliance with the new regulations, commercial property investors must:</p>
-
-        <div style="background: #f8fafc; padding: 2rem; border-radius: 1rem; margin: 2rem 0; border: 1px solid #e2e8f0;">
-          <h3 style="color: #1e293b; margin-bottom: 1.5rem;">Compliance Checklist</h3>
-          <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-            <div style="display: flex; align-items: start; padding: 1rem; background: white; border-radius: 0.5rem;">
-              <div style="background: #dcfce7; color: #166534; padding: 0.25rem; border-radius: 50%; margin-right: 1rem; min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">✓</div>
-              <div>
-                <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Update Legal Documentation</h4>
-                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Review and update all property-related contracts, leases, and agreements to comply with new requirements.</p>
-              </div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Dividend Optimization Strategies</h2>
+        
+        <div class="space-y-6 mb-8">
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <h4 class="font-bold text-gray-800 mb-3">📈 Dividend Reinvestment Plans (DRIPs)</h4>
+            <p class="text-gray-600 mb-4">Automatically reinvest dividends to purchase additional REIT shares, leveraging compound growth over time.</p>
+            <div class="bg-green-50 p-4 rounded-lg">
+              <p class="text-green-800 font-semibold">Benefits: No transaction fees, dollar-cost averaging, compound growth</p>
             </div>
-            <div style="display: flex; align-items: start; padding: 1rem; background: white; border-radius: 0.5rem;">
-              <div style="background: #dcfce7; color: #166534; padding: 0.25rem; border-radius: 50%; margin-right: 1rem; min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">✓</div>
-              <div>
-                <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Enhanced Record Keeping</h4>
-                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Implement comprehensive record-keeping systems for all property transactions and tenant interactions.</p>
-              </div>
-            </div>
-            <div style="display: flex; align-items: start; padding: 1rem; background: white; border-radius: 0.5rem;">
-              <div style="background: #dcfce7; color: #166534; padding: 0.25rem; border-radius: 50%; margin-right: 1rem; min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">✓</div>
-              <div>
-                <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Professional Legal Review</h4>
-                <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Engage qualified legal counsel to review existing portfolios and ensure full compliance.</p>
-              </div>
+          </div>
+          
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <h4 class="font-bold text-gray-800 mb-3">⏰ Timing Strategies</h4>
+            <p class="text-gray-600 mb-4">Strategic timing of REIT purchases around ex-dividend dates can optimize income capture.</p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="text-blue-800 font-semibold">Key Dates: Declaration, ex-dividend, record, and payment dates</p>
             </div>
           </div>
         </div>
 
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Opportunities and Challenges</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">While the new laws introduce compliance challenges, they also create opportunities for professional investors:</p>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Tax Optimization</h2>
+        
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-8">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-4 text-left font-semibold text-gray-900">Dividend Type</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-900">Tax Treatment</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-900">Optimization Strategy</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 text-gray-800">Ordinary Income</td>
+                <td class="px-6 py-4 text-gray-600">Regular tax rates</td>
+                <td class="px-6 py-4 text-blue-600">Hold in tax-advantaged accounts</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-800">Return of Capital</td>
+                <td class="px-6 py-4 text-gray-600">Reduces cost basis</td>
+                <td class="px-6 py-4 text-green-600">Track basis adjustments</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-800">Capital Gains</td>
+                <td class="px-6 py-4 text-gray-600">Capital gains rates</td>
+                <td class="px-6 py-4 text-orange-600">Consider holding periods</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-          <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #dcfce7;">
-            <h4 style="color: #166534; margin-bottom: 1rem;">🎯 Opportunities</h4>
-            <ul style="color: #374151; font-size: 0.875rem; margin: 0; padding-left: 1rem;">
-              <li>Increased market transparency</li>
-              <li>Better protection for legitimate investors</li>
-              <li>Reduced competition from non-compliant operators</li>
-              <li>Enhanced property value stability</li>
+        <div class="bg-gradient-to-r from-navy-900 to-blue-800 text-white p-8 rounded-2xl text-center">
+          <h3 class="text-2xl font-bold mb-4">Optimize Your REIT Dividend Strategy</h3>
+          <p class="text-blue-100 mb-6">Maximize your REIT investment returns with professional dividend optimization strategies tailored to your financial goals.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-gold-600 hover:bg-gold-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+              REIT Portfolio Review
+            </button>
+            <button class="border-2 border-white hover:bg-white hover:text-navy-900 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+              Dividend Strategy Guide
+            </button>
+          </div>
+        </div>
+      `
+    },
+    20: {
+      title: "Shopping Mall Investment: Retail Real Estate in the Digital Age",
+      excerpt: "Evaluating shopping mall investments in Kenya's evolving retail landscape, focusing on experiential retail and mixed-use developments.",
+      author: "Joyce Mutindi",
+      date: "Nov 27, 2024",
+      readTime: "7 min read",
+      image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Commercial Investment",
+      content: `
+        <div class="bg-gradient-to-r from-pink-50 to-rose-50 border-l-4 border-pink-500 p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-bold text-pink-900 mb-3">🏬 Executive Summary</h3>
+          <p class="text-pink-800 leading-relaxed">
+            Shopping mall investments in Kenya are evolving beyond traditional retail to become experiential destinations. Success requires understanding changing consumer preferences, embracing mixed-use concepts, and leveraging technology integration.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Modern Mall Concepts</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+            <h4 class="font-bold text-blue-800 mb-3">🎭 Experience Centers</h4>
+            <ul class="text-blue-700 space-y-2">
+              <li>• Entertainment complexes</li>
+              <li>• Dining and social spaces</li>
+              <li>• Event and exhibition areas</li>
+              <li>• Wellness and fitness facilities</li>
             </ul>
           </div>
-          <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #fde68a;">
-            <h4 style="color: #a16207; margin-bottom: 1rem;">⚠️ Challenges</h4>
-            <ul style="color: #374151; font-size: 0.875rem; margin: 0; padding-left: 1rem;">
-              <li>Increased transaction costs and timelines</li>
-              <li>More complex compliance requirements</li>
-              <li>Need for enhanced legal and professional support</li>
-              <li>Potential short-term market adjustment period</li>
+          <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+            <h4 class="font-bold text-green-800 mb-3">🏢 Mixed-Use Integration</h4>
+            <ul class="text-green-700 space-y-2">
+              <li>• Office spaces above retail</li>
+              <li>• Residential components</li>
+              <li>• Hotel and hospitality</li>
+              <li>• Co-working spaces</li>
             </ul>
           </div>
         </div>
 
-        <h2 style="color: #1e293b; font-size: 1.75rem; font-weight: bold; margin: 2.5rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #fbbf24;">Implementation Timeline</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">The new regulations are being implemented in phases:</p>
-
-        <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin: 2rem 0;">
-          <div style="background: #1e293b; color: white; padding: 1rem;">
-            <h4 style="margin: 0;">Implementation Schedule</h4>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Investment Metrics</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-purple-50 p-6 rounded-xl text-center border border-purple-200">
+            <div class="text-3xl font-bold text-purple-600 mb-2">8-12%</div>
+            <div class="text-purple-800 font-semibold">Annual Yields</div>
+            <div class="text-purple-600 text-sm mt-2">Modern mall returns</div>
           </div>
-          <div style="padding: 1.5rem;">
-            <div style="border-left: 4px solid #fbbf24; padding-left: 1rem; margin-bottom: 1.5rem;">
-              <h5 style="color: #1e293b; margin-bottom: 0.5rem;">Phase 1 (January 2024)</h5>
-              <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Enhanced due diligence and disclosure requirements</p>
+          <div class="bg-orange-50 p-6 rounded-xl text-center border border-orange-200">
+            <div class="text-3xl font-bold text-orange-600 mb-2">85%+</div>
+            <div class="text-orange-800 font-semibold">Occupancy Rates</div>
+            <div class="text-orange-600 text-sm mt-2">Well-positioned malls</div>
+          </div>
+          <div class="bg-teal-50 p-6 rounded-xl text-center border border-teal-200">
+            <div class="text-3xl font-bold text-teal-600 mb-2">15-25</div>
+            <div class="text-teal-800 font-semibold">Year Leases</div>
+            <div class="text-teal-600 text-sm mt-2">Anchor tenant terms</div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Success Factors</h2>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
+            <h4 class="font-bold text-blue-800 mb-2">📍 Strategic Location</h4>
+            <p class="text-blue-700">Prime locations with high foot traffic, accessibility, and growing demographics drive mall success.</p>
+          </div>
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
+            <h4 class="font-bold text-green-800 mb-2">🎯 Tenant Mix</h4>
+            <p class="text-green-700">Balanced combination of anchor tenants, specialty retailers, and experiential offerings.</p>
+          </div>
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
+            <h4 class="font-bold text-purple-800 mb-2">💡 Innovation</h4>
+            <p class="text-purple-700">Technology integration, sustainable design, and adaptable spaces for changing retail needs.</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-navy-900 to-blue-800 text-white p-8 rounded-2xl text-center">
+          <h3 class="text-2xl font-bold mb-4">Explore Mall Investment Opportunities</h3>
+          <p class="text-blue-100 mb-6">Discover modern shopping centers and mixed-use developments that redefine retail real estate.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-gold-600 hover:bg-gold-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+              View Mall Properties
+            </button>
+            <button class="border-2 border-white hover:bg-white hover:text-navy-900 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+              Retail Investment Guide
+            </button>
+          </div>
+        </div>
+      `
+    },
+    21: {
+      title: "Property Tax Optimization: Legal Strategies for Real Estate Investors",
+      excerpt: "Comprehensive guide to minimizing property taxes and maximizing after-tax returns through legal optimization strategies in Kenya's real estate market.",
+      author: "Samuel Kiprotich",
+      date: "Nov 20, 2024",
+      readTime: "9 min read",
+      image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Tax Strategy",
+      content: `
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-bold text-blue-900 mb-3">📊 Executive Summary</h3>
+          <p class="text-blue-800 leading-relaxed">
+            Strategic property tax optimization can significantly enhance real estate investment returns. Understanding Kenya's tax landscape, available deductions, and legal structures enables investors to minimize tax liability while maintaining full compliance.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Kenya's Property Tax Framework</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+            <h4 class="font-bold text-green-800 mb-3">🏠 Rental Income Tax</h4>
+            <ul class="text-green-700 space-y-2">
+              <li>• 10% for resident individuals</li>
+              <li>• 30% for non-residents</li>
+              <li>• Monthly withholding required</li>
+              <li>• Deductions available</li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+            <h4 class="font-bold text-blue-800 mb-3">💰 Capital Gains Tax</h4>
+            <ul class="text-blue-700 space-y-2">
+              <li>• 5% on property disposal</li>
+              <li>• Exemptions available</li>
+              <li>• Principal residence relief</li>
+              <li>• Rollover relief options</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Optimization Strategies</h2>
+        
+        <div class="space-y-6 mb-8">
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <h4 class="font-bold text-gray-800 mb-3">📋 Allowable Deductions</h4>
+            <p class="text-gray-600 mb-4">Maximize deductions to reduce taxable rental income legally and effectively.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-semibold text-gray-800 mb-2">Operating Expenses</h5>
+                <ul class="text-gray-600 text-sm space-y-1">
+                  <li>• Property management fees</li>
+                  <li>• Maintenance and repairs</li>
+                  <li>• Insurance premiums</li>
+                  <li>• Professional fees</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-semibold text-gray-800 mb-2">Capital Allowances</h5>
+                <ul class="text-gray-600 text-sm space-y-1">
+                  <li>• Building depreciation</li>
+                  <li>• Furniture and fittings</li>
+                  <li>• Equipment depreciation</li>
+                  <li>• Improvement costs</li>
+                </ul>
+              </div>
             </div>
-            <div style="border-left: 4px solid #fbbf24; padding-left: 1rem; margin-bottom: 1.5rem;">
-              <h5 style="color: #1e293b; margin-bottom: 0.5rem;">Phase 2 (March 2024)</h5>
-              <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Revised stamp duty and tax provisions</p>
-            </div>
-            <div style="border-left: 4px solid #fbbf24; padding-left: 1rem;">
-              <h5 style="color: #1e293b; margin-bottom: 0.5rem;">Phase 3 (June 2024)</h5>
-              <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Full implementation of tenant protection measures</p>
+          </div>
+          
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <h4 class="font-bold text-gray-800 mb-3">🏢 Corporate Structures</h4>
+            <p class="text-gray-600 mb-4">Strategic use of corporate entities can provide tax advantages and asset protection.</p>
+            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+              <p class="text-yellow-800 font-semibold">Consider: Limited companies, partnerships, and trust structures for optimal tax efficiency</p>
             </div>
           </div>
         </div>
 
-        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%); padding: 2rem; border-radius: 1rem; margin: 2rem 0; color: white;">
-          <h3 style="color: #fbbf24; margin-bottom: 1rem;">Ensure Legal Compliance for Your Property Portfolio</h3>
-          <p style="margin-bottom: 1.5rem;">Don't let new regulations catch you off-guard. Our legal experts can help you navigate the changing landscape and ensure your property investments remain compliant and profitable.</p>
-          <a href="/contact" style="background: #fbbf24; color: #1e1b4b; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block; margin-right: 1rem;">Get Legal Consultation</a>
-          <a href="/properties" style="border: 2px solid #fbbf24; color: #fbbf24; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; display: inline-block;">View Compliant Properties</a>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gold-200">Tax Planning Calendar</h2>
+        
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-8">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-4 text-left font-semibold text-gray-900">Period</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-900">Tax Obligation</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-900">Optimization Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 text-gray-800">Monthly</td>
+                <td class="px-6 py-4 text-gray-600">Rental income withholding</td>
+                <td class="px-6 py-4 text-blue-600">Maximize deductions</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-800">Annually</td>
+                <td class="px-6 py-4 text-gray-600">Income tax returns</td>
+                <td class="px-6 py-4 text-green-600">Claim all allowances</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-800">On disposal</td>
+                <td class="px-6 py-4 text-gray-600">Capital gains tax</td>
+                <td class="px-6 py-4 text-orange-600">Structure transactions</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      `,
-      tags: ["Property Laws", "Legal Updates", "Compliance", "Real Estate Regulation", "Kenya"]
+
+        <div class="bg-gradient-to-r from-navy-900 to-blue-800 text-white p-8 rounded-2xl text-center">
+          <h3 class="text-2xl font-bold mb-4">Optimize Your Property Tax Strategy</h3>
+          <p class="text-blue-100 mb-6">Professional tax planning can significantly enhance your real estate investment returns while ensuring full compliance.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-gold-600 hover:bg-gold-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+              Tax Strategy Review
+            </button>
+            <button class="border-2 border-white hover:bg-white hover:text-navy-900 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+              Compliance Audit
+            </button>
+          </div>
+        </div>
+      `
     }
   };
 
