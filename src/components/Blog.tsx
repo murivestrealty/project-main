@@ -167,7 +167,7 @@ const Blog = () => {
       readTime: "7 min read",
       image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       category: "Commercial Investment"
-    }
+    },
     {
       id: 6,
       title: "New Property Laws: What Investors Need to Know",
