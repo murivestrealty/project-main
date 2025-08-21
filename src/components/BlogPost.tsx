@@ -782,7 +782,7 @@ const BlogPost = () => {
     }
   };
 
-  const post = blogData[id as keyof typeof blogData];
+  const post = blogData[id as unknown as keyof typeof blogData];
 
   if (!post) {
     return (
