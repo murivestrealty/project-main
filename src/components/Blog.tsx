@@ -59,6 +59,116 @@ const Blog = () => {
       category: "Commercial Trends"
     },
     {
+      id: 10,
+      title: "REITs in Kenya: Your Gateway to Real Estate Investment",
+      excerpt: "Discover how Real Estate Investment Trusts (REITs) are revolutionizing property investment in Kenya, offering accessible entry points for both retail and institutional investors.",
+      author: "Catherine Muthoni",
+      date: "Dec 20, 2024",
+      readTime: "8 min read",
+      image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "REITs"
+    },
+    {
+      id: 11,
+      title: "Residential Apartment Investment: Building Wealth Through Rental Income",
+      excerpt: "Complete guide to investing in residential apartments in Nairobi - from studio units to luxury penthouses, maximizing rental yields and capital appreciation.",
+      author: "Robert Kiprotich",
+      date: "Dec 18, 2024",
+      readTime: "9 min read",
+      image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Residential Investment"
+    },
+    {
+      id: 12,
+      title: "Commercial Property vs Residential: Which Offers Better Returns?",
+      excerpt: "In-depth comparison of commercial and residential property investments in Kenya, analyzing yields, risks, and long-term growth potential.",
+      author: "Elizabeth Wanjiru",
+      date: "Dec 16, 2024",
+      readTime: "7 min read",
+      image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Investment Comparison"
+    },
+    {
+      id: 13,
+      title: "Student Housing Investment: Tapping into Kenya's Education Boom",
+      excerpt: "How to capitalize on Kenya's growing student population by investing in purpose-built student accommodation near universities and colleges.",
+      author: "Samuel Mutua",
+      date: "Dec 14, 2024",
+      readTime: "6 min read",
+      image: "https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Residential Investment"
+    },
+    {
+      id: 14,
+      title: "Office Space Investment: Post-COVID Opportunities in Nairobi",
+      excerpt: "Analyzing the transformation of office space demand post-pandemic and identifying lucrative investment opportunities in flexible workspaces.",
+      author: "Patricia Nyong'o",
+      date: "Dec 11, 2024",
+      readTime: "8 min read",
+      image: "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Commercial Investment"
+    },
+    {
+      id: 15,
+      title: "REIT Performance Analysis: Kenya's Top Real Estate Investment Trusts",
+      excerpt: "Comprehensive analysis of Kenya's leading REITs, their performance metrics, dividend yields, and investment strategies for 2024.",
+      author: "John Macharia",
+      date: "Dec 9, 2024",
+      readTime: "10 min read",
+      image: "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "REITs"
+    },
+    {
+      id: 16,
+      title: "Luxury Residential Properties: Investment in High-End Markets",
+      excerpt: "Exploring investment opportunities in luxury residential properties across Nairobi's premium neighborhoods like Karen, Runda, and Muthaiga.",
+      author: "Diana Chebet",
+      date: "Dec 7, 2024",
+      readTime: "7 min read",
+      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Residential Investment"
+    },
+    {
+      id: 17,
+      title: "Warehouse and Logistics Properties: E-commerce Driven Growth",
+      excerpt: "How the e-commerce boom is driving demand for warehouse and logistics properties, creating new investment opportunities along major transport corridors.",
+      author: "Francis Omondi",
+      date: "Dec 4, 2024",
+      readTime: "6 min read",
+      image: "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Commercial Investment"
+    },
+    {
+      id: 18,
+      title: "Affordable Housing Investment: Government Initiatives and Opportunities",
+      excerpt: "Understanding Kenya's affordable housing agenda and how investors can participate in government-backed housing projects for stable returns.",
+      author: "Margaret Wanjiku",
+      date: "Dec 2, 2024",
+      readTime: "8 min read",
+      image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Residential Investment"
+    },
+    {
+      id: 19,
+      title: "REIT Dividend Strategies: Maximizing Income from Real Estate Trusts",
+      excerpt: "Advanced strategies for maximizing dividend income from REIT investments, including reinvestment plans and tax optimization techniques.",
+      author: "Thomas Kiplagat",
+      date: "Nov 29, 2024",
+      readTime: "9 min read",
+      image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "REITs"
+    },
+    {
+      id: 20,
+      title: "Shopping Mall Investment: Retail Real Estate in the Digital Age",
+      excerpt: "Evaluating shopping mall investments in Kenya's evolving retail landscape, focusing on experiential retail and mixed-use developments.",
+      author: "Joyce Mutindi",
+      date: "Nov 27, 2024",
+      readTime: "7 min read",
+      image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      category: "Commercial Investment"
+    }
+    {
       id: 6,
       title: "New Property Laws: What Investors Need to Know",
       excerpt: "Recent changes in Kenya's property laws and their impact on commercial real estate investments.",
@@ -100,7 +210,7 @@ const Blog = () => {
     }
   ];
 
-  const categories = ['All', 'Market Analysis', 'Investment Tips', 'Property News', 'Commercial Trends', 'Legal Updates'];
+  const categories = ['All', 'Market Analysis', 'Investment Tips', 'Property News', 'Commercial Trends', 'Legal Updates', 'REITs', 'Residential Investment', 'Commercial Investment', 'Investment Comparison'];
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
