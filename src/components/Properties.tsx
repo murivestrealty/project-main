@@ -54,7 +54,7 @@ const Properties = () => {
     type: "Commercial",
     price: "KSh 190M",
     yield: "16.5%",
-    image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    image: "/p4/basl house.png",
     features: ["18,988 sqft", "4 Storey Building", "100% Occupied", "Multiple Tenants"],
     status: "Available",
     description: "Prime investment opportunity in CBD with exceptional rental returns and full occupancy"
