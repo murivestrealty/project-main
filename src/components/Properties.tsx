@@ -30,7 +30,7 @@ const Properties = () => {
     title: "Buffalo Mall & Development Land",
     location: "Naivasha",
     type: "Retail",
-    price: "US$5M",
+    price: "$5M (Ksh 750M)",
     yield: "11.0%",
     image: "https://content.knightfrank.com/property/hub2429185/images/79bb901f-3dba-41b8-9601-d462f09fa400-0.jpg?cio=true&w=1200",
     features: ["58,965 sqft GLA", "33 Retail Units", "9 Acres Additional Land", "70% Occupancy"],
@@ -56,7 +56,7 @@ const Properties = () => {
     title: "BASL House",
     location: "Kumasi Road, Nairobi CBD",
     type: "Commercial",
-    price: "KSh 190M",
+    price: "$1.45M (KSh 190M)",
     yield: "16.5%",
     image: "/p4/basl house.png",
     features: ["18,988 sqft", "4 Storey Building", "100% Occupied", "Multiple Tenants"],
@@ -69,7 +69,7 @@ const Properties = () => {
     title: "The Atrium Office Development",
     location: "Chaka Road, Kilimani",
     type: "Commercial",
-    price: "US$13.5M",
+    price: "$13.5M",
     yield: "13.8%",
     image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
     features: ["6 Storey Modern Office", "161,019 sqft", "221 Parking Bays", "International Standards"],
@@ -82,7 +82,7 @@ const Properties = () => {
     title: "Uchumi House Commercial Building",
     location: "Aga khan Walk, Nairobi CBD",
     type: "Commercial", 
-    price: "KSh 570M",
+    price: "$4.4M (KSh 570M)",
     yield: "12.2%",
     image: "/p1/IMG-20250813-WA0009.jpg",
     features: ["4,491 sqm", "5 Storey + Basement", "Prime CBD Location", "Excellent Visibility"],
@@ -95,7 +95,7 @@ const Properties = () => {
     title: "The Panari Hotel",
     location: "Mombasa Road, Nairobi West",
     type: "Hotel",
-    price: "KSh 3.5B", 
+    price: "$23.1M (KSh 3B)", 
     yield: "18.5%",
     image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
     features: ["136 Rooms", "5-Star Rating", "2.5 Acres", "12 Meeting Rooms"],
@@ -107,7 +107,7 @@ const Properties = () => {
     title: "Absa Towers",
     location: "Loita and Market Street, Nairobi CBD",
     type: "Office Development",
-    price: "KSh 2.035B+", 
+    price: "$16.2M (KSh 2.1B)", 
     yield: "9%",
     image: "/p3/ABSA_Towers.png",
     features: ["17 Storey", "143,300 sq.ft NLA", "160 Parking Bays", "99.8% Occupancy"],
@@ -119,7 +119,7 @@ const Properties = () => {
     title: "Tembo Coop House",
     location: "Moi Avenue, Nairobi CBD",
     type: "Commercial Building",
-    price: "KSh 385M", 
+    price: "$3M (KSh 385M)", 
     yield: "Details on Application",
     image: "https://images.pexels.com/photos/1647416/pexels-photo-1647416.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
     features: ["7 Upper Floors", "Ground Floor Shops", "30,174 Sq. Ft. Built Up Area", "Fully Occupied"],
@@ -277,7 +277,7 @@ const Properties = () => {
                 </p>
                 
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-14xl font-luxury font-bold text-gold-600">{property.price}</span>
+                  <span className="text-7x1 font-sans font-bold text-gold-600">{property.price}</span>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-2 mb-6">
