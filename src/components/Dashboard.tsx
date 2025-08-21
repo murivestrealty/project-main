@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   TrendingUp, 
@@ -20,6 +21,10 @@ import { useAuth } from '../contexts/AuthContext';
 const Dashboard = () => {
   const { currentUser, userData, logout } = useAuth();
   const [activeTab, setActiveTab] = useState('overview');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleLogout = async () => {
     try {
