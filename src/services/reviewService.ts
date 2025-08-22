@@ -5,7 +5,9 @@ import {
   query, 
   where, 
   orderBy, 
-  serverTimestamp 
+  serverTimestamp,
+  onSnapshot,
+  Timestamp
 } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import type { ReviewData, StoredReview, ValidationResult, SubmissionResult } from '../types/review';
@@ -13,12 +15,14 @@ import type { ReviewData, StoredReview, ValidationResult, SubmissionResult } fro
 // Submit a new review
 export const submitReview = async (reviewData: ReviewData): Promise<SubmissionResult> => {
   try {
+    console.log('Submitting review:', reviewData); // Debug log
     const docRef = await addDoc(collection(db, 'reviews'), {
       ...reviewData,
       approved: false,
       createdAt: serverTimestamp(),
       submittedAt: new Date().toISOString(),
     });
+    console.log('Review submitted with ID:', docRef.id); // Debug log
     return { success: true, id: docRef.id };
   } catch (error) {
     console.error('Error submitting review:', error);
@@ -29,6 +33,7 @@ export const submitReview = async (reviewData: ReviewData): Promise<SubmissionRe
 // Get approved reviews
 export const getApprovedReviews = async (): Promise<StoredReview[]> => {
   try {
+    console.log('Fetching approved reviews...'); // Debug log
     const q = query(
       collection(db, 'reviews'),
       where('approved', '==', true),
@@ -37,12 +42,54 @@ export const getApprovedReviews = async (): Promise<StoredReview[]> => {
     const querySnapshot = await getDocs(q);
     const reviews: StoredReview[] = [];
     querySnapshot.forEach((doc) => {
-      reviews.push({ id: doc.id, ...doc.data() } as StoredReview);
+      const data = doc.data();
+      // Convert Firestore timestamp to readable format
+      const review: StoredReview = {
+        id: doc.id,
+        ...data,
+        createdAt: data.createdAt instanceof Timestamp ? data.createdAt.toDate() : data.createdAt,
+      } as StoredReview;
+      reviews.push(review);
     });
+    console.log('Fetched reviews:', reviews); // Debug log
     return reviews;
   } catch (error) {
     console.error('Error fetching reviews:', error);
     return [];
+  }
+};
+
+// Subscribe to approved reviews (real-time updates)
+export const subscribeToApprovedReviews = (callback: (reviews: StoredReview[]) => void) => {
+  try {
+    console.log('Setting up real-time listener for approved reviews...'); // Debug log
+    const q = query(
+      collection(db, 'reviews'),
+      where('approved', '==', true),
+      orderBy('createdAt', 'desc')
+    );
+    
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const reviews: StoredReview[] = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const review: StoredReview = {
+          id: doc.id,
+          ...data,
+          createdAt: data.createdAt instanceof Timestamp ? data.createdAt.toDate() : data.createdAt,
+        } as StoredReview;
+        reviews.push(review);
+      });
+      console.log('Real-time update - reviews:', reviews); // Debug log
+      callback(reviews);
+    }, (error) => {
+      console.error('Error in real-time listener:', error);
+    });
+    
+    return unsubscribe;
+  } catch (error) {
+    console.error('Error setting up real-time listener:', error);
+    return null;
   }
 };
 

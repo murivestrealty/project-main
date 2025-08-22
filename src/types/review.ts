@@ -11,10 +11,10 @@ export interface ReviewData {
 export interface StoredReview extends ReviewData {
   id: string;
   approved: boolean;
-  createdAt: any; // Firestore timestamp
+  createdAt: any; // Firestore timestamp or Date
   submittedAt: string;
   moderatedBy?: string;
-  moderatedAt?: any; // Firestore timestamp
+  moderatedAt?: any; // Firestore timestamp or Date
   rejectionReason?: string;
 }
 

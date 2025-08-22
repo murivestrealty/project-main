@@ -19,9 +19,10 @@ import type { ReviewData } from '../types/review';
 interface ReviewFormProps {
   isOpen: boolean;
   onClose: () => void;
+  onSuccess?: () => void;
 }
 
-const ReviewForm: React.FC<ReviewFormProps> = ({ isOpen, onClose }) => {
+const ReviewForm: React.FC<ReviewFormProps> = ({ isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState<ReviewData>({
     name: '',
     title: '',
@@ -82,8 +83,11 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ isOpen, onClose }) => {
             investment: ''
           });
           setSubmitStatus(null);
+          if (onSuccess) {
+            onSuccess();
+          }
           onClose();
-        }, 3000);
+        }, 2000);
       } else {
         setSubmitStatus('error');
         setErrors({ submit: result.error || 'Failed to submit review. Please try again.' });
@@ -409,8 +413,9 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ isOpen, onClose }) => {
             transition={{ delay: 0.9 }}
           >
             <p className="text-gray-400 text-sm text-center">
-              Your review will be moderated before publication to ensure quality and authenticity.
-              We typically review submissions within 24-48 hours.
+              <strong>Important:</strong> Your review will be moderated before publication to ensure quality and authenticity.
+              We typically review submissions within 24-48 hours. Once approved by an admin in Firebase, 
+              your review will appear on the website automatically.
             </p>
           </motion.div>
         </motion.div>
