@@ -81,7 +81,7 @@ const Header = () => {
             <div className="flex items-center text-sm text-gray-600">
               
               <Phone className="h-4 w-4 mr-1" />
-              <Link to="tel:0740469911">
+              <Link to="tel:0115277610">
               <span>Call Now</span>
               </Link>
             </div>

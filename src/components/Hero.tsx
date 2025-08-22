@@ -95,8 +95,10 @@ const Hero = () => {
               className="bg-gold-600 hover:bg-gold-700 text-white px-8 py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-            >
+            ><a href="/properties">
+            
               Explore Properties
+              </a>
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button

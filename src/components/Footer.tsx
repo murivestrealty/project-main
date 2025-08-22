@@ -103,8 +103,8 @@ const Footer = () => {
               </h4>
               <div className="space-y-4">
                 {[
-                  { icon: Phone, text: "0729 170 156", color: "text-green-400" },
-                  { icon: Mail, text: "info@murivest.com", color: "text-blue-400" },
+                  { icon: Phone, text: "+254 115 277 610", color: "text-green-400" },
+                  { icon: Mail, text: "investments@murivest.co.ke", color: "text-blue-400" },
                   { icon: MapPin, text: "Westlands Business District\nNairobi, Kenya", color: "text-red-400" }
                 ].map(({ icon: Icon, text, color }, index) => (
                   <div key={index} className="flex items-start group/contact transform transition-all duration-300 hover:translate-x-2">
