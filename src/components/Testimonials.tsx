@@ -245,19 +245,7 @@ const Testimonials = () => {
             ))}
           </div>
         )}
-        {/* Debug Info (remove in production) */}
-        {process.env.NODE_ENV === 'development' && (
-          <div className="mt-8 p-4 bg-gray-800 rounded-lg text-sm text-gray-300">
-            <p>Debug Info:</p>
-            <p>Static testimonials: {testimonials.length}</p>
-            <p>Dynamic reviews: {dynamicReviews.length}</p>
-            <p>Total testimonials: {allTestimonials.length}</p>
-            <p>Loading: {loading.toString()}</p>
-            <p>Error: {error || 'None'}</p>
-          </div>
-        )}
-      </div>
-
+        
       {/* Review Form Modal */}
       <ReviewForm
         isOpen={showReviewForm}
