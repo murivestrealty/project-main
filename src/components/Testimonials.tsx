@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote, Users, Sparkles, Plus } from 'lucide-react';
 import ReviewForm from './ReviewForm';
-import { getApprovedReviews } from '../services/reviewService';
+import { getApprovedReviews, subscribeToApprovedReviews } from '../services/reviewService';
 import type { StoredReview } from '../types/review';
 
 interface Testimonial {
@@ -19,6 +19,7 @@ const Testimonials = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [dynamicReviews, setDynamicReviews] = useState<StoredReview[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const testimonials: Testimonial[] = [
     {
@@ -48,18 +49,49 @@ const Testimonials = () => {
   // Load approved reviews from Firebase
   useEffect(() => {
     const loadReviews = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const reviews = await getApprovedReviews();
+        console.log('Loaded reviews:', reviews); // Debug log
         setDynamicReviews(reviews);
       } catch (error) {
         console.error("Error loading reviews:", error);
+        setError("Failed to load reviews");
       } finally {
         setLoading(false);
       }
     };
 
     loadReviews();
+
+    // Set up real-time listener for approved reviews
+    const unsubscribe = subscribeToApprovedReviews((reviews) => {
+      console.log('Real-time reviews update:', reviews); // Debug log
+      setDynamicReviews(reviews);
+      setLoading(false);
+    });
+
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
   }, []);
+
+  // Handle successful review submission
+  const handleReviewSubmitted = () => {
+    // Refresh reviews after submission
+    const loadReviews = async () => {
+      try {
+        const reviews = await getApprovedReviews();
+        setDynamicReviews(reviews);
+      } catch (error) {
+        console.error("Error reloading reviews:", error);
+      }
+    };
+    loadReviews();
+  };
 
   // Merge static + dynamic
   const allTestimonials: Testimonial[] = [
@@ -138,6 +170,29 @@ const Testimonials = () => {
               Loading testimonials...
             </p>
           </motion.div>
+        ) : error ? (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <p className="text-red-400 mb-4">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            >
+              Retry
+            </button>
+          </motion.div>
+        ) : allTestimonials.length === 0 ? (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <p className="text-gray-300 mb-4">No testimonials available yet.</p>
+            <p className="text-gray-400 text-sm">Be the first to share your experience!</p>
+          </motion.div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allTestimonials.map((testimonial, index) => (
@@ -190,12 +245,12 @@ const Testimonials = () => {
             ))}
           </div>
         )}
-      </div>
-
+        
       {/* Review Form Modal */}
       <ReviewForm
         isOpen={showReviewForm}
         onClose={() => setShowReviewForm(false)}
+        onSuccess={handleReviewSubmitted}
       />
     </section>
   );
