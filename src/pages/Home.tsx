@@ -3,7 +3,12 @@ import { useEffect } from 'react';
 import SEOHead from '../components/SEOHead';
 import Hero from '../components/Hero';
 import FeaturedProperties from '../components/FeaturedProperties';
-import Testimonials from '../components/Testimonials';
+import BlogHero from '../components/BlogHero';
+import InvestorStats from '../components/InvestorStats';
+import ExclusiveOpportunities from '../components/ExclusiveOpportunities';
+import GlobalPresence from '../components/GlobalPresence';
+import InvestmentProcess from '../components/InvestmentProcess';
+import TrustIndicators from '../components/TrustIndicators';
 
 const Home = () => {
   useEffect(() => {
@@ -39,7 +44,12 @@ const Home = () => {
       />
       <Hero />
       <FeaturedProperties />
-      <Testimonials />
+      <BlogHero />
+      <InvestorStats />
+      <ExclusiveOpportunities />
+      <GlobalPresence />
+      <InvestmentProcess />
+      <TrustIndicators />
     </div>
   );
 };
