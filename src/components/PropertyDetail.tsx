@@ -1,3 +1,24 @@
+  MapPin, 
+  TrendingUp, 
+  Download, 
+  Phone, 
+  Mail, 
+  MessageCircle, 
+  X, 
+  ChevronLeft, 
+  ChevronRight, 
+  Building, 
+  DollarSign, 
+  Calendar, 
+  Users, 
+  Star, 
+  Calculator, 
+  FileText, 
+  BarChart3, 
+  Shield, 
+  Award,
+  CheckCircle
+} from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
@@ -1206,27 +1227,5 @@ const PropertyDetail = () => {
                   <button
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-full"
+import { 
                   >
-                    <ChevronLeft className="h-8 w-8 text-white" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-full"
-                  >
-                    <ChevronRight className="h-8 w-8 text-white" />
-                  </button>
-                </>
-              )}
-              
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white px-4 py-2 rounded-full">
-                {currentImageIndex + 1} / {property.images.length}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-export default PropertyDetail;
