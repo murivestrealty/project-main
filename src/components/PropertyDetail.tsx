@@ -3,17 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import SEOHead from './SEOHead';
 import { 
-  ArrowLeft, 
-  MapPin, 
-  TrendingUp, 
-  Star, 
-  Calendar, 
-  Users, 
-  Shield, 
-  Award,
-  Phone,
-  Mail,
-  Download,
+  ArrowLeft,
   Share2,
   Heart,
   Eye,
