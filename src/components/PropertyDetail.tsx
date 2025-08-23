@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import SEOHead from './SEOHead';
 import { 
@@ -30,26 +30,43 @@ import {
   Clock,
   Target,
   Zap,
-  Lightbulb
+  Lightbulb,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  FileText
 } from 'lucide-react';
 
 const PropertyDetail = () => {
   const { id } = useParams();
-  const [activeTab, setActiveTab] = useState('overview');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [investmentAmount, setInvestmentAmount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
-  const [showCalculator, setShowCalculator] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0); 
   }, [id]);
+
+  // Auto slideshow effect
+  useEffect(() => {
+    const property = propertyData[id as unknown as keyof typeof propertyData];
+    if (property && property.images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
+      }, 5000); // Change image every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [id]);
+
   // Complete property data with enhanced investment metrics and feasibility
   const propertyData = {
     1: {
       title: "Best Western Meridian Hotel",
       location: "Nairobi CBD",
       type: "Hotel",
-      price: "Ksh 1.2B",
+      price: "US$10M",
+      priceKsh: "Ksh 1.2B",
       yield: "15.2%",
       images: [
         'https://content.knightfrank.com/property/hub2547666/images/a531920b-a627-43ed-905e-eacd1b941068-0.jpg?cio=true&w=1200',
@@ -106,7 +123,8 @@ const PropertyDetail = () => {
         liquidityRating: "High",
         maintenanceRequirement: "Standard",
         regulatoryRisk: "Low"
-      }
+      },
+      brochureUrl: "/brochures/best-western-meridian-hotel.pdf"
     },
 
     2: {
@@ -114,6 +132,7 @@ const PropertyDetail = () => {
       location: "Naivasha",
       type: "Retail",
       price: "US$5M",
+      priceKsh: "Ksh 750M",
       yield: "11.0%",
       images: [
         'https://content.knightfrank.com/property/hub2429185/images/79bb901f-3dba-41b8-9601-d462f09fa400-0.jpg?cio=true&w=1200',
@@ -167,14 +186,16 @@ const PropertyDetail = () => {
         liquidityRating: "Medium",
         maintenanceRequirement: "Standard",
         regulatoryRisk: "Low"
-      }
+      },
+      brochureUrl: "/brochures/buffalo-mall-development.pdf"
     },
 
     3: {
       title: "ICD Industrial Complex",
       location: "Mombasa Road, Nairobi",
       type: "Industrial",
-      price: "KSh 1B",
+      price: "US$8.5M",
+      priceKsh: "KSh 1B",
       yield: "14.8%",
       images: [
         "https://images.pexels.com/photos/236698/pexels-photo-236698.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
@@ -228,14 +249,16 @@ const PropertyDetail = () => {
         liquidityRating: "High",
         maintenanceRequirement: "Low",
         regulatoryRisk: "Low"
-      }
+      },
+      brochureUrl: "/brochures/icd-industrial-complex.pdf"
     },
 
     4: {
       title: "BASL House",
       location: "Kumasi Road, Nairobi CBD",
       type: "Commercial",
-      price: "KSh 190M",
+      price: "US$1.45M",
+      priceKsh: "KSh 190M",
       yield: "16.5%",
       images: [
         'https://content.knightfrank.com/property/hub2448515/images/89393bfa-52be-4c67-8bbf-aee9cf35b19d-0.jpg?cio=true&w=1200',
@@ -289,7 +312,8 @@ const PropertyDetail = () => {
         liquidityRating: "Very High",
         maintenanceRequirement: "Standard",
         regulatoryRisk: "Low"
-      }
+      },
+      brochureUrl: "/brochures/basl-house.pdf"
     },
 
     5: {
@@ -297,6 +321,7 @@ const PropertyDetail = () => {
       location: "Chaka Road, Kilimani",
       type: "Commercial",
       price: "US$13.5M",
+      priceKsh: "Ksh 1.8B",
       yield: "13.8%",
       images: [
         "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
@@ -350,14 +375,16 @@ const PropertyDetail = () => {
         liquidityRating: "High",
         maintenanceRequirement: "Low",
         regulatoryRisk: "Very Low"
-      }
+      },
+      brochureUrl: "/brochures/atrium-office-development.pdf"
     },
 
     6: {
       title: "Uchumi House Commercial Building",
       location: "Aga Khan Walk, Central Business District, Nairobi",
       type: "Commercial",
-      price: "KSh 570M",
+      price: "US$4.4M",
+      priceKsh: "KSh 570M",
       yield: "12.2%",
       images: [
         "/p1/IMG-20250813-WA0009.jpg",
@@ -409,14 +436,16 @@ const PropertyDetail = () => {
         liquidityRating: "High",
         maintenanceRequirement: "Standard",
         regulatoryRisk: "Low"
-      }
+      },
+      brochureUrl: "/brochures/uchumi-house.pdf"
     },
 
     7: {
       title: "The Panari Hotel",
       location: "Mombasa Road, Nairobi West",
       type: "Hotel",
-      price: "KSh 3.5B",
+      price: "US$23.1M",
+      priceKsh: "KSh 3B",
       yield: "18.5%",
       images: [
         "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
@@ -475,13 +504,15 @@ const PropertyDetail = () => {
         liquidityRating: "Medium",
         maintenanceRequirement: "High",
         regulatoryRisk: "Medium"
-      }
+      },
+      brochureUrl: "/brochures/panari-hotel.pdf"
     },
      8: {
         title: "Absa Towers",
         location: "Loita and Market Street, Nairobi CBD",
         type: "Office Development",
-        price: "KSh 2.1B",
+        price: "US$16.2M",
+        priceKsh: "KSh 2.1B",
         yield: "9%",
         images: [
             "/p3/ABSA_Towers.png", 
@@ -561,13 +592,15 @@ const PropertyDetail = () => {
             liquidityRating: "Medium", 
             maintenanceRequirement: "Medium", 
             regulatoryRisk: "Low" 
-        }
+        },
+        brochureUrl: "/brochures/absa-towers.pdf"
     },
     9: {
         title: "Tembo Coop House",
         location: "Moi Avenue, Nairobi CBD",
         type: "Commercial Building",
-        price: "KSh 385,000,000",
+        price: "US$3M",
+        priceKsh: "KSh 385,000,000",
         yield: "Details on Application",
         images: [
             "https://images.pexels.com/photos/1647416/pexels-photo-1647416.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop", 
@@ -624,7 +657,8 @@ const PropertyDetail = () => {
             liquidityRating: "Medium", 
             maintenanceRequirement: "Medium", 
             regulatoryRisk: "Medium" 
-        }
+        },
+        brochureUrl: "/brochures/tembo-coop-house.pdf"
     }
   };
 
@@ -635,7 +669,7 @@ const PropertyDetail = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Property Not Found</h2>
-          <Link to="/properties" className="text-amber-600 hover:text-amber-700 font-medium">
+          <Link to="/properties" className="text-blue-600 hover:text-blue-700 font-medium">
             ← Back to Properties
           </Link>
         </div>
@@ -660,12 +694,24 @@ const PropertyDetail = () => {
 
   const investmentReturns = calculateInvestmentReturns(investmentAmount || property.investment.totalInvestment);
 
-  const tabs = [
-    { id: 'overview', name: 'Overview', icon: Building },
-    { id: 'investment', name: 'Investment', icon: DollarSign },
-    { id: 'feasibility', name: 'Feasibility', icon: PieChart },
-    { id: 'calculator', name: 'Calculator', icon: Calculator }
-  ];
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + property.images.length) % property.images.length);
+  };
+
+  const handleDownloadBrochure = () => {
+    // In a real application, this would download the actual PDF
+    // For now, we'll simulate the download
+    const link = document.createElement('a');
+    link.href = property.brochureUrl;
+    link.download = `${property.title.replace(/\s+/g, '-').toLowerCase()}-brochure.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   // Generate structured data for the property
   const propertyStructuredData = {
@@ -683,7 +729,7 @@ const PropertyDetail = () => {
     "offers": {
       "@type": "Offer",
       "price": property.price,
-      "priceCurrency": "KES",
+      "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
     },
     "floorSize": {
@@ -696,8 +742,9 @@ const PropertyDetail = () => {
     "occupancyRate": property.occupancyRate,
     "investmentReturn": property.yield
   };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Times New Roman, serif' }}>
       <SEOHead
         title={`${property.title} - ${property.location} | Investment Property | Murivest Realty Group`}
         description={`${property.description} Located in ${property.location}, this ${property.type.toLowerCase()} property offers ${property.yield} annual returns. Price: ${property.price}. Contact Murivest Realty Group for investment details.`}
@@ -708,61 +755,36 @@ const PropertyDetail = () => {
         structuredData={propertyStructuredData}
       />
       
-      {/* Enhanced Header */}
-      <div className="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
+      {/* Header */}
+      <div className="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link 
               to="/properties"
-              className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors"
+              className="inline-flex items-center text-gray-600 hover:text-gray-800 font-medium transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Properties
             </Link>
-                          {/* Property Header */}
-            <motion.div>
-              <div className="flex flex-col lg:flex-row font-luxury lg:items-start lg:justify-between mb-1">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      property.status === 'Available' 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-red-100 text-red-800'
-                    }`}>
-                      {property.status}
-                    </span>
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                      {property.type}
-                    </span>
-                  </div>
-                  <h1 className="text-5xl lg:text-5xl font-bold text-gray-900 mb-3">{property.title}</h1>
-                  <div className="text-6xl font-bold text-amber-600 mb-2">{property.price}</div>
-                  <div className="flex items-center text-gray-600 mb-1">
-                    <MapPin className="h-5 w-5 mr-2 text-amber-600" />
-                    <span className="text-lg">{property.location}</span>
-                    
-                  </div>
-                </div>
-                
-                <div className="text-right">
-                  
-                </div>
-              </div>
-            </motion.div>
+            
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsLiked(!isLiked)}
                 className={`p-2 rounded-lg transition-colors ${
-                  isLiked ? 'bg-red-100 text-red-600' : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+                  isLiked ? 'bg-red-50 text-red-600' : 'bg-gray-50 hover:bg-gray-100 text-gray-600'
                 }`}
               >
                 <Heart className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`} />
               </button>
-              <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+              <button className="p-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors">
                 <Share2 className="h-5 w-5 text-gray-600" />
               </button>
-              <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-                <Download className="h-5 w-5 text-gray-600" />
+              <button 
+                onClick={handleDownloadBrochure}
+                className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              >
+                <FileText className="h-4 w-4 mr-2" />
+                Download Brochure
               </button>
             </div>
           </div>
@@ -770,323 +792,388 @@ const PropertyDetail = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            {/* Image Gallery */}
+            {/* Property Header */}
             <motion.div 
               className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className={`px-4 py-2 rounded-lg text-sm font-medium ${
+                  property.status === 'Available' 
+                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                    : 'bg-red-50 text-red-700 border border-red-200'
+                }`}>
+                  {property.status}
+                </span>
+                <span className="px-4 py-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-lg text-sm font-medium">
+                  {property.type}
+                </span>
+                <span className="px-4 py-2 bg-gray-50 text-gray-700 border border-gray-200 rounded-lg text-sm font-medium">
+                  {property.yield} Annual Yield
+                </span>
+              </div>
+              
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                {property.title}
+              </h1>
+              
+              <div className="flex items-center text-gray-600 mb-6">
+                <MapPin className="h-5 w-5 mr-2" />
+                <span className="text-lg">{property.location}</span>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                <div className="text-4xl font-bold text-blue-600">{property.price}</div>
+                <div className="text-2xl text-gray-500">({property.priceKsh})</div>
+              </div>
+            </motion.div>
+
+            {/* Image Gallery with Slideshow */}
+            <motion.div 
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="md:col-span-2">
-                  <div className="relative group">
-                    <img 
-                      src={property.images[0]} 
-                      alt={property.title}
-                      className="w-full h-96 object-cover rounded-2xl shadow-lg transition-transform group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
-                    <div className="absolute top-4 right-4">
-                      <button className="bg-white/90 p-2 rounded-full hover:bg-white transition-colors">
-                        <Eye className="h-5 w-5 text-gray-700" />
+              <div className="relative">
+                <div className="relative group cursor-pointer" onClick={() => setIsImageModalOpen(true)}>
+                  <img 
+                    src={property.images[currentImageIndex]} 
+                    alt={`${property.title} ${currentImageIndex + 1}`}
+                    className="w-full h-96 lg:h-[500px] object-cover rounded-lg shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
+                    <Eye className="h-12 w-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  
+                  {/* Navigation Arrows */}
+                  {property.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full shadow-lg transition-all duration-200"
+                      >
+                        <ChevronLeft className="h-6 w-6 text-gray-800" />
                       </button>
-                    </div>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full shadow-lg transition-all duration-200"
+                      >
+                        <ChevronRight className="h-6 w-6 text-gray-800" />
+                      </button>
+                    </>
+                  )}
+                  
+                  {/* Image Counter */}
+                  <div className="absolute bottom-4 right-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm">
+                    {currentImageIndex + 1} / {property.images.length}
                   </div>
                 </div>
-                {property.images.slice(1, 5).map((image, index) => (
-                  <div key={index} className="relative group">
-                    <img 
-                      src={image} 
-                      alt={`${property.title} ${index + 2}`}
-                      className="w-full h-48 object-cover rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl"></div>
+                
+                {/* Thumbnail Navigation */}
+                {property.images.length > 1 && (
+                  <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+                    {property.images.map((image, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                          index === currentImageIndex ? 'border-blue-600' : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <img 
+                          src={image} 
+                          alt={`${property.title} thumbnail ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+
+            {/* Property Description */}
+            <motion.div 
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">
+                Property Overview
+              </h2>
+              <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                {property.description}
+              </p>
+            </motion.div>
+
+            {/* Property Details */}
+            <motion.div 
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">
+                Property Details
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {Object.entries(property.details).map(([key, value]) => (
+                  <div key={key} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div className="text-sm text-gray-600 capitalize mb-2 font-medium">
+                      {key.replace(/([A-Z])/g, ' $1').trim()}
+                    </div>
+                    <div className="font-bold text-gray-900 text-lg">{value}</div>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Enhanced Tabs */}
+            {/* Investment Metrics */}
             <motion.div 
-              className="bg-white rounded-3xl shadow-xl p-8"
+              className="mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="flex space-x-1 bg-gray-100 rounded-xl p-1 mb-8">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`flex-1 flex items-center justify-center py-3 px-4 rounded-lg font-medium transition-all ${
-                        activeTab === tab.id
-                          ? 'bg-white text-amber-600 shadow-sm'
-                          : 'text-gray-500 hover:text-gray-700'
-                      }`}
-                    >
-                      <Icon className="h-5 w-5 mr-2" />
-                      {tab.name}
-                    </button>
-                  );
-                })}
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">
+                Investment Analysis
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div className="flex items-center mb-3">
+                    <DollarSign className="h-8 w-8 text-blue-600 mr-3" />
+                    <div>
+                      <div className="text-sm text-blue-700 font-medium">Total Investment</div>
+                      <div className="text-2xl font-bold text-blue-900">
+                        {property.price}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <div className="flex items-center mb-3">
+                    <TrendingUp className="h-8 w-8 text-green-600 mr-3" />
+                    <div>
+                      <div className="text-sm text-green-700 font-medium">Monthly Income</div>
+                      <div className="text-2xl font-bold text-green-900">
+                        ${property.investment.totalInvestment > 1000000000 
+                          ? `${(property.investment.monthlyIncome / 1000000 * 0.0077).toFixed(1)}M`
+                          : `${(property.investment.monthlyIncome / 1000 * 0.0077).toFixed(0)}K`
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <div className="flex items-center mb-3">
+                    <BarChart3 className="h-8 w-8 text-purple-600 mr-3" />
+                    <div>
+                      <div className="text-sm text-purple-700 font-medium">Annual Return</div>
+                      <div className="text-2xl font-bold text-purple-900">
+                        {property.yield}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Tab Content */}
-              {activeTab === 'overview' && (
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Property Description</h3>
-                    <p className="text-gray-700 leading-relaxed text-lg">{property.description}</p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Property Details</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                      {Object.entries(property.details).map(([key, value]) => (
-                        <div key={key} className="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-amber-200 transition-colors">
-                          <div className="text-sm text-gray-500 capitalize mb-1">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
-                          </div>
-                          <div className="font-bold text-gray-900">{value}</div>
-                        </div>
-                      ))}
+              <div className="bg-gray-900 text-white p-8 rounded-lg">
+                <h3 className="text-2xl font-bold mb-6">Key Investment Metrics</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {Object.entries({
+                    'Net Yield': `${property.investment.netYield}%`,
+                    'Cash on Cash': property.investment.cashOnCash ? `${property.investment.cashOnCash}%` : 'N/A',
+                    'Cap Rate': property.investment.capRate ? `${property.investment.capRate}%` : 'N/A',
+                    'Total ROI': property.investment.totalROI ? `${property.investment.totalROI}%` : 'N/A'
+                  }).map(([key, value]) => (
+                    <div key={key} className="text-center">
+                      <div className="text-sm text-gray-400 mb-1 font-medium">{key}</div>
+                      <div className="text-2xl font-bold text-yellow-400">{value}</div>
                     </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Amenities & Features</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {property.amenities.map((amenity, index) => (
-                        <div key={index} className="flex items-center bg-gray-50 p-3 rounded-lg hover:bg-amber-50 transition-colors">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{amenity}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              )}
+              </div>
+            </motion.div>
 
-              {activeTab === 'investment' && (
-                <div className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-xl">
-                      <div className="flex items-center mb-3">
-                        <DollarSign className="h-8 w-8 text-amber-600 mr-3" />
-                        <div>
-                          <div className="text-sm text-amber-800">Total Investment</div>
-                          <div className="text-2xl font-bold text-amber-900">
-                            {property.price}
-                          </div>
-                        </div>
-                      </div>
+            {/* Market Analysis */}
+            <motion.div 
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">
+                Market Analysis
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {Object.entries(property.feasibility).map(([key, value]) => (
+                  <div key={key} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div className="text-sm text-gray-600 capitalize mb-2 font-medium">
+                      {key.replace(/([A-Z])/g, ' $1').trim()}
                     </div>
-
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
-                      <div className="flex items-center mb-3">
-                        <TrendingUp className="h-8 w-8 text-green-600 mr-3" />
-                        <div>
-                          <div className="text-sm text-green-800">Monthly Income</div>
-                          <div className="text-2xl font-bold text-green-900">
-                            {property.investment.totalInvestment > 1000000000 
-                              ? `${(property.investment.monthlyIncome / 1000000).toFixed(1)}M`
-                              : `${(property.investment.monthlyIncome / 1000).toFixed(0)}K`
-                            }
-                          </div>
-                        </div>
+                    <div className="text-lg font-bold text-gray-900">{value}</div>
+                    {key === 'locationScore' && (
+                      <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
+                        <div 
+                          className="bg-blue-600 h-2 rounded-full transition-all duration-500" 
+                          style={{ width: `${(parseFloat(value) / 10) * 100}%` }}
+                        ></div>
                       </div>
-                    </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
-                      <div className="flex items-center mb-3">
-                        <BarChart3 className="h-8 w-8 text-blue-600 mr-3" />
-                        <div>
-                          <div className="text-sm text-blue-800">Annual Return</div>
-                          <div className="text-2xl font-bold text-blue-900">
-                            {property.investment.totalInvestment > 1000000000 
-                              ? `${(property.investment.annualIncome / 1000000).toFixed(0)}M`
-                              : `${(property.investment.annualIncome / 1000).toFixed(0)}K`
-                            }
-                          </div>
-                        </div>
-                      </div>
+            {/* Amenities & Features */}
+            <motion.div 
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">
+                Amenities & Features
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {property.amenities.map((amenity, index) => (
+                  <div key={index} className="flex items-center bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700 font-medium">{amenity}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Investment Calculator */}
+            <motion.div 
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">
+                Investment Calculator
+              </h2>
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Investment Amount (USD)
+                </label>
+                <input
+                  type="number"
+                  value={investmentAmount || ''}
+                  onChange={(e) => setInvestmentAmount(Number(e.target.value))}
+                  placeholder="Enter your investment amount"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+                />
+              </div>
+
+              {investmentAmount > 0 && (
+                <motion.div 
+                  className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                    <div className="text-sm text-green-700 mb-2 font-medium">Monthly Returns</div>
+                    <div className="text-2xl font-bold text-green-800">
+                      ${investmentReturns.monthlyReturn.toLocaleString()}
                     </div>
                   </div>
-
-                  <div className="bg-gray-900 text-white p-8 rounded-2xl">
-                    <h3 className="text-2xl font-bold mb-6">Investment Metrics</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                      {Object.entries({
-                        'Net Yield': `${property.investment.netYield}%`,
-                        'Cash on Cash': `${property.investment.cashOnCash}%`,
-                        'Cap Rate': `${property.investment.capRate}%`,
-                        'Total ROI': `${property.investment.totalROI}%`
-                      }).map(([key, value]) => (
-                        <div key={key} className="text-center">
-                          <div className="text-sm text-gray-400 mb-1">{key}</div>
-                          <div className="text-2xl font-bold text-amber-400">{value}</div>
-                        </div>
-                      ))}
+                  <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                    <div className="text-sm text-blue-700 mb-2 font-medium">Annual Returns</div>
+                    <div className="text-2xl font-bold text-blue-800">
+                      ${investmentReturns.yearlyReturn.toLocaleString()}
                     </div>
                   </div>
-                </div>
-              )}
-
-              {activeTab === 'feasibility' && (
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Market Analysis</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {Object.entries(property.feasibility).map(([key, value]) => (
-                        <div key={key} className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200">
-                          <div className="text-sm text-gray-500 capitalize mb-2">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
-                          </div>
-                          <div className="text-lg font-bold text-gray-900">{value}</div>
-                          {key === 'locationScore' && (
-                            <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                              <div 
-                                className="bg-amber-600 h-2 rounded-full" 
-                                style={{ width: `${(parseFloat(value) / 10) * 100}%` }}
-                              ></div>
-                            </div>
-                          )}
-                        </div>
-                      ))}
+                  <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                    <div className="text-sm text-purple-700 mb-2 font-medium">5-Year Projection</div>
+                    <div className="text-2xl font-bold text-purple-800">
+                      ${investmentReturns.fiveYearProjection.toLocaleString()}
                     </div>
                   </div>
-
-                  <div className="bg-blue-50 p-6 rounded-2xl">
-                    <div className="flex items-start">
-                      <Info className="h-6 w-6 text-blue-600 mr-3 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-blue-900 mb-2">Investment Recommendation</h4>
-                        <p className="text-blue-800">
-                          Based on our analysis, this property shows {property.feasibility.growthPotential.toLowerCase()} investment potential with 
-                          {property.riskLevel.toLowerCase()} risk, {property.feasibility.marketDemand.toLowerCase()} demand, and strong growth prospects. 
-                          The location score of {property.feasibility.locationScore}/10 indicates {
-                            property.feasibility.locationScore > 8 ? 'premium' : 'good'
-                          } positioning for long-term appreciation.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === 'calculator' && (
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Investment Calculator</h3>
-                    <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Investment Amount (Ksh)
-                      </label>
-                      <input
-                        type="number"
-                        value={investmentAmount || ''}
-                        onChange={(e) => setInvestmentAmount(Number(e.target.value))}
-                        placeholder="Enter your investment amount"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-
-                  {investmentAmount > 0 && (
-                    <motion.div 
-                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      <div className="bg-green-50 p-6 rounded-xl border border-green-200">
-                        <div className="text-sm text-green-700 mb-2">Monthly Returns</div>
-                        <div className="text-2xl font-bold text-green-800">
-                          Ksh {investmentReturns.monthlyReturn.toLocaleString()}
-                        </div>
-                      </div>
-                      <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-                        <div className="text-sm text-blue-700 mb-2">Annual Returns</div>
-                        <div className="text-2xl font-bold text-blue-800">
-                          Ksh {investmentReturns.yearlyReturn.toLocaleString()}
-                        </div>
-                      </div>
-                      <div className="bg-purple-50 p-6 rounded-xl border border-purple-200">
-                        <div className="text-sm text-purple-700 mb-2">5-Year Projection</div>
-                        <div className="text-2xl font-bold text-purple-800">
-                          Ksh {investmentReturns.fiveYearProjection.toLocaleString()}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </div>
+                </motion.div>
               )}
             </motion.div>
           </div>
 
-          {/* Sidebar */}
+          {/* Sidebar - Contact Card */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              {/* Contact Card */}
               <motion.div 
-                className="bg-white p-8 rounded-2xl shadow-lg mb-8"
+                className="bg-white p-8 rounded-lg shadow-lg border border-gray-200"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-2xl font-luxury font-bold text-navy-900 mb-6">Interested in this Property?</h3>
-                <div className="space-y-4 mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Interested in this Property?
+                </h3>
+                
+                <div className="space-y-4 mb-8">
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 text-gold-600 mr-3" />
-                    <span className="font-elegant text-gray-700">+254 700 000 000</span>
+                    <Phone className="h-5 w-5 text-blue-600 mr-3" />
+                    <span className="text-gray-700 font-medium">+254 115 277 610</span>
                   </div>
                   <div className="flex items-center">
-                    <Mail className="h-5 w-5 text-gold-600 mr-3" />
-                    <span className="font-elegant text-gray-700">investments@murivest.com</span>
+                    <Mail className="h-5 w-5 text-blue-600 mr-3" />
+                    <span className="text-gray-700 font-medium">investments@murivest.co.ke</span>
                   </div>
                 </div>
-                <button
-                  className="w-full bg-gold-600 hover:bg-gold-700 text-white py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300 mb-4"
-                  onClick={() => handleWhatsAppContact("I would like to schedule a viewing.")}
-                >
-                  Schedule Viewing
-                </button>
+                
+                <div className="space-y-4">
+                  <button
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-medium text-lg transition-all duration-300"
+                    onClick={() => handleWhatsAppContact("I would like to schedule a viewing.")}
+                  >
+                    Schedule Viewing
+                  </button>
 
-                <button
-                  className="w-full border-2 border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 py-4 rounded-lg font-elegant font-semibold text-lg transition-all duration-300"
-                  onClick={() => handleWhatsAppContact("I would like to request more information.")}
-                >
-                  Request Information
-                </button>
-              </motion.div>
+                  <button
+                    className="w-full border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700 py-4 rounded-lg font-medium text-lg transition-all duration-300"
+                    onClick={() => handleWhatsAppContact("I would like to request more information.")}
+                  >
+                    Request Information
+                  </button>
+                  
+                  <button
+                    onClick={handleDownloadBrochure}
+                    className="w-full bg-gray-800 hover:bg-gray-900 text-white py-4 rounded-lg font-medium text-lg transition-all duration-300 flex items-center justify-center"
+                  >
+                    <Download className="h-5 w-5 mr-2" />
+                    Download Brochure
+                  </button>
+                </div>
 
-              {/* Quick Stats */}
-              <motion.div 
-                className="bg-white rounded-3xl shadow-xl p-6"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <h4 className="font-bold text-gray-900 mb-4">Market Insights</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Market Trend</span>
-                    <div className="flex items-center text-green-600">
-                      <TrendingUp className="h-4 w-4 mr-1" />
-                      <span className="font-bold">Bullish</span>
+                {/* Market Insights */}
+                <div className="mt-8 pt-8 border-t border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-4">Market Insights</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 font-medium">Market Trend</span>
+                      <div className="flex items-center text-green-600">
+                        <TrendingUp className="h-4 w-4 mr-1" />
+                        <span className="font-bold">Bullish</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Demand Level</span>
-                    <span className="font-bold text-amber-600">{property.feasibility.marketDemand}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Price Appreciation</span>
-                    <span className="font-bold text-blue-600">+{property.investment.appreciationRate}% YoY</span>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 font-medium">Demand Level</span>
+                      <span className="font-bold text-blue-600">{property.feasibility.marketDemand}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 font-medium">Price Appreciation</span>
+                      <span className="font-bold text-green-600">+{property.investment.appreciationRate}% YoY</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -1094,6 +1181,61 @@ const PropertyDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isImageModalOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsImageModalOpen(false)}
+          >
+            <motion.div
+              className="relative max-w-4xl max-h-full"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsImageModalOpen(false)}
+                className="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full z-10"
+              >
+                <X className="h-6 w-6 text-white" />
+              </button>
+              
+              <img 
+                src={property.images[currentImageIndex]} 
+                alt={`${property.title} ${currentImageIndex + 1}`}
+                className="max-w-full max-h-full object-contain rounded-lg"
+              />
+              
+              {property.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-full"
+                  >
+                    <ChevronLeft className="h-8 w-8 text-white" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-full"
+                  >
+                    <ChevronRight className="h-8 w-8 text-white" />
+                  </button>
+                </>
+              )}
+              
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white px-4 py-2 rounded-full">
+                {currentImageIndex + 1} / {property.images.length}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
