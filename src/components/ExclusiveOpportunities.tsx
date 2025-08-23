@@ -12,7 +12,7 @@ const ExclusiveOpportunities = () => {
       investment: "$9.2M (KSh 1.2B)",
       returns: "15.2% IRR",
       timeline: "Q2 2025",
-      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "/p5/facade-exterieure.jpg",
       status: "Limited Bids",
       description: "Landmark hotel property in Nairobi CBD with excellent occupancy rates and comprehensive hospitality amenities"
     },
@@ -24,7 +24,7 @@ const ExclusiveOpportunities = () => {
       investment: "$5M (KSh 750M)",
       returns: "11% IRR",
       timeline: "Q3 2025",
-      image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "/p6/Buffalo_Mall.png",
       status: "Limited Bids",
       description: "Premier shopping destination in Naivasha with significant development potential on adjoining land."
     },

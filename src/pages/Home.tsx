@@ -36,7 +36,7 @@ const Home = () => {
     <div>
       <SEOHead
         title="Commercial Real Estate Investment Kenya - Murivest Realty Group"
-        description="Premier commercial real estate investment firm in Nairobi, Kenya. Discover curated investment opportunities with 15%+ annual returns. Expert property management and wealth-building strategies for discerning investors."
+        description="Commercial Real Estate investment firm in Nairobi, Kenya. Discover curated investment opportunities with 15%+ annual returns. Expert property management and wealth-building strategies for discerning investors."
         keywords="commercial real estate Kenya, property investment Nairobi, real estate investment firm Kenya, commercial property Nairobi, investment properties Kenya, property management Kenya, real estate returns Kenya, Murivest Realty Group, passive income properties Kenya, commercial real estate Nairobi CBD"
         url="https://murivest.co.ke/"
         structuredData={structuredData}

@@ -24,19 +24,19 @@ const TrustIndicators = () => {
 
   const partnerships = [
     {
-      name: "Goldman Sachs Private Wealth",
+      name: "Pam Golding Properties Kenya",
       type: "Strategic Partner"
     },
     {
       name: "Knight Frank International",
-      type: "Property Advisory"
+      type: "Property Investments"
     },
     {
-      name: "Deloitte East Africa",
-      type: "Financial Advisory"
+      name: "Vineyard Properties",
+      type: "Local Real Estate"
     },
     {
-      name: "Baker McKenzie",
+      name: "Michael Mungai",
       type: "Legal Counsel"
     }
   ];
