@@ -50,8 +50,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">+254 700 000 000</p>
-                  <p className="text-gray-600">+254 711 000 000</p>
+                  <p className="text-gray-600">+254 115 277 610</p>
+                  <p className="text-gray-600">+254 729 170 156</p>
                 </div>
               </div>
               
