@@ -36,8 +36,7 @@ export const getApprovedReviews = async (): Promise<StoredReview[]> => {
     console.log('Fetching approved reviews...'); // Debug log
     const q = query(
       collection(db, 'reviews'),
-      where('approved', '==', true),
-      orderBy('createdAt', 'desc')
+      where('approved', '==', true)
     );
     const querySnapshot = await getDocs(q);
     const reviews: StoredReview[] = [];
@@ -52,7 +51,12 @@ export const getApprovedReviews = async (): Promise<StoredReview[]> => {
       reviews.push(review);
     });
     console.log('Fetched reviews:', reviews); // Debug log
-    return reviews;
+    // Sort manually since we removed orderBy to avoid index requirement
+    return reviews.sort((a, b) => {
+      const dateA = a.createdAt instanceof Date ? a.createdAt : new Date(a.createdAt);
+      const dateB = b.createdAt instanceof Date ? b.createdAt : new Date(b.createdAt);
+      return dateB.getTime() - dateA.getTime();
+    });
   } catch (error) {
     console.error('Error fetching reviews:', error);
     return [];
@@ -65,8 +69,7 @@ export const subscribeToApprovedReviews = (callback: (reviews: StoredReview[]) =
     console.log('Setting up real-time listener for approved reviews...'); // Debug log
     const q = query(
       collection(db, 'reviews'),
-      where('approved', '==', true),
-      orderBy('createdAt', 'desc')
+      where('approved', '==', true)
     );
     
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -81,7 +84,13 @@ export const subscribeToApprovedReviews = (callback: (reviews: StoredReview[]) =
         reviews.push(review);
       });
       console.log('Real-time update - reviews:', reviews); // Debug log
-      callback(reviews);
+      // Sort manually since we removed orderBy to avoid index requirement
+      const sortedReviews = reviews.sort((a, b) => {
+        const dateA = a.createdAt instanceof Date ? a.createdAt : new Date(a.createdAt);
+        const dateB = b.createdAt instanceof Date ? b.createdAt : new Date(b.createdAt);
+        return dateB.getTime() - dateA.getTime();
+      });
+      callback(sortedReviews);
     }, (error) => {
       console.error('Error in real-time listener:', error);
     });
