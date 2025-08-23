@@ -6,39 +6,39 @@ const ExclusiveOpportunities = () => {
   const opportunities = [
     {
       id: 1,
-      title: "Westlands Executive Towers",
+      title: "Best Western Meridian Hotel",
       location: "Nairobi CBD, Kenya",
-      type: "Commercial Real Estate",
-      investment: "$2.5M - $15M",
-      returns: "32% IRR",
+      type: "Hotel",
+      investment: "$9.2M (KSh 1.2B)",
+      returns: "15.2% IRR",
       timeline: "Q2 2025",
-      image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=800",
-      status: "Limited Availability",
-      description: "Prime commercial development in Nairobi's most prestigious business district."
+      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      status: "Limited Bids",
+      description: "Landmark hotel property in Nairobi CBD with excellent occupancy rates and comprehensive hospitality amenities"
     },
     {
       id: 2,
-      title: "Karen Luxury Residences",
-      location: "Karen, Nairobi",
-      type: "Luxury Residential",
-      investment: "$800K - $3.2M",
-      returns: "24% IRR",
+      title: "Buffalo Mall & Development Land",
+      location: "Naivasha",
+      type: "Retail",
+      investment: "$5M (KSh 750M)",
+      returns: "11% IRR",
       timeline: "Q3 2025",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
-      status: "Pre-Launch",
-      description: "Exclusive residential enclave for the discerning international buyer."
+      image: "https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      status: "Limited Bids",
+      description: "Premier shopping destination in Naivasha with significant development potential on adjoining land."
     },
     {
       id: 3,
-      title: "Mombasa Waterfront Resort",
-      location: "Diani Beach, Kenya",
-      type: "Hospitality Investment",
-      investment: "$5M - $25M",
-      returns: "28% IRR",
+      title: "ICD Industrial Complex",
+      location: "Mombasa Road, Nairobi",
+      type: "Industrial",
+      investment: "$8M (KSh 1B)",
+      returns: "15% IRR",
       timeline: "Q4 2025",
-      image: "https://images.pexels.com/photos/1450363/pexels-photo-1450363.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/p/IMG-20250813-WA0001.jpg",
       status: "By Invitation Only",
-      description: "Luxury beachfront resort development with guaranteed returns."
+      description: "Prime industrial site with offices, showrooms, warehouses and strategic transport connectivity."
     }
   ];
 

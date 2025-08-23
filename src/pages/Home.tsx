@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import SEOHead from '../components/SEOHead';
 import Hero from '../components/Hero';
-import FeaturedProperties from '../components/FeaturedProperties';
 import BlogHero from '../components/BlogHero';
 import InvestorStats from '../components/InvestorStats';
 import ExclusiveOpportunities from '../components/ExclusiveOpportunities';
@@ -43,10 +42,9 @@ const Home = () => {
         structuredData={structuredData}
       />
       <Hero />
-      <FeaturedProperties />
-      <BlogHero />
       <InvestorStats />
       <ExclusiveOpportunities />
+      <BlogHero />
       <GlobalPresence />
       <InvestmentProcess />
       <TrustIndicators />
