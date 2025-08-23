@@ -15,6 +15,10 @@ import {
   Mail,
   Download,
   Share2,
+  Heart,
+  Eye,
+  CheckCircle
+} from 'lucide-react';
 import { MapPin, TrendingUp, Download, Phone, Mail, MessageCircle, X, ChevronLeft, ChevronRight, Building, DollarSign, Calendar, Users, Star, Calculator, FileText, BarChart3, Shield, Award } from 'lucide-react';
 
 const PropertyDetail = () => {
@@ -123,7 +127,7 @@ const PropertyDetail = () => {
         'https://content.knightfrank.com/property/hub2429185/images/79bb901f-3dba-41b8-9601-d462f09fa400-0.jpg?cio=true&w=1200',
         'https://content.knightfrank.com/property/hub2429185/images/d52cc1be-f7b5-44af-9899-4993fbef9d32-0.jpg?cio=true&w=1200',
         'https://content.knightfrank.com/property/hub2429185/images/1dab0404-50f6-4502-83f3-bcd333726e64-0.jpg?cio=true&w=1200',
-        "https://content.knightfrank.com/property/hub2429185/images/79bb901f-3dba-41b8-9601-d462f09fa400-0.jpg",
+        "https://content.knightfrank.com/property/hub2429185/images/79bb901f-3dba-41b8-9601-d462f09fa400-0.jpg"
       ],
       features: ["58,965 sqft GLA", "33 Retail Units", "9 Acres Additional Land", "70% Occupancy", "Premier Shopping Destination"],
       status: "Available",
