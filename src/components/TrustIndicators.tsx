@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Award, Users, Globe, CheckCircle, Star } from 'lucide-react';
+import { Shield, Award, Users, Globe, CheckCircle, Star, Handshake } from 'lucide-react';
 
 const TrustIndicators = () => {
   const certifications = [
