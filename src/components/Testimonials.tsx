@@ -252,6 +252,7 @@ const Testimonials = () => {
         onClose={() => setShowReviewForm(false)}
         onSuccess={handleReviewSubmitted}
       />
+      </div>
     </section>
   );
 };
