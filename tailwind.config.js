@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         'luxury': ['Playfair Display', 'serif'],
         'elegant': ['Inter', 'sans-serif'],
+        'times': ['Times New Roman', 'serif'],
       },
       colors: {
         navy: {
