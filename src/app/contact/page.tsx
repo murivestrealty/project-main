@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
-import SEOHead from '../components/SEOHead';
-import Contact from '../components/Contact';
+import SEOHead from '../../components/SEOHead';
+import Contact from '../../components/Contact';
 
 const ContactPage = () => {
   useEffect(() => {
