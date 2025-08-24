@@ -16,7 +16,7 @@ import {
   Building,
   Wallet
 } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from './contexts/AuthContext';
 
 const Dashboard = () => {
   const { currentUser, userData, logout } = useAuth();

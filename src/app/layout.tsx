@@ -1,6 +1,6 @@
 import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import { AuthProvider } from '../contexts/AuthContext';
+import { AuthProvider } from '../components/contexts/AuthContext';
 import ScrollToTop from '../components/ui/ScrollToTop';
 import ScrollToTopButton from '../components/ui/ScrollToTopButton';
 import Header from '../components/layout/Header';

@@ -340,7 +340,7 @@ const Properties = () => {
                     ))}
                   </div>
                   <Link 
-                  to={`/portfolio/${property.id}`}>
+                  to={`/properties/${property.id}`}>
                   <button className="w-full bg-slate-900 hover:bg-amber-600 text-white py-3 font-medium transition-all duration-300 group">
                     
                     LEARN MORE
