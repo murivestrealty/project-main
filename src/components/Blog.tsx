@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, TrendingUp } from 'lucide-react';
-import BlogCard from './BlogCard';
+import BlogCard from '../app/blog/components/BlogCard';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
