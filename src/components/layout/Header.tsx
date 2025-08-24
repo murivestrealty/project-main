@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, User, Globe, Award } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
-import AuthModal from './AuthModal';
+import AuthModal from '../ui/AuthModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -175,13 +175,13 @@ const Header = () => {
                 Contact
               </Link>
               <Link 
-                to="/insights" 
-                className={`font-serif text-sm font-light tracking-wide transition-colors ${
-                  isActive('/insights') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
+                to="/blog" 
+                  isActive('/blog') 
+                  isActive('/blog') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
                 } py-1`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Insights
+                Blog
               </Link>
             </nav>
             
