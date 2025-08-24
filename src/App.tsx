@@ -6,7 +6,6 @@ import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
 import AboutPage from './pages/About';
 import PropertiesPage from './pages/Properties';
 import ContactPage from './pages/Contact';
