@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, User, Globe, Award } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
-import AuthModal from './AuthModal';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
