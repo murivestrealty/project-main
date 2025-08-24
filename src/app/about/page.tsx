@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
-import SEOHead from '../components/SEOHead';
-import About from '../components/About';
+import SEOHead from '../../components/SEOHead';
+import About from '../../components/About';
 
 const AboutPage = () => {
   useEffect(() => {

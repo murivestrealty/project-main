@@ -9,7 +9,7 @@ import GlobalPresence from '../components/GlobalPresence';
 import InvestmentProcess from '../components/InvestmentProcess';
 import TrustIndicators from '../components/TrustIndicators';
 
-const Home = () => {
+const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -52,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

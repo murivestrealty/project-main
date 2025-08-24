@@ -1,9 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
-import SEOHead from '../components/SEOHead';
-import Properties from '../components/Properties';
+import SEOHead from '../../components/SEOHead';
+import Properties from '../../components/Properties';
 
-const PropertiesPage = () => {
+const PortfolioPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,7 +13,7 @@ const PropertiesPage = () => {
     "@type": "CollectionPage",
     "name": "Investment Properties - Murivest Realty Group",
     "description": "Browse our comprehensive portfolio of premium commercial investment properties in Nairobi, Kenya. Hotels, office buildings, retail spaces, and industrial properties with exceptional returns.",
-    "url": "https://murivest.co.ke/properties",
+    "url": "https://murivest.co.ke/portfolio",
     "mainEntity": {
       "@type": "ItemList",
       "name": "Commercial Investment Properties",
@@ -27,7 +27,7 @@ const PropertiesPage = () => {
         title="Investment Properties Kenya - Commercial Real Estate | Murivest Realty Group"
         description="Browse our comprehensive portfolio of premium commercial investment properties in Nairobi, Kenya. Hotels, office buildings, retail spaces, and industrial properties with exceptional returns of 15%+ annually."
         keywords="investment properties Kenya, commercial properties Nairobi, office buildings investment Kenya, hotel investment Kenya, retail properties Kenya, industrial properties Kenya, commercial real estate portfolio Kenya, property investment opportunities Nairobi"
-        url="https://murivest.co.ke/properties"
+        url="https://murivest.co.ke/portfolio"
         structuredData={structuredData}
       />
       <Properties />
@@ -35,4 +35,4 @@ const PropertiesPage = () => {
   );
 };
 
-export default PropertiesPage;
+export default PortfolioPage;

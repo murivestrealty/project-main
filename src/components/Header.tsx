@@ -65,7 +65,7 @@ const Header = () => {
                   : 'text-gray-300 hover:text-amber-400 hover:border-b hover:border-amber-400/50'
               } pb-1`}
             >
-              Portfolio
+              Properties
             </Link>
             <Link 
               to="/contact" 
@@ -78,9 +78,9 @@ const Header = () => {
               Contact
             </Link>
             <Link 
-              to="/blog" 
+              to="/insights" 
               className={`font-serif text-sm font-light tracking-wide transition-all duration-300 ${
-                isActive('/blog') 
+                isActive('/insights') 
                   ? 'text-amber-400 border-b border-amber-400' 
                   : 'text-gray-300 hover:text-amber-400 hover:border-b hover:border-amber-400/50'
               } pb-1`}
@@ -163,7 +163,7 @@ const Header = () => {
                 } py-1`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Portfolio
+                Properties
               </Link>
               <Link 
                 to="/contact" 
@@ -175,9 +175,9 @@ const Header = () => {
                 Contact
               </Link>
               <Link 
-                to="/blog" 
+                to="/insights" 
                 className={`font-serif text-sm font-light tracking-wide transition-colors ${
-                  isActive('/blog') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
+                  isActive('/insights') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
                 } py-1`}
                 onClick={() => setIsMenuOpen(false)}
               >
