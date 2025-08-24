@@ -1,11 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { AuthProvider } from './contexts/AuthContext';
-import ScrollToTop from './components/ScrollToTop';
-import ScrollToTopButton from './components/ScrollToTopButton';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './app/layout';
+import HomePage from './app/home/page.tsx';
 import AboutPage from './components/About';
 import PropertiesPage from './components/Properties';
 import ContactPage from './components/Contact';
@@ -14,38 +10,32 @@ import BlogPost from './components/BlogPost';
 import Dashboard from './components/Dashboard';
 import PropertyDetail from './components/PropertyDetail';
 import ProtectedRoute from './components/ProtectedRoute';
+import NotFound from './app/not-found';
 
 function App() {
   return (
-    <HelmetProvider>
-      <AuthProvider>
-        <Router>
-          <ScrollToTop />
-          <div className="min-h-screen">
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/properties" element={<PropertiesPage />} />
-              <Route path="/property/:id" element={<PropertyDetail />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:id" element={<BlogPost />} />
-              <Route 
-                path="/dashboard" 
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                } 
-              />
-            </Routes>
-            <Footer />
-            <ScrollToTopButton />
-          </div>
-        </Router>
-      </AuthProvider>
-    </HelmetProvider>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/properties" element={<PropertiesPage />} />
+          <Route path="/properties/:id" element={<PropertyDetail />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
