@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react';
-import SEOHead from '../components/SEOHead';
-import Hero from '../components/Hero';
-import BlogHero from '../components/BlogHero';
-import InvestorStats from '../components/InvestorStats';
-import ExclusiveOpportunities from '../components/ExclusiveOpportunities';
-import GlobalPresence from '../components/GlobalPresence';
-import InvestmentProcess from '../components/InvestmentProcess';
-import TrustIndicators from '../components/TrustIndicators';
+import SEOHead from '../../components/SEOHead';
+import Hero from '../../components/Hero';
+import BlogHero from '../../components/BlogHero';
+import InvestorStats from '../../components/InvestorStats';
+import ExclusiveOpportunities from '../../components/ExclusiveOpportunities';
+import GlobalPresence from '../../components/GlobalPresence';
+import InvestmentProcess from '../../components/InvestmentProcess';
+import TrustIndicators from '../../components/TrustIndicators';
 
 const HomePage = () => {
   useEffect(() => {
