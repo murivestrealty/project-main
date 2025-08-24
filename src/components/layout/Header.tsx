@@ -177,8 +177,7 @@ const Header = () => {
               <Link 
                 to="/blog" 
                 className={`font-serif text-sm font-light tracking-wide transition-colors ${
-                  isActive('/blog') || 
-                  isActive('/insights') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
+                  isActive('/blog') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
                 } py-1`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -220,5 +219,3 @@ const Header = () => {
 };
 
 export default Header;
-
-export default Header
