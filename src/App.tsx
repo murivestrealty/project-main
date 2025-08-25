@@ -1,7 +1,7 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './app/layout';
 import HomePage from './app/home/page';
+import InvestmentCalculator from './app/calculator/page';
 import AboutPage from './components/About';
 import PropertiesPage from './components/Properties';
 import ContactPage from './components/Contact';
@@ -11,6 +11,10 @@ import Dashboard from './components/Dashboard';
 import PropertyDetail from './components/PropertyDetail';
 import ProtectedRoute from './components/ProtectedRoute';
 import NotFound from './app/not-found';
+import ExecutiveLeadership from './app/leeadership/page';
+import MarketIntelligence from './app/market/page';
+import InvestmentProcess from './components/sections/InvestmentProcess';
+
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
           <Route path="/properties" element={<PropertiesPage />} />
           <Route path="/properties/:id" element={<PropertyDetail />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/calculator" element={<InvestmentCalculator />} />
+          <Route path="/leadership" element={<ExecutiveLeadership />} />
+          <Route path="/market" element={<MarketIntelligence />} />
+          <Route path="/process" element={<InvestmentProcess />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route 
