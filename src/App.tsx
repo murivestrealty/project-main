@@ -14,6 +14,7 @@ import NotFound from './app/not-found';
 import ExecutiveLeadership from './app/leeadership/page';
 import MarketIntelligence from './app/market/page';
 import InvestmentProcess from './components/sections/InvestmentProcess';
+import InvestorLogin from './app/investor/page';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/leadership" element={<ExecutiveLeadership />} />
           <Route path="/market" element={<MarketIntelligence />} />
           <Route path="/process" element={<InvestmentProcess />} />
+          <Route path="/investor" element={<InvestorLogin />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route 

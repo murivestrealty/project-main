@@ -17,7 +17,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     );
   }
 
-  return currentUser ? <>{children}</> : <Navigate to="/" />;
+  return currentUser ? <>{children}</> : <Navigate to="/dashboard" />;
 };
 
 export default ProtectedRoute;

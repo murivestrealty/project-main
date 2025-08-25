@@ -211,6 +211,21 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   {loading ? 'Please wait...' : (isLogin ? 'Login to My Murivest' : 'Create Account')}
                 </button>
               </form>
+              <div className="flex justify-end">
+                {isLogin && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose(); // close current modal
+                      const forgot = document.getElementById("forgot-password-trigger");
+                      if (forgot) (forgot as HTMLButtonElement).click();
+                    }}
+                    className="text-sm text-gold-600 hover:text-gold-700 font-medium"
+                  >
+                    Forgot Password?
+                  </button>
+                )}
+              </div>
 
               <div className="mt-6 text-center">
                 <p className="text-gray-600 font-elegant text-sm">

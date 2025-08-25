@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   // Function to toggle dropdowns and close others
-  const toggleDropdown = (dropdownState, setDropdownState) => {
+  const toggleDropdown = (dropdownState: boolean, setDropdownState: { (value: React.SetStateAction<boolean>): void; (value: React.SetStateAction<boolean>): void; (value: React.SetStateAction<boolean>): void; (value: React.SetStateAction<boolean>): void; (arg0: boolean): void; }) => {
     setIsInvestDropdownOpen(false);
     setIsAboutDropdownOpen(false);
     setDropdownState(!dropdownState);
