@@ -44,7 +44,7 @@ const Footer = () => {
               Murivest Realty Group
             </h3>
             <p className="text-stone-400 font-light leading-relaxed mb-6 text-sm">
-              Established 1923. Four generations of distinguished service to international families, 
+              Established 2025. Four generations of distinguished service to international families, 
               sovereign wealth funds, and institutional investors seeking superior returns through 
               Kenya's premier commercial real estate opportunities.
             </p>
@@ -61,11 +61,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-stone-300 text-sm">
                 <TrendingUp className="h-4 w-4 mr-3 text-amber-600" />
-                <span>$2.1B+ Assets Under Management</span>
+                <span>$50M+ Assets Under Management</span>
               </div>
               <div className="flex items-center text-stone-300 text-sm">
                 <Users className="h-4 w-4 mr-3 text-amber-600" />
-                <span>500+ Distinguished Clients Worldwide</span>
+                <span>50+ Distinguished Clients Worldwide</span>
               </div>
             </div>
 

@@ -7,29 +7,29 @@ const GlobalPresence = () => {
     {
       city: "Nairobi",
       country: "Kenya",
-      properties: "450+",
-      value: "$1.2B",
+      properties: "45+",
+      value: "$500M",
       image: "https://images.pexels.com/photos/5490778/pexels-photo-5490778.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       city: "Mombasa",
       country: "Kenya", 
-      properties: "180+",
-      value: "$420M",
+      properties: "18+",
+      value: "$42M",
       image: "https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       city: "Kampala",
       country: "Uganda",
-      properties: "95+",
-      value: "$280M",
+      properties: "9+",
+      value: "$28M",
       image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       city: "Dar es Salaam",
       country: "Tanzania",
-      properties: "120+",
-      value: "$350M",
+      properties: "12+",
+      value: "$35M",
       image: "https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
   ];

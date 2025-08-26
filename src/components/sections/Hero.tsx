@@ -73,7 +73,7 @@ const Hero = () => {
           >
             <Building className="h-7 w-7 text-amber-500 mr-3" />
             <span className="text-amber-500 font-serif text-sm tracking-widest uppercase">
-              Established Investment House • Since 2018
+              Established Investment House • Since 2025
             </span>
           </motion.div>
 
@@ -159,7 +159,7 @@ const Hero = () => {
             >
               <Globe className="h-6 w-6 text-amber-400 mr-3" />
               <div>
-                <div className="text-2xl font-serif font-light text-amber-400">45+</div>
+                <div className="text-2xl font-serif font-light text-amber-400">4+</div>
                 <div className="text-gray-300 font-serif text-xs uppercase tracking-wide">Countries</div>
               </div>
             </motion.div>
@@ -206,7 +206,7 @@ const Hero = () => {
               <span>•</span>
               <span>Singapore</span>
               <span>•</span>
-              <span>Canada</span>
+              <span>China</span>
             </div>
           </motion.div>
         </div>

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './app/layout';
 import HomePage from './app/home/page';
 import InvestmentCalculator from './app/calculator/page';
@@ -15,7 +15,8 @@ import ExecutiveLeadership from './app/leeadership/page';
 import MarketIntelligence from './app/market/page';
 import InvestmentProcess from './components/sections/InvestmentProcess';
 import InvestorLogin from './app/investor/page';
-
+import AdminDashboard from './components/dashboard/AdminDashboard';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -42,6 +43,18 @@ function App() {
               </ProtectedRoute>
             } 
           />
+          <Route path="/login" element={<Login />} />
+        
+        {/* The admin route is now protected */}
+        <Route
+          path="/admin"
+          element={
+              <AdminDashboard />
+          }
+        />
+        
+        {/* Redirect to the login page if the user goes to the root URL */}
+        <Route path="/" element={<Navigate to="/login" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

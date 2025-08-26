@@ -6,13 +6,13 @@ const InvestorStats = () => {
   const stats = [
     {
       icon: TrendingUp,
-      value: "$2.8B+",
+      value: "$50+",
       label: "Assets Under Management",
       description: "Carefully curated portfolio value"
     },
     {
       icon: Users,
-      value: "1,200+",
+      value: "12+",
       label: "Distinguished Investors",
       description: "From 47 countries worldwide"
     },

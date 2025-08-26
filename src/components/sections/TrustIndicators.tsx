@@ -4,7 +4,7 @@ import { Shield, Award, Users, Globe, CheckCircle, Star, Handshake } from 'lucid
 const TrustIndicators = () => {
   const certifications = [
     {
-      title: "SEC Registered",
+      title: "KRA Registered",
       description: "Fully compliant investment advisor"
     },
     {

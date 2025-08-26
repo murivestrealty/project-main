@@ -87,19 +87,19 @@ const ExecutiveLeadership = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-20">
               {[
                 { 
-                  number: "$4.2B", 
+                  number: "$50M", 
                   label: "Assets Under Stewardship", 
                   sublabel: "Across Prime East African Properties",
                   icon: Building2 
                 },
                 { 
-                  number: "37", 
+                  number: "3", 
                   label: "Years of Unbroken Excellence", 
                   sublabel: "Zero Principal Losses Since 1987",
                   icon: Shield 
                 },
                 { 
-                  number: "156", 
+                  number: "5", 
                   label: "Distinguished Family Offices Served", 
                   sublabel: "Across 23 Nations",
                   icon: Crown 
@@ -173,52 +173,52 @@ const ExecutiveLeadership = () => {
           <div className="space-y-24">
             {[
               {
-                name: "James Muriithi Wainaina",
-                title: "Chairman & Senior Partner",
-                honors: "OBE • CFA • Member of the Order of British Empire",
-                credentials: "Trinity College Cambridge, MA (Hons) • Harvard Business School, MBA",
-                image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                bio: "A third-generation steward of African investments, James combines old world principles with contemporary market intelligence. Educated at Trinity College Cambridge and Harvard Business School, he spent fifteen years at Rothschild & Co before establishing Murivest Realty Group's East African practice. His family has maintained business interests in the region since colonial times, providing unparalleled market knowledge and governmental relationships.",
+                name: "Mark Muriithi",
+                title: "Founder & CEO",
+                honors: "BBIT • CFA (in progress) • Member of ONAMA",
+                credentials: "Strathmore University, BBIT (Hons) • Strathmore University, MBA (Candidate)",
+                image: "/CEO.Founder.jpg",
+                bio: "An ambitious entrepreneur and visionary leader, Mark Muriithi is the Founder and CEO of Murivest Realty Group. A third-generation steward of African investments, he combines academic excellence in business and technology with hands-on experience in real estate, finance, and marketing. His mission is to position Murivest as a billion-shilling company within three years, delivering consistent value to investors and shaping the future of East African real estate.",
                 experience: [
-                  "Former Senior Director, N.M. Rothschild & Sons (London)",
-                  "Board Member, East Africa High Commission (UK)", 
-                  "Trustee, Cambridge Africa Scholarship Foundation",
-                  "Member, Royal Institute of International Affairs"
+                  "Founder & CEO, Murivest Realty Group (Nairobi, Kenya)",
+                  "Marketing DIrector, Growth Capital Ltd (Nevada, USA)",
+                  "Head of Distribution, BF Suma Pharmaceuticals (Kenya)",
+                  "Sales & IT Manager, Vineyard Properties Ltd (Kenya)"
                 ],
-                investmentHighlight: "Personal Investment: £18M committed to current portfolio",
-                heritage: "Family invested in East Africa since 1923"
+                investmentHighlight: "Target: KSh 1B+ valuation in under 3 years",
+                heritage: "Third-generation family investor with deep roots in East Africa"
               },
               {
-                name: "Dr. Victoria Chen-Wellington",
-                title: "Chief Investment Officer & Senior Partner",
-                honors: "CBE • Former Bank of England Economist",
-                credentials: "Oxford University DPhil Economics • LSE MSc Finance",
-                image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                bio: "Dr. Chen-Wellington brings institutional gravitas with her background as Senior Economist at the Bank of England and former Portfolio Director at Schroders. Her proprietary emerging market models have consistently delivered superior risk-adjusted returns. Awarded Commander of the British Empire for services to international finance, she maintains dual British-Swiss citizenship with extensive Asia-Pacific connections.",
+                name: "Dr. Grace Wanjiku",
+                title: "Portfolio Manager",
+                honors: "PhD Finance • Member of ICIFA (Institute of Certified Investment & Financial Analysts Kenya)",
+                credentials: "University of Nairobi, PhD Finance • Strathmore University, MBA",
+                image: "https://static.vecteezy.com/system/resources/previews/042/332/098/non_2x/default-avatar-profile-icon-grey-photo-placeholder-female-no-photo-images-for-unfilled-user-profile-greyscale-illustration-for-socail-media-web-vector.jpg",
+                bio: "Dr. Grace Wanjiku is a seasoned investment professional with over 15 years of experience in asset management, corporate finance, and private equity across East Africa. She has led multi-billion shilling portfolios in both listed and alternative assets, consistently delivering above-market returns for institutional investors. At Murivest, she spearheads investment strategy, risk management, and fund structuring to ensure clients achieve sustainable long-term value.",
                 experience: [
-                  "Senior Economist, Bank of England (2016-2022)",
-                  "Portfolio Director, Schroders Private Banking (2010-2016)",
-                  "Research Fellow, Oxford Centre for African Studies",
-                  "Economic Advisor, Commonwealth Development Corporation"
+                  "Chief Investment Officer, ICEA Lion Asset Management (2016-2023)",
+                  "Senior Portfolio Manager, Britam Asset Managers (2010-2016)",
+                  "Lecturer in Finance, University of Nairobi (2008-2010)",
+                  "Consultant, World Bank East Africa Office"
                 ],
-                investmentHighlight: "Track Record: 28% compound annual growth rate",
-                heritage: "Third-generation British colonial family"
+                investmentHighlight: "Track Record: Delivered 22% annualized returns across multi-asset portfolios",
+                heritage: "Born and raised in Nairobi, with deep networks across Kenya’s financial services sector"
               },
               {
-                name: "Sir Michael Rothwell-Kenyatta, KC",
-                title: "Chief Operating Officer & Senior Partner",
-                honors: "Knight Commander • King's Counsel • Privy Council",
-                credentials: "Eton College • Oxford University MA Jurisprudence • Inner Temple",
-                image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                bio: "Sir Michael combines aristocratic heritage with intimate knowledge of East African governance and law. Called to the Bar at Inner Temple and later King's Counsel, he served as Senior Partner at Clifford Chance before joining our practice. His family's historical ties to Kenya's founding leaders provide unprecedented access to government officials and regulatory frameworks.",
+                name: "Eng. Daniel Mwangi",
+                title: "Senior Project Manager",
+                honors: "PE • Member, Institution of Engineers of Kenya (IEK)",
+                credentials: "University of Nairobi, BSc Civil Engineering • Harvard Business School, Executive MBA",
+                image: "https://cdn.vectorstock.com/i/500p/29/53/gray-silhouette-avatar-for-male-profile-picture-vector-56412953.jpg",
+                bio: "Eng. Daniel Mwangi is a real estate development and infrastructure expert with over 20 years of experience leading large-scale construction, housing, and mixed-use projects across East Africa. Before joining Murivest, he served as a senior executive at a Nairobi-listed property developer, where he oversaw projects worth over KSh 50 billion. His expertise lies in project delivery, operational efficiency, and compliance with both local and international real estate standards.",
                 experience: [
-                  "Senior Partner, Clifford Chance International (2008-2020)",
-                  "Legal Counsel, East African Community Secretariat",
-                  "Queen's Counsel (appointed 2018), King's Counsel (2023)",
-                  "Governor, Royal African Society"
+                  "Chief Operating Officer, Centum Real Estate (2018-2024)",
+                  "Director of Projects, Shelter Afrique (2012-2018)",
+                  "Project Engineer, China Wu Yi (2005-2012)",
+                  "Board Member, Kenya Green Building Society"
                 ],
-                investmentHighlight: "Zero regulatory disputes across £650M+ transactions",
-                heritage: "Descendant of Kenya's constitutional founders"
+                investmentHighlight: "Oversaw delivery of 5,000+ housing units and 2M+ sq. ft. of commercial space",
+                heritage: "Second-generation Kenyan engineer with strong ties to Nairobi’s real estate ecosystem"
               }
             ].map((executive, index) => (
               <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
@@ -233,7 +233,7 @@ const ExecutiveLeadership = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
                     </div>
                     <div className="absolute top-6 right-6 bg-yellow-400 text-slate-900 px-4 py-2 font-medium text-sm tracking-wide">
-                      FOUNDING PARTNER
+                      EXECUTIVE TEAM
                     </div>
                     <div className="absolute bottom-6 left-6 bg-slate-900/80 text-white px-4 py-2 text-sm font-light">
                       {executive.heritage}
@@ -364,30 +364,30 @@ const ExecutiveLeadership = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                name: "Lord David Cameron",
-                title: "Former Prime Minister",
-                specialty: "International Relations",
-                commitment: "£8M Personal Investment"
-              },
-              {
-                name: "Dr. Akinwumi Adesina",
-                title: "President, AfDB",
-                specialty: "Development Finance",
-                commitment: "€12M Institutional Allocation"
-              },
-              {
-                name: "Lady Catherine Rothschild",
-                title: "Former Goldman Sachs MD",
-                specialty: "Private Banking",
-                commitment: "$18M Family Office"
-              },
-              {
-                name: "His Highness Sheikh Ahmed",
-                title: "UAE Investment Authority",
-                specialty: "Sovereign Wealth",
-                commitment: "$45M Strategic Partnership"
-              }
+            {
+              name: "Deloitte Arita",
+              title: "Senior Advisor",
+              specialty: "International Relations",
+              commitment: "£8M Personal Investment"
+            },
+            {
+              name: "Michael Mungai",
+              title: "Senior Legal Counsel",
+              specialty: "Corporate & Real Estate Law",
+              commitment: "$5M Legal Advisory & Compliance Oversight"
+            },
+            {
+              name: "Eng. Jane Wairimu",
+              title: "Real Estate Development Partner",
+              specialty: "Urban Planning & Housing",
+              commitment: "KSh 1.2B Project Pipeline"
+            },
+            {
+              name: "Prof. Peter Njoroge",
+              title: "Economic Advisor",
+              specialty: "Macroeconomics & Policy",
+              commitment: "Advisory on $20M Infrastructure Fund"
+            }
             ].map((advisor, index) => (
               <div key={index} className="text-center p-8 bg-slate-800 border-t-4 border-yellow-400 hover:bg-slate-700 transition-colors">
                 <div className="w-20 h-20 bg-slate-600 rounded-full mx-auto mb-6" />
@@ -482,7 +482,7 @@ const ExecutiveLeadership = () => {
                 <ChevronRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
               </button>
               <div className="text-slate-300 font-light">
-                or contact our Private Wealth Division: <span className="text-yellow-400 font-medium">+254 700 000 000</span>
+                or contact our Private Wealth Division: <span className="text-yellow-400 font-medium">+254 115 277 610</span>
               </div>
             </div>
             
