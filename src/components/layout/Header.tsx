@@ -56,14 +56,14 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              to="/investor"
+              to="/"
               className={`font-serif text-sm font-light tracking-wide transition-all duration-300 ${
-                isActive('/investor')
+                isActive('/')
                   ? 'text-amber-400 border-b border-amber-400'
                   : 'text-gray-300 hover:text-amber-400 hover:border-b hover:border-amber-400/50'
               } pb-1`}
             >
-              Investor Portal
+              Home
             </Link>
 
             {/* Invest Dropdown */}

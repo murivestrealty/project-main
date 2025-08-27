@@ -1,230 +1,155 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url>
-<loc>https://murivest.co.ke/</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/about</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/properties</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/investors</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/contact</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/1</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/2</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/3</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/4</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/5</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/6</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/property/7</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/1</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/2</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/3</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/4</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/5</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/6</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/7</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/8</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/9</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/10</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/11</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/12</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/13</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/14</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/15</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/16</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/17</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/18</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/19</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/20</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/blog/21</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/leadership</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/market</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/process</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://murivest.co.ke/calculator</loc>
-<lastmod>2025-08-25T16:12:05.641Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://www.murivest.co.ke/</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/about</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/properties</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/investors</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/contact</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/1</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/2</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/3</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/4</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/5</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/6</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/property/7</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/1</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/2</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/3</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/4</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/5</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/6</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/7</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/8</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/9</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/10</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/11</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/12</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/13</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/14</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/15</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/16</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/17</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/18</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/19</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/20</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/blog/21</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/leadership</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/market</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/process</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://www.murivest.co.ke/calculator</loc>
+        <lastmod>2025-08-27T04:01:12+00:00</lastmod>
+    </url>
 </urlset>
