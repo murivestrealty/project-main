@@ -176,6 +176,13 @@ const Header = () => {
                   >
                     Murivest Realty Group
                   </Link>
+                  <Link
+                    to="/foundation"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
+                    onClick={closeAllDropdowns}
+                  >
+                    Murivest Foundation
+                  </Link>
                 </div>
               )}
             </div>
@@ -278,7 +285,14 @@ const Header = () => {
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
-                      Murivest Realty Group
+                      Murivest Realty
+                    </Link>
+                    <Link
+                      to="/foundation"
+                      className="text-sm text-gray-400 hover:text-amber-400"
+                      onClick={closeAllDropdowns}
+                    >
+                      Murivest Foundation
                     </Link>
                   </div>
                 )}

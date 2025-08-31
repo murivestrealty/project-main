@@ -1,4 +1,97 @@
 import { useState, useEffect } from 'react';
+
+// Type definitions for dashboard data
+type PropertyDetails = {
+  id: string;
+  name: string;
+  type?: string;
+};
+
+type UserPreferences = {
+  emailNotifications?: boolean;
+  smsNotifications?: boolean;
+  marketingEmails?: boolean;
+};
+
+type UserData = {
+  displayName?: string;
+  email?: string;
+  profileImage?: string;
+  kycStatus?: string; // Property added to fix compile error
+  phoneNumber?: string;
+  nationalId?: string;
+  address?: {
+    street?: string;
+    city?: string;
+    county?: string;
+    postalCode?: string;
+  } | null;
+  preferences?: UserPreferences;
+};
+
+type Investment = {
+  id: string;
+  propertyId: string;
+  investmentAmount: number;
+  actualYield: number;
+  expectedMonthlyIncome: number;
+  sharesOwned?: number;
+  purchaseDate?: string;
+  propertyDetails?: PropertyDetails | null;
+};
+
+type Transaction = {
+  id: string;
+  type: 'income' | 'expense' | string;
+  amount: number;
+  description?: string;
+  date: string;
+  status?: string;
+  category?: string;
+  reference?: string;
+  receiptUrl?: string;
+};
+
+type Tenant = {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  propertyId?: string;
+};
+
+type RentalTransaction = {
+  id: string;
+  amount: number;
+  tenantName?: string;
+  propertyName?: string;
+  date: string;
+};
+
+type Expense = {
+  id: string;
+  amount: number;
+  category: string;
+  propertyName?: string;
+  date: string;
+};
+
+type Document = {
+  id: string;
+  name?: string;
+  metadata?: { propertyName?: string };
+  createdAt: string;
+  tags?: string[];
+};
+
+type Notification = {
+  id: string;
+  status?: string;
+  type?: string;
+  title?: string;
+  message?: string;
+  createdAt: string;
+};
 import { 
   TrendingUp, 
   FileText, 
@@ -20,7 +113,9 @@ import {
   Phone,
   Mail,
   AlertCircle,
-  CheckCircle
+  CheckCircle,
+  Users,
+  Briefcase
 } from 'lucide-react';
 import { 
   collection, 
@@ -31,7 +126,8 @@ import {
   doc,
   updateDoc,
   getDocs, 
-  Unsubscribe
+  Unsubscribe,
+  addDoc
 } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from './contexts/AuthContext';
@@ -40,7 +136,19 @@ const Dashboard = () => {
   const { currentUser, userData, logout } = useAuth();
   const [activeTab, setActiveTab] = useState('overview');
   const [loading, setLoading] = useState(true);
-  const [portfolioData, setPortfolioData] = useState({
+  const [portfolioData, setPortfolioData] = useState<{
+    totalInvestment: number;
+    currentValue: number;
+    totalYield: number;
+    monthlyIncome: number;
+    properties: Investment[];
+    transactions: Transaction[];
+    documents: Document[];
+    notifications: Notification[];
+    tenants: Tenant[];
+    rentalTransactions: RentalTransaction[];
+    expenses: Expense[];
+  }>({
     totalInvestment: 0,
     currentValue: 0,
     totalYield: 0,
@@ -48,7 +156,32 @@ const Dashboard = () => {
     properties: [],
     transactions: [],
     documents: [],
-    notifications: []
+    notifications: [],
+    tenants: [],
+    rentalTransactions: [],
+    expenses: []
+  });
+
+  // State for new forms
+  const [newRentalTransaction, setNewRentalTransaction] = useState({
+    amount: '',
+    tenantId: '',
+    propertyId: '',
+    description: '',
+    date: new Date().toISOString().substring(0, 10),
+  });
+  const [newExpense, setNewExpense] = useState({
+    amount: '',
+    category: '',
+    propertyId: '',
+    description: '',
+    date: new Date().toISOString().substring(0, 10),
+  });
+  const [newTenant, setNewTenant] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyId: ''
   });
 
   useEffect(() => {
@@ -67,7 +200,10 @@ const Dashboard = () => {
     );
     
     const unsubscribeInvestments = onSnapshot(investmentsQuery, async (snapshot) => {
-      const investments = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const investments = snapshot.docs.map(doc => {
+        const { id: _id, ...data } = doc.data() as Investment;
+        return { id: doc.id, ...data };
+      });
       
       let totalInvestment = 0;
       let currentValue = 0;
@@ -116,7 +252,20 @@ const Dashboard = () => {
     );
     
     const unsubscribeTransactions = onSnapshot(transactionsQuery, (snapshot) => {
-      const transactions = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const transactions = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          type: data.type,
+          amount: data.amount,
+          description: data.description,
+          date: data.date,
+          status: data.status,
+          category: data.category,
+          reference: data.reference,
+          receiptUrl: data.receiptUrl
+        } as Transaction;
+      });
       setPortfolioData(prev => ({ ...prev, transactions }));
     });
     unsubscribeCallbacks.push(unsubscribeTransactions);
@@ -129,7 +278,16 @@ const Dashboard = () => {
     );
     
     const unsubscribeDocuments = onSnapshot(documentsQuery, (snapshot) => {
-      const documents = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const documents = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          name: data.name,
+          metadata: data.metadata,
+          createdAt: data.createdAt ?? '', // fallback to empty string if missing
+          tags: data.tags
+        } as Document;
+      });
       setPortfolioData(prev => ({ ...prev, documents }));
     });
     unsubscribeCallbacks.push(unsubscribeDocuments);
@@ -142,10 +300,71 @@ const Dashboard = () => {
     );
     
     const unsubscribeNotifications = onSnapshot(notificationsQuery, (snapshot) => {
-      const notifications = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const notifications = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          status: data.status,
+          type: data.type,
+          title: data.title,
+          message: data.message,
+          createdAt: data.createdAt ?? '', // fallback to empty string if missing
+        } as Notification;
+      });
       setPortfolioData(prev => ({ ...prev, notifications }));
     });
     unsubscribeCallbacks.push(unsubscribeNotifications);
+
+    // Listen to tenants and rentals
+    const tenantsQuery = query(collection(db, 'tenants'), where('ownerId', '==', currentUser.uid));
+    const unsubscribeTenants = onSnapshot(tenantsQuery, (snapshot) => {
+      const tenants = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          name: data.name ?? '',
+          email: data.email ?? '',
+          phone: data.phone ?? '',
+          propertyId: data.propertyId
+        } as Tenant;
+      });
+      setPortfolioData(prev => ({ ...prev, tenants }));
+    });
+    unsubscribeCallbacks.push(unsubscribeTenants);
+    
+    const rentalTransactionsQuery = query(collection(db, 'rentalTransactions'), where('ownerId', '==', currentUser.uid), orderBy('date', 'desc'));
+    const unsubscribeRentals = onSnapshot(rentalTransactionsQuery, (snapshot) => {
+      const rentalTransactions = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          amount: data.amount,
+          tenantName: data.tenantName,
+          propertyName: data.propertyName,
+          date: data.date,
+        } as RentalTransaction;
+      });
+      setPortfolioData(prev => ({ ...prev, rentalTransactions }));
+    });
+    unsubscribeCallbacks.push(unsubscribeRentals);
+
+    // Listen to expenses
+    const expensesQuery = query(collection(db, 'expenses'), where('ownerId', '==', currentUser.uid), orderBy('date', 'desc'));
+    const unsubscribeExpenses = onSnapshot(expensesQuery, (snapshot) => {
+      const expenses = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          amount: data.amount,
+          category: data.category,
+          propertyName: data.propertyName,
+          date: data.date,
+        } as Expense;
+      });
+      setPortfolioData(prev => ({ ...prev, expenses }));
+    });
+    unsubscribeCallbacks.push(unsubscribeExpenses);
+
 
     setLoading(false);
 
@@ -163,7 +382,7 @@ const Dashboard = () => {
     }
   };
 
-  const markNotificationAsRead = async (notificationId) => {
+  const markNotificationAsRead = async (notificationId: string) => {
     try {
       await updateDoc(doc(db, 'notifications', notificationId), {
         status: 'read',
@@ -174,7 +393,7 @@ const Dashboard = () => {
     }
   };
 
-  const formatCurrency = (amount) => {
+  const formatCurrency = (amount: number | bigint) => {
     return new Intl.NumberFormat('en-KE', {
       style: 'currency',
       currency: 'KES',
@@ -183,10 +402,90 @@ const Dashboard = () => {
     }).format(amount);
   };
 
+  const handleAddRentalTransaction = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    try {
+      const tenant = portfolioData.tenants.find(t => t.id === newRentalTransaction.tenantId);
+      const property = portfolioData.properties.find(p => p.propertyDetails && p.propertyDetails.id === newRentalTransaction.propertyId);
+      if (!currentUser) throw new Error('No current user');
+      await addDoc(collection(db, 'rentalTransactions'), {
+        ...newRentalTransaction,
+        amount: Number(newRentalTransaction.amount),
+        ownerId: currentUser.uid,
+        tenantName: tenant?.name || 'N/A',
+        propertyName: property?.propertyDetails?.name || 'N/A',
+        date: new Date(newRentalTransaction.date).toISOString(),
+        createdAt: new Date().toISOString(),
+      });
+      setNewRentalTransaction({
+        amount: '',
+        tenantId: '',
+        propertyId: '',
+        description: '',
+        date: new Date().toISOString().substring(0, 10),
+      });
+    } catch (error) {
+      console.error('Error adding rental transaction:', error);
+    }
+  };
+
+  const handleAddExpense = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const property = portfolioData.properties.find(p => p.propertyDetails && p.propertyDetails.id === newExpense.propertyId);
+      if (!currentUser) throw new Error('No current user');
+      await addDoc(collection(db, 'expenses'), {
+        ...newExpense,
+        amount: Number(newExpense.amount),
+        ownerId: currentUser.uid,
+        propertyName: property?.propertyDetails?.name || 'N/A',
+        date: new Date(newExpense.date).toISOString(),
+        createdAt: new Date().toISOString(),
+      });
+      setNewExpense({
+        amount: '',
+        category: '',
+        propertyId: '',
+        description: '',
+        date: new Date().toISOString().substring(0, 10),
+      });
+    } catch (error) {
+      console.error('Error adding expense:', error);
+    }
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleAddTenant = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      if (!currentUser) throw new Error('No current user');
+      await addDoc(collection(db, 'tenants'), {
+        ...newTenant,
+        ownerId: currentUser.uid,
+        createdAt: new Date().toISOString(),
+      });
+      setNewTenant({ name: '', email: '', phone: '', propertyId: '' });
+    } catch (error) {
+      console.error('Error adding tenant:', error);
+    }
+  };
+
+  const sendEmailReminder = (tenantId: string) => {
+    const tenant = portfolioData.tenants.find(t => t.id === tenantId);
+    if (tenant) {
+      // This function would trigger a Firebase Cloud Function or similar backend service.
+      console.log(`Simulating sending email reminder to ${tenant.email}`);
+      alert(`Email reminder simulated for ${tenant.name}. Check the console for details.`);
+    } else {
+      console.error("Tenant not found.");
+    }
+  };
+
   const menuItems = [
     { id: 'overview', label: 'Overview', icon: BarChart3 },
     { id: 'properties', label: 'My Properties', icon: Building },
     { id: 'transactions', label: 'Transactions', icon: Wallet },
+    { id: 'rentals', label: 'Rentals & Expenses', icon: DollarSign },
     { id: 'documents', label: 'Documents', icon: FileText },
     { id: 'notifications', label: 'Notifications', icon: Bell },
     { id: 'profile', label: 'Profile', icon: User },
@@ -336,7 +635,7 @@ const Dashboard = () => {
                 Shares Owned: {investment.sharesOwned?.toFixed(2)}%
               </p>
               <p className="text-gray-600 text-sm">
-                Purchase Date: {new Date(investment.purchaseDate).toLocaleDateString()}
+                Purchase Date: {investment.purchaseDate ? new Date(investment.purchaseDate).toLocaleDateString() : 'N/A'}
               </p>
             </div>
             <div className="flex space-x-2">
@@ -427,6 +726,285 @@ const Dashboard = () => {
             <p className="text-gray-600">Your transaction history will appear here.</p>
           </div>
         )}
+      </div>
+    </div>
+  );
+
+  const renderRentalsAndExpenses = () => (
+    <div className="space-y-8">
+      {/* Tenants Section */}
+      <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-bold text-gray-900">My Tenants</h3>
+          <button
+            onClick={() => setActiveTab('addTenant')}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+          >
+            Add New Tenant
+          </button>
+        </div>
+        
+        {portfolioData.tenants.length > 0 ? (
+          <div className="space-y-4">
+            {portfolioData.tenants.map(tenant => (
+              <div key={tenant.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                <div className="flex items-center">
+                  <div className="p-2 rounded-lg mr-4 bg-gray-100">
+                    <User className="h-5 w-5 text-gray-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{tenant.name}</p>
+                    <p className="text-gray-600 text-sm">
+                      <span className="inline-flex items-center"><Mail className="h-4 w-4 mr-1" /> {tenant.email}</span> • <span className="inline-flex items-center"><Phone className="h-4 w-4 mr-1" /> {tenant.phone}</span>
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => sendEmailReminder(tenant.id)}
+                  className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <Bell className="h-4 w-4 inline mr-1" /> Reminder
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-8">
+            <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <h4 className="text-lg font-semibold text-gray-900 mb-2">No Tenants Added Yet</h4>
+            <p className="text-gray-600">Start by adding your rental property tenants.</p>
+          </div>
+        )}
+      </div>
+
+      {/* Add New Rental Transaction Form */}
+      <div className="bg-white rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-6">Record a Rental Payment</h3>
+        <form onSubmit={handleAddRentalTransaction} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="rentalAmount" className="block text-sm font-medium text-gray-700">Amount</label>
+              <input
+                type="number"
+                id="rentalAmount"
+                value={newRentalTransaction.amount}
+                onChange={(e) => setNewRentalTransaction({...newRentalTransaction, amount: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label htmlFor="rentalDate" className="block text-sm font-medium text-gray-700">Date</label>
+              <input
+                type="date"
+                id="rentalDate"
+                value={newRentalTransaction.date}
+                onChange={(e) => setNewRentalTransaction({...newRentalTransaction, date: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="rentalTenant" className="block text-sm font-medium text-gray-700">Tenant</label>
+              <select
+                id="rentalTenant"
+                value={newRentalTransaction.tenantId}
+                onChange={(e) => setNewRentalTransaction({...newRentalTransaction, tenantId: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="">Select a Tenant</option>
+                {portfolioData.tenants.map(tenant => (
+                  <option key={tenant.id} value={tenant.id}>{tenant.name}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="rentalProperty" className="block text-sm font-medium text-gray-700">Property</label>
+              <select
+                id="rentalProperty"
+                value={newRentalTransaction.propertyId}
+                onChange={(e) => setNewRentalTransaction({...newRentalTransaction, propertyId: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="">Select a Property</option>
+                {portfolioData.properties
+                  .filter(property => property.propertyDetails)
+                  .map(property => (
+                    <option key={property.id} value={property.propertyDetails!.id}>{property.propertyDetails!.name}</option>
+                  ))}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label htmlFor="rentalDescription" className="block text-sm font-medium text-gray-700">Description</label>
+            <input
+              type="text"
+              id="rentalDescription"
+              value={newRentalTransaction.description}
+              onChange={(e) => setNewRentalTransaction({...newRentalTransaction, description: e.target.value})}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+          </div>
+          <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold">
+            Add Transaction
+          </button>
+        </form>
+      </div>
+
+      {/* Rental Transactions List */}
+      <div className="bg-white rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-6">Rental Income History</h3>
+        <div className="space-y-4">
+          {portfolioData.rentalTransactions.length > 0 ? (
+            portfolioData.rentalTransactions.map(transaction => (
+              <div key={transaction.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                <div className="flex items-center">
+                  <div className="p-2 rounded-lg mr-4 bg-green-100">
+                    <DollarSign className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{formatCurrency(transaction.amount)}</p>
+                    <p className="text-gray-600 text-sm">
+                      {transaction.tenantName} for {transaction.propertyName}
+                    </p>
+                    <p className="text-gray-500 text-xs mt-1">
+                      {new Date(transaction.date).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+                <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  Paid
+                </span>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-8">
+              <CreditCard className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">No Rental Income Recorded</h4>
+              <p className="text-gray-600">Add a transaction to get started.</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Add New Expense Form */}
+      <div className="bg-white rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-6">Record a Commercial Expense</h3>
+        <form onSubmit={handleAddExpense} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="expenseAmount" className="block text-sm font-medium text-gray-700">Amount</label>
+              <input
+                type="number"
+                id="expenseAmount"
+                value={newExpense.amount}
+                onChange={(e) => setNewExpense({...newExpense, amount: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label htmlFor="expenseDate" className="block text-sm font-medium text-gray-700">Date</label>
+              <input
+                type="date"
+                id="expenseDate"
+                value={newExpense.date}
+                onChange={(e) => setNewExpense({...newExpense, date: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="expenseCategory" className="block text-sm font-medium text-gray-700">Category</label>
+              <select
+                id="expenseCategory"
+                value={newExpense.category}
+                onChange={(e) => setNewExpense({...newExpense, category: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="">Select a Category</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Property Tax">Property Tax</option>
+                <option value="Management Fees">Management Fees</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="expenseProperty" className="block text-sm font-medium text-gray-700">Property</label>
+              <select
+                id="expenseProperty"
+                value={newExpense.propertyId}
+                onChange={(e) => setNewExpense({...newExpense, propertyId: e.target.value})}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="">Select a Property</option>
+                {portfolioData.properties
+                  .filter(property => property.propertyDetails)
+                  .map(property => (
+                    <option key={property.id} value={property.propertyDetails!.id}>{property.propertyDetails!.name}</option>
+                  ))}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label htmlFor="expenseDescription" className="block text-sm font-medium text-gray-700">Description</label>
+            <input
+              type="text"
+              id="expenseDescription"
+              value={newExpense.description}
+              onChange={(e) => setNewExpense({...newExpense, description: e.target.value})}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+          </div>
+          <button type="submit" className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold">
+            Add Expense
+          </button>
+        </form>
+      </div>
+
+      {/* Expenses List */}
+      <div className="bg-white rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-6">Commercial Property Expenses</h3>
+        <div className="space-y-4">
+          {portfolioData.expenses.length > 0 ? (
+            portfolioData.expenses.map(expense => (
+              <div key={expense.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                <div className="flex items-center">
+                  <div className="p-2 rounded-lg mr-4 bg-red-100">
+                    <Briefcase className="h-5 w-5 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{formatCurrency(expense.amount)}</p>
+                    <p className="text-gray-600 text-sm">
+                      {expense.category} for {expense.propertyName}
+                    </p>
+                    <p className="text-gray-500 text-xs mt-1">
+                      {new Date(expense.date).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+                <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                  Expense
+                </span>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-8">
+              <Briefcase className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">No Expenses Recorded</h4>
+              <p className="text-gray-600">Track your property expenses here.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -542,23 +1120,24 @@ const Dashboard = () => {
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <div className="flex items-center space-x-6 mb-6">
           <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-            {userData?.profileImage ? (
+            {/* Fallback for profile image */}
+            {userData && typeof userData.profileImage === 'string' && userData.profileImage ? (
               <img src={userData.profileImage} alt="Profile" className="w-full h-full rounded-full object-cover" />
             ) : (
               <User className="h-10 w-10 text-blue-600" />
             )}
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-gray-900">{userData?.displayName}</h3>
-            <p className="text-gray-600">{userData?.email}</p>
+            <h3 className="text-2xl font-bold text-gray-900">{userData?.displayName || 'User'}</h3>
+            <p className="text-gray-600">{userData?.email || 'No email provided'}</p>
             <div className="flex items-center mt-2">
               <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                userData?.kycStatus === 'verified' ? 'bg-green-100 text-green-800' :
-                userData?.kycStatus === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                userData && 'kycStatus' in userData && userData.kycStatus === 'verified' ? 'bg-green-100 text-green-800' :
+                userData && 'kycStatus' in userData && userData.kycStatus === 'pending' ? 'bg-yellow-100 text-yellow-800' :
                 'bg-red-100 text-red-800'
               }`}>
                 <CheckCircle className="h-4 w-4 inline mr-1" />
-                {userData?.kycStatus || 'Unverified'}
+                {userData && 'kycStatus' in userData ? String(userData.kycStatus) : 'Unverified'}
               </span>
             </div>
           </div>
@@ -570,7 +1149,7 @@ const Dashboard = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-gray-400 mr-3" />
-                <span className="text-gray-700">{userData?.phoneNumber || 'Not provided'}</span>
+                <span className="text-gray-700">{userData && 'phoneNumber' in userData ? String(userData.phoneNumber) : 'Not provided'}</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-gray-400 mr-3" />
@@ -578,7 +1157,7 @@ const Dashboard = () => {
               </div>
               <div className="flex items-center">
                 <CreditCard className="h-5 w-5 text-gray-400 mr-3" />
-                <span className="text-gray-700">{userData?.nationalId || 'Not provided'}</span>
+                <span className="text-gray-700">{userData && 'nationalId' in userData ? String(userData.nationalId) : 'Not provided'}</span>
               </div>
             </div>
           </div>
@@ -588,11 +1167,11 @@ const Dashboard = () => {
             <div className="flex items-start">
               <MapPin className="h-5 w-5 text-gray-400 mr-3 mt-1" />
               <div className="text-gray-700">
-                {userData?.address ? (
+                {userData && userData.address && typeof userData.address === 'object' && 'street' in userData.address ? (
                   <div>
-                    <p>{userData.address.street}</p>
-                    <p>{userData.address.city}, {userData.address.county}</p>
-                    <p>{userData.address.postalCode}</p>
+                    <p>{(userData.address as { street?: string }).street}</p>
+                    <p>{(userData.address as { city?: string }).city}, {(userData.address as { county?: string }).county}</p>
+                    <p>{(userData.address as { postalCode?: string }).postalCode}</p>
                   </div>
                 ) : (
                   <span>Not provided</span>
@@ -619,9 +1198,9 @@ const Dashboard = () => {
               <span className="font-medium text-gray-900">Identity Verification</span>
             </div>
             <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-              userData?.kycStatus === 'verified' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+              userData && 'kycStatus' in userData && userData.kycStatus === 'verified' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
             }`}>
-              {userData?.kycStatus === 'verified' ? 'Verified' : 'Pending'}
+              {userData && 'kycStatus' in userData && userData.kycStatus === 'verified' ? 'Verified' : 'Pending'}
             </span>
           </div>
           
@@ -740,6 +1319,7 @@ const Dashboard = () => {
       case 'overview': return renderOverview();
       case 'properties': return renderProperties();
       case 'transactions': return renderTransactions();
+      case 'rentals': return renderRentalsAndExpenses();
       case 'documents': return renderDocuments();
       case 'notifications': return renderNotifications();
       case 'profile': return renderProfile();

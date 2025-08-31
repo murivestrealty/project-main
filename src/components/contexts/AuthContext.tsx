@@ -11,6 +11,10 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../../firebase/config';
 
 interface UserData {
+  address: { city?: string | undefined; };
+  address: { street?: string | undefined; };
+  profileImage: any;
+  profileImage: any;
   uid: string;
   email: string;
   displayName: string;

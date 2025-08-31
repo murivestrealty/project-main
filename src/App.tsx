@@ -16,6 +16,8 @@ import MarketIntelligence from './app/market/page';
 import InvestmentProcess from './components/sections/InvestmentProcess';
 import AdminDashboard from './components/dashboard/AdminDashboard';
 import Login from './components/Login';
+import SellProperty from './app/Sell/page';
+import MurivestFoundation from './components/Foundation';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/foundation" element={<MurivestFoundation />} />
+          <Route path="/sell" element={<SellProperty />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/properties" element={<PropertiesPage />} />
           <Route path="/properties/:id" element={<PropertyDetail />} />

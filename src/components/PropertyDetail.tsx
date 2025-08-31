@@ -202,11 +202,13 @@ const PropertyDetail = () => {
       yield: "14.8%",
       exclusiveTag: "STRATEGIC ASSET",
       images: [
-        "https://images.pexels.com/photos/236698/pexels-photo-236698.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/1267324/pexels-photo-1267324.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
-      ],
+        "/p/IMG-20250813-WA0001.jpg",
+        "/p/IMG-20250813-WA0004.jpg",
+        "/p/IMG-20250813-WA0005.jpg",
+        "/p/IMG-20250813-WA0006.jpg",
+        "/p/IMG-20250813-WA0007.jpg",
+        "/p/IMG-20250813-WA0008.jpg"
+            ],
       features: ["3 Acres Prime Industrial Land", "99,300 sqft Multi-Use Complex", "4-Storey Executive Office Block", "Automotive Showroom Facilities", "Industrial Warehouses", "Professional Vehicle Workshops"],
       status: "Exclusive Offering",
       riskProfile: "Blue Chip Industrial",
@@ -354,14 +356,21 @@ const PropertyDetail = () => {
       location: "Chaka Road, Kilimani - Nairobi's Premium Office District",
       type: "Grade A Office Investment",
       price: "US$13,500,000",
-      priceKsh: "KSh 1.8 Billion",
+      priceKsh: "KSh 2 Billion",
       yield: "13.8%",
       exclusiveTag: "ARCHITECTURAL MASTERPIECE",
       images: [
-        "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-        "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
+        "/p7/Screenshot 2025-08-27 234422.png",
+        "/p7/Screenshot 2025-08-27 234459.png",
+        "/p7/Screenshot 2025-08-27 234514.png",
+        "/p7/Screenshot 2025-08-27 234535.png",
+        "/p7/Screenshot 2025-08-27 234547.png",
+        "/p7/Screenshot 2025-08-27 234604.png",
+        "/p7/Screenshot 2025-08-27 234620.png",
+        "/p7/Screenshot 2025-08-27 234632.png",
+        "/p7/Screenshot 2025-08-27 234643.png",
+        "/p7/Screenshot 2025-08-27 234700.png"
+
       ],
       features: ["6-Storey Modern Office Complex", "161,019 sqft Premium Office Space", "221 Covered Parking Bays", "Glass Curtain Wall Facade", "Internal Landscaped Courtyard", "International Design Standards"],
       status: "Exclusive Offering",
@@ -507,12 +516,12 @@ const PropertyDetail = () => {
       subtitle: "Kenya's Crown Jewel of Luxury Hospitality",
       location: "Mombasa Road, Nairobi West - Gateway to Business & Safari",
       type: "5-Star Hospitality Investment",
-      price: "US$23,100,000",
-      priceKsh: "KSh 3.0 Billion",
+      price: "US$25M",
+      priceKsh: "KSh 3.2 Billion",
       yield: "18.5%",
       exclusiveTag: "LUXURY HOSPITALITY FLAGSHIP",
       images: [
-        "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+        "/p8/Screenshot 2025-08-18 224428.png",
         "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
         "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
         "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
@@ -868,13 +877,13 @@ const PropertyDetail = () => {
                 <div className="px-4 py-2 bg-neutral-100 text-neutral-700 rounded text-sm font-medium">
                   {property.yield} ANNUAL YIELD
                 </div>
-                <div className="flex items-center text-neutral-500">
+                <div className="flex items-center text-slate-900">
                   <Crown className="h-4 w-4 mr-2" />
                   <span className="text-sm font-medium">INSTITUTIONAL GRADE</span>
                 </div>
               </div>
               
-              <h1 className="text-5xl lg:text-6xl font-bold text-neutral-900 mb-4 leading-tight tracking-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-slate-700 mb-4 leading-tight tracking-tight">
                 {property.title}
               </h1>
               
@@ -882,20 +891,20 @@ const PropertyDetail = () => {
                 {property.subtitle}
               </p>
               
-              <div className="flex items-center text-neutral-600 mb-8">
+              <div className="flex items-center text-slate-700 mb-8">
                 <MapPin className="h-5 w-5 mr-3" />
                 <span className="text-lg font-medium">{property.location}</span>
               </div>
               
               <div className="flex flex-col sm:flex-row sm:items-end gap-4 mb-8">
-                <div className="text-5xl font-bold text-neutral-900">{property.price}</div>
+                <div className="text-5xl font-bold text-slate-700">{property.price}</div>
                 <div className="text-xl text-neutral-500 font-light">({property.priceKsh})</div>
               </div>
 
               {/* Value Proposition */}
               <div className="bg-neutral-50 p-8 rounded-lg border border-neutral-200">
                 <h2 className="text-2xl font-bold text-neutral-900 mb-4">Why This Investment?</h2>
-                <p className="text-lg text-neutral-700 leading-relaxed">
+                <p className="text-lg text-slate-700 leading-relaxed">
                   {property.luxuryDescription}
                 </p>
               </div>
@@ -1040,7 +1049,7 @@ const PropertyDetail = () => {
                 </div>
               </div>
 
-              <div className="bg-neutral-900 text-white p-10 rounded-lg">
+              <div className="bg-neutral-900 text-slate-300 p-10 rounded-lg">
                 <h3 className="text-3xl font-bold mb-8 text-center">Investment Metrics That Matter</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   {Object.entries({
@@ -1165,7 +1174,7 @@ const PropertyDetail = () => {
                 transition={{ duration: 0.8 }}
               >
                 <div className="text-center mb-8">
-                  <Crown className="h-12 w-12 text-neutral-700 mx-auto mb-4" />
+                  <Crown className="h-12 w-12 text-slate-900 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-neutral-900 mb-2">
                     Exclusive Investment Opportunity
                   </h3>
@@ -1176,11 +1185,11 @@ const PropertyDetail = () => {
                 
                 <div className="space-y-6 mb-10">
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 text-neutral-600 mr-4" />
+                    <Phone className="h-5 w-5 text-slate-900 mr-4" />
                     <span className="text-neutral-800 font-medium">+254 115 277 610</span>
                   </div>
                   <div className="flex items-center">
-                    <Mail className="h-5 w-5 text-neutral-600 mr-4" />
+                    <Mail className="h-5 w-5 text-slate-900 mr-4" />
                     <span className="text-neutral-800 font-medium">investments@murivest.co.ke</span>
                   </div>
                   <div className="flex items-center">

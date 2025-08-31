@@ -1,4 +1,3 @@
-import React from 'react';
 import PropertyDetail from '../../../components/PropertyDetail';
 
 const PropertyDetailPage = () => {
