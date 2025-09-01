@@ -1,4 +1,11 @@
+# *
 User-agent: *
-Disallow: /login
-Disallow: /dashboard/
-Disallow: /admin/
+Allow: /
+Disallow: /dashboard
+Disallow: /auth
+
+# Host
+Host: https://murivest.co.ke
+
+# Sitemaps
+Sitemap: https://murivest.co.ke/sitemap.xml
