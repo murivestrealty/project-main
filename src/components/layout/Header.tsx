@@ -1,6 +1,8 @@
+'use client'; // Add this line
+
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import { Phone, User, Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import AuthModal from '../ui/AuthModal';

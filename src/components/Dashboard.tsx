@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
 // Type definitions for dashboard data
@@ -218,7 +220,15 @@ const Dashboard = () => {
       
       const propertiesWithDetails = investments.map((investment, index) => {
         const propertySnapshot = propertySnapshots[index];
-        const propertyDetails = propertySnapshot.empty ? null : { id: propertySnapshot.docs[0].id, ...propertySnapshot.docs[0].data() };
+        let propertyDetails: PropertyDetails | null = null;
+        if (!propertySnapshot.empty) {
+          const propertyData = propertySnapshot.docs[0].data();
+          propertyDetails = {
+            id: propertySnapshot.docs[0].id,
+            name: propertyData.name ?? 'Unnamed Property',
+            type: propertyData.type
+          };
+        }
         
         // Calculate portfolio totals here
         totalInvestment += investment.investmentAmount;

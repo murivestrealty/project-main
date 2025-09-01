@@ -1,11 +1,13 @@
+'use client';
+
 // src/components/Login.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation'; // Correct import for the Next.js router
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const router = useRouter(); // The hook returns a 'router' object
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,9 +21,9 @@ const Login = () => {
       console.log('Login successful!');
       // You can store a flag in localStorage to maintain the login state
       localStorage.setItem('isAuthenticated', 'true');
-      
-      // Redirect to the admin dashboard
-      navigate('/admin');
+
+      // Redirect to the admin dashboard using router.push()
+      router.push('/admin');
     } else {
       alert('Invalid email or password.');
     }

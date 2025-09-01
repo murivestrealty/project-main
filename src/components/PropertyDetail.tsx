@@ -1,6 +1,8 @@
+'use client';
+import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useParams, Link } from 'react-router-dom';
 import { 
   ArrowLeft,
   Share2,
@@ -9,6 +11,8 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { MapPin, TrendingUp, Download, Phone, Mail, MessageCircle, X, ChevronLeft, ChevronRight, Building, DollarSign, Calendar, Users, Star, Calculator, FileText, BarChart3, Shield, Award, Crown, Clock, Globe } from 'lucide-react';
+
+const router = useRouter();
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -774,7 +778,7 @@ const PropertyDetail = () => {
       <div className="min-h-screen flex items-center justify-center bg-neutral-50">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-neutral-900 mb-4">Property Not Available</h2>
-          <Link to="/properties" className="text-neutral-600 hover:text-neutral-800 font-medium">
+          <Link href="/properties" className="text-neutral-600 hover:text-neutral-800 font-medium">
             ← Return to Portfolio
           </Link>
         </div>
@@ -824,7 +828,7 @@ const PropertyDetail = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <Link 
-              to="/properties"
+              href="/properties"
               className="inline-flex items-center text-neutral-600 hover:text-neutral-800 font-medium transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-3" />

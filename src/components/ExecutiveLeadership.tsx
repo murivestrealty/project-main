@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { ChevronRight, Shield, Crown, Star, Users, Award, Calendar, Building2, Target, Briefcase, Lock, Trophy, Eye } from 'lucide-react';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Target, Eye, Award, Users, Briefcase, Home, Shield, Crown, Globe, TrendingUp, Building2, Landmark } from 'lucide-react';
 

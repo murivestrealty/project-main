@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, TrendingUp } from 'lucide-react';
-import BlogCard from '../app/blog/components/BlogCard';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -4666,9 +4667,25 @@ const Blog = () => {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredPosts.slice(1).map((post, index) => (
-            <BlogCard key={post.id} {...post} index={index} />
-          ))}
+            {filteredPosts.slice(1).map((post, index) => (
+              <div key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-1">
+                <span className="text-xs font-semibold text-gold-600 mb-2">{post.category}</span>
+                <h3 className="text-xl font-bold font-luxury text-navy-900 mb-2">{post.title}</h3>
+                <p className="text-gray-600 font-elegant mb-4 flex-1">{post.excerpt}</p>
+                <div className="flex items-center justify-between text-sm text-gray-500 font-elegant mt-auto">
+                <span>By {post.author}</span>
+                <span>{post.date}</span>
+                <span>{post.readTime}</span>
+                </div>
+              </div>
+              </div>
+            ))}
         </div>
 
         {/* No Results */}

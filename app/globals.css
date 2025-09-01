@@ -1,11 +1,15 @@
-@import '../src/styles/components.css';
-@import '../src/styles/forms.css';
-@import '../src/styles/animations.css';
-@import '../src/styles/utilities.css';
+/* app/globals.css */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "../src/styles/forms.css";
+@import "../src/styles/components.css";
+@import "../src/styles/animations.css";
+@import "../src/styles/utilities.css";
+
+/* Any other global styles you might have */
 
 :root {
   --font-inter: 'Inter', sans-serif;

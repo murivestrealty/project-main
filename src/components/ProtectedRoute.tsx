@@ -1,25 +1,21 @@
-// src/components/ProtectedRoute.tsx
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from './contexts/AuthContext';
+'use client';
 
-interface ProtectedRouteProps {
-  children: React.ReactNode;
-}
+import { useRouter } from 'next/navigation';
+import { useAuth } from './contexts/AuthContext'; // Assuming you have a client-side auth context
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { currentUser, loading } = useAuth();
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
+  const { currentUser } = useAuth(); // or however you get the current user
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gold-600"></div>
-      </div>
-    );
+  if (!currentUser) {
+    // If no user is logged in, redirect to the login page
+    router.push('/login');
+    // It's good practice to return null or a loading state while redirecting
+    return null; 
   }
 
-  // Revise the redirection path to the login page
-  return currentUser ? <>{children}</> : <Navigate to="/login" />;
+  // If a user is logged in, render the protected content
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;

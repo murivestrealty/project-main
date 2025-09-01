@@ -1,8 +1,13 @@
+'use client';
+
 import React from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Clock, Share2, Bookmark, ThumbsUp } from 'lucide-react';
+import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
+
+const router = useRouter();
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -588,7 +593,7 @@ const BlogPost = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-luxury font-bold text-gray-900 mb-4">Article Not Found</h2>
-          <Link to="/blog" className="text-gold-600 hover:text-gold-700 font-elegant">
+          <Link href="/blog" className="text-gold-600 hover:text-gold-700 font-elegant">
             ← Back to Blog
           </Link>
         </div>
@@ -602,7 +607,7 @@ const BlogPost = () => {
       <div className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <Link 
-            to="/blog"
+            href="/blog"
             className="inline-flex items-center text-gold-600 hover:text-gold-700 font-elegant font-medium mb-4"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
@@ -740,7 +745,7 @@ const BlogPost = () => {
         >
           <h3 className="text-2xl font-luxury font-bold mb-6">Related Articles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link to="/blog/2" className="group">
+            <Link href="/blog/2" className="group">
               <div className="bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-colors">
                 <h4 className="font-luxury font-bold mb-2 group-hover:text-gold-400 transition-colors">
                   Top 5 Commercial Property Investment Strategies
@@ -750,7 +755,7 @@ const BlogPost = () => {
                 </p>
               </div>
             </Link>
-            <Link to="/blog/3" className="group">
+            <Link href="/blog/3" className="group">
               <div className="bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-colors">
                 <h4 className="font-luxury font-bold mb-2 group-hover:text-gold-400 transition-colors">
                   Westlands District: The New Hub for Premium Offices

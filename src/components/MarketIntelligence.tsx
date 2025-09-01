@@ -1,3 +1,5 @@
+'use client';
+
 const MarketIntelligence = () => {
   return (
     <div className="min-h-screen bg-neutral-50 text-slate-900 font-sans">

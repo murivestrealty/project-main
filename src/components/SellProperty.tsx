@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, FC, FormEvent, ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Crown, Users, Globe, Building2, Shield, ArrowRight, CheckCircle, Star, MapPin, Phone, Mail, Calendar, DollarSign, Target, Zap, Eye, Heart, Clock, Trophy, ChevronDown, Upload, User, Calculator } from 'lucide-react';

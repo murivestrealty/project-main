@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import DashboardShell from './DashboardShell';
 import StaffManagement from './sections/StaffManagement';

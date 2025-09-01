@@ -1,7 +1,12 @@
+'use client';
+
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { MapPin, TrendingUp, Star, Filter, Search, ArrowRight, Shield, Award, Users, Globe, Building2, Crown, ChevronDown, CheckCircle } from 'lucide-react';
+
+const router = useRouter();
 
 const Properties = () => {
   const [selectedType, setSelectedType] = useState('All');
@@ -147,7 +152,7 @@ const Properties = () => {
     return matchesType && matchesSearch;
   });
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case 'Available':
         return 'bg-emerald-50 text-emerald-800 border border-emerald-200';
@@ -162,7 +167,7 @@ const Properties = () => {
     }
   };
 
-  const getTypeColor = (type) => {
+  const getTypeColor = (type: string) => {
     return 'bg-slate-50 text-slate-700 border border-slate-200';
   };
 
@@ -340,7 +345,7 @@ const Properties = () => {
                     ))}
                   </div>
                   <Link 
-                  to={`/properties/${property.id}`}>
+                  href={`/properties/${property.id}`}>
                   <button className="w-full bg-slate-900 hover:bg-amber-600 text-white py-3 font-medium transition-all duration-300 group">
                     
                     LEARN MORE
