@@ -13,9 +13,7 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../../firebase/config';
 
 interface UserData {
-  address: { city?: string | undefined; };
-  address: { street?: string | undefined; };
-  profileImage: any;
+  address: { city?: string | undefined; street?: string | undefined; };
   profileImage: any;
   uid: string;
   email: string;
@@ -60,7 +58,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     await updateProfile(user, { displayName });
     
     // Create user document in Firestore
-    const userDoc = {
+    const userDoc: UserData = {
       uid: user.uid,
       email: user.email!,
       displayName,
@@ -68,7 +66,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       properties: [],
       joinDate: new Date().toISOString(),
       portfolioValue: 0,
-      totalYield: 0
+      totalYield: 0,
+      address: { city: undefined, street: undefined },
+      profileImage: null
     };
     
     await setDoc(doc(db, 'users', user.uid), userDoc);
