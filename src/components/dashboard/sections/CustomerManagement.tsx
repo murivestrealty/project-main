@@ -9,7 +9,9 @@ interface CustomerManagementProps {
 }
 
 const CustomerManagement: React.FC<CustomerManagementProps> = ({ customers }) => {
-  const [modals, setModals] = useState({ addCustomer: false });
+  // We'll broaden the type of the state to match the DashboardModals component's expectation.
+  // This can be done by explicitly defining the state type.
+  const [modals, setModals] = useState<{ [key: string]: boolean }>({ addCustomer: false });
 
   return (
     <div className="space-y-6">
@@ -20,6 +22,7 @@ const CustomerManagement: React.FC<CustomerManagementProps> = ({ customers }) =>
         </div>
         <div className="flex items-center space-x-3">
           <button
+            // We use a type assertion here to tell TypeScript we are adding a valid key
             onClick={() => setModals(prev => ({ ...prev, addCustomer: true }))}
             className="flex items-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
           >

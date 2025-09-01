@@ -9,7 +9,8 @@ interface StaffManagementProps {
 }
 
 const StaffManagement: React.FC<StaffManagementProps> = ({ staffData }) => {
-  const [modals, setModals] = useState({ addStaff: false });
+  // Explicitly set the type of the state to align with the DashboardModals component.
+  const [modals, setModals] = useState<{ [key: string]: boolean }>({ addStaff: false });
 
   return (
     <div className="space-y-6">

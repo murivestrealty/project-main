@@ -9,7 +9,8 @@ interface MarketingCenterProps {
 }
 
 const MarketingCenter: React.FC<MarketingCenterProps> = ({ campaigns }) => {
-  const [modals, setModals] = useState({ createCampaign: false });
+  // Explicitly define the state type to match DashboardModals' expected props.
+  const [modals, setModals] = useState<{ [key: string]: boolean }>({ createCampaign: false });
 
   return (
     <div className="space-y-6">
@@ -19,6 +20,7 @@ const MarketingCenter: React.FC<MarketingCenterProps> = ({ campaigns }) => {
           <p className="text-gray-600 mt-1">Comprehensive marketing campaign management and analytics</p>
         </div>
         <button
+          // Update the onClick handler to match the new state type.
           onClick={() => setModals(prev => ({ ...prev, createCampaign: true }))}
           className="flex items-center bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
         >

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import { Phone, User, Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import AuthModal from '../ui/AuthModal';
@@ -13,9 +13,11 @@ const Header = () => {
   const [isInvestDropdownOpen, setIsInvestDropdownOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname(); // Use the usePathname hook
   const { currentUser } = useAuth();
 
-  const isActive = (path: string) => router.pathname === path;
+  // The isActive function now uses the pathname from usePathname
+  const isActive = (path: string) => pathname === path;
 
   // Toggle dropdowns (desktop or mobile)
   const toggleDropdown = (
@@ -73,7 +75,7 @@ const Header = () => {
             <div className="relative">
               <button
                 className={`font-serif text-sm font-light tracking-wide transition-all duration-300 flex items-center ${
-                  location.pathname.startsWith('/invest')
+                  pathname.startsWith('/invest') // Corrected this line
                     ? 'text-amber-400 border-b border-amber-400'
                     : 'text-gray-300 hover:text-amber-400'
                 } pb-1`}
@@ -148,7 +150,7 @@ const Header = () => {
             <div className="relative">
               <button
                 className={`font-serif text-sm font-light tracking-wide transition-all duration-300 flex items-center ${
-                  location.pathname.startsWith('/about')
+                  pathname.startsWith('/about') // Corrected this line
                     ? 'text-amber-400 border-b border-amber-400'
                     : 'text-gray-300 hover:text-amber-400'
                 } pb-1`}
@@ -259,7 +261,7 @@ const Header = () => {
               <div className="flex flex-col">
                 <button
                   className={`font-serif text-sm font-light tracking-wide transition-colors flex items-center justify-between ${
-                    location.pathname.startsWith('/about')
+                    pathname.startsWith('/about') // Corrected this line
                       ? 'text-amber-400'
                       : 'text-gray-300 hover:text-amber-400'
                   } py-1`}
@@ -305,7 +307,7 @@ const Header = () => {
               <div className="flex flex-col">
                 <button
                   className={`font-serif text-sm font-light tracking-wide transition-colors flex items-center justify-between ${
-                    location.pathname.startsWith('/invest')
+                    pathname.startsWith('/invest') // Corrected this line
                       ? 'text-amber-400'
                       : 'text-gray-300 hover:text-amber-400'
                   } py-1`}
