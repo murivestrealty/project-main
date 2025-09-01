@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useAuth } from '../contexts/AuthContext';
 import { Phone, User, Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import AuthModal from '../ui/AuthModal';
@@ -9,10 +10,10 @@ const Header = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isInvestDropdownOpen, setIsInvestDropdownOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
-  const location = useLocation();
+  const router = useRouter();
   const { currentUser } = useAuth();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => router.pathname === path;
 
   // Toggle dropdowns (desktop or mobile)
   const toggleDropdown = (
