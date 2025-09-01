@@ -1,5 +1,8 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Globe, Award, Shield, TrendingUp, Users, ArrowUp, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -7,7 +10,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-slate-900 to-slate-900 text-stone-100 overflow-hidden" style={{fontFamily: 'Playfair Display, serif'}}>
+    <footer className="relative bg-gradient-to-b from-slate-900 to-slate-900 text-stone-100 overflow-hidden" style={{ fontFamily: 'Playfair Display, serif' }}>
       {/* Elegant Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div 
@@ -32,9 +35,11 @@ const Footer = () => {
           {/* Company Heritage Section */}
           <div className="lg:col-span-4">
             <div className="mb-8">
-              <img 
+              <Image 
                 src="/image.png" 
                 alt="Murivest Realty Group" 
+                width={200} // Add appropriate width
+                height={64} // Add appropriate height
                 className="h-16 w-auto mb-6 opacity-90"
               />
               <div className="w-16 h-px bg-amber-600 mb-6"></div>
@@ -88,18 +93,18 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               {[
-                { to: "/properties", label: "Commercial Real Estate", external: false },
-                { to: "/properties", label: "Office Developments", external: false },
-                { to: "/properties", label: "Retail & Mixed-Use", external: false },
-                { to: "/properties", label: "Industrial Properties", external: false },
-                { to: "/properties", label: "Strategic Land Banking", external: false },
-                { to: "/properties", label: "REIT Opportunities", external: false },
-                { to: "/properties", label: "Private Equity Real Estate", external: false },
-                { to: "/properties", label: "Wealth Management", external: false }
+                { to: "/properties", label: "Commercial Real Estate" },
+                { to: "/properties", label: "Office Developments" },
+                { to: "/properties", label: "Retail & Mixed-Use" },
+                { to: "/properties", label: "Industrial Properties" },
+                { to: "/properties", label: "Strategic Land Banking" },
+                { to: "/properties", label: "REIT Opportunities" },
+                { to: "/properties", label: "Private Equity Real Estate" },
+                { to: "/properties", label: "Wealth Management" }
               ].map((link, index) => (
                 <li key={index}>
                   <Link 
-                    to={link.to} 
+                    href={link.to} 
                     className="text-stone-300 hover:text-amber-400 transition-all duration-300 text-sm font-light group flex items-center"
                   >
                     <span className="mr-2 w-1 h-1 bg-amber-600 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"></span>
@@ -117,18 +122,18 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               {[
-                { to: "/market-reports", label: "Quarterly Market Reports", external: false },
-                { to: "/economic-outlook", label: "Kenya Economic Outlook", external: false },
-                { to: "/investment-analysis", label: "Investment Analysis", external: false },
-                { to: "/regulatory-updates", label: "Regulatory Updates", external: false },
-                { to: "/currency-insights", label: "Currency Risk Analysis", external: false },
-                { to: "/sector-performance", label: "Sector Performance", external: false },
-                { to: "/due-diligence", label: "Due Diligence Reports", external: false },
-                { to: "/exit-strategies", label: "Exit Strategy Planning", external: false }
+                { to: "/market-reports", label: "Quarterly Market Reports" },
+                { to: "/economic-outlook", label: "Kenya Economic Outlook" },
+                { to: "/investment-analysis", label: "Investment Analysis" },
+                { to: "/regulatory-updates", label: "Regulatory Updates" },
+                { to: "/currency-insights", label: "Currency Risk Analysis" },
+                { to: "/sector-performance", label: "Sector Performance" },
+                { to: "/due-diligence", label: "Due Diligence Reports" },
+                { to: "/exit-strategies", label: "Exit Strategy Planning" }
               ].map((link, index) => (
                 <li key={index}>
                   <Link 
-                    to={link.to} 
+                    href={link.to} 
                     className="text-stone-300 hover:text-amber-400 transition-all duration-300 text-sm font-light group flex items-center"
                   >
                     <span className="mr-2 w-1 h-1 bg-amber-600 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"></span>
@@ -146,18 +151,18 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               {[
-                { to: "/investor-portal", label: "Private Investor Portal", external: false },
-                { to: "/tax-optimization", label: "Tax Optimization Guide", external: false },
-                { to: "/legal-framework", label: "Legal Framework", external: false },
-                { to: "/immigration-services", label: "Investment Immigration", external: false },
-                { to: "/banking-partners", label: "Banking Partners", external: false },
-                { to: "/property-management", label: "Property Management", external: false },
-                { to: "/concierge-services", label: "Concierge Services", external: false },
-                { to: "/family-office", label: "Family Office Services", external: false }
+                { to: "/investor-portal", label: "Private Investor Portal" },
+                { to: "/tax-optimization", label: "Tax Optimization Guide" },
+                { to: "/legal-framework", label: "Legal Framework" },
+                { to: "/immigration-services", label: "Investment Immigration" },
+                { to: "/banking-partners", label: "Banking Partners" },
+                { to: "/property-management", label: "Property Management" },
+                { to: "/concierge-services", label: "Concierge Services" },
+                { to: "/family-office", label: "Family Office Services" }
               ].map((link, index) => (
                 <li key={index}>
                   <Link 
-                    to={link.to} 
+                    href={link.to} 
                     className="text-stone-300 hover:text-amber-400 transition-all duration-300 text-sm font-light group flex items-center"
                   >
                     <span className="mr-2 w-1 h-1 bg-amber-600 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"></span>
@@ -231,7 +236,7 @@ const Footer = () => {
             <div className="bg-stone-800/50 p-4 border border-amber-600/20">
               <div className="text-sm text-stone-300 mb-3">Minimum Investment: $1M+</div>
               <Link 
-                to="/consultation" 
+                href="/consultation" 
                 className="inline-flex items-center text-amber-400 text-sm font-medium hover:text-amber-300 transition-colors"
               >
                 Schedule Private Consultation
@@ -295,7 +300,7 @@ const Footer = () => {
                 ].map((topic, index) => (
                   <Link 
                     key={index}
-                    to={`/${topic.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/${topic.toLowerCase().replace(/\s+/g, '-')}`}
                     className="block text-stone-400 hover:text-amber-400 transition-colors text-xs"
                   >
                     {topic}
@@ -318,7 +323,7 @@ const Footer = () => {
                 ].map((resource, index) => (
                   <Link 
                     key={index}
-                    to={`/${resource.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/${resource.toLowerCase().replace(/\s+/g, '-')}`}
                     className="block text-stone-400 hover:text-amber-400 transition-colors text-xs"
                   >
                     {resource}
@@ -341,7 +346,7 @@ const Footer = () => {
                 ].map((analysis, index) => (
                   <Link 
                     key={index}
-                    to={`/${analysis.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/${analysis.toLowerCase().replace(/\s+/g, '-')}`}
                     className="block text-stone-400 hover:text-amber-400 transition-colors text-xs"
                   >
                     {analysis}
@@ -379,7 +384,7 @@ const Footer = () => {
               ].map((item, index) => (
                 <Link 
                   key={index}
-                  to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                   className="text-stone-400 hover:text-amber-400 transition-colors"
                 >
                   {item}
@@ -396,7 +401,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        </div>
+      </div>
       {/* Elegant Border */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-600/50 to-transparent"></div>
     </footer>

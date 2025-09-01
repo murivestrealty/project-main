@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, Search, FileText, TrendingUp, Shield, Handshake } from 'lucide-react';

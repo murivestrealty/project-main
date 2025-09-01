@@ -45,7 +45,7 @@ const Header = () => {
               className="h-8 w-auto"
             />
             <div className="ml-3">
-              <Link to="/">
+              <Link href="/">
                 <h1 className="text-lg font-serif font-light text-white tracking-tight">
                   M<span className="text-amber-400 font-medium">RG</span>
                 </h1>
@@ -59,7 +59,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              to="/"
+              href="/"
               className={`font-serif text-sm font-light tracking-wide transition-all duration-300 ${
                 isActive('/')
                   ? 'text-amber-400 border-b border-amber-400'
@@ -91,28 +91,28 @@ const Header = () => {
               {isInvestDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-slate-800 border border-amber-500/20 shadow-lg py-2 z-10">
                   <Link
-                    to="/process"
+                    href="/process"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
                     Investment Process
                   </Link>
                   <Link
-                    to="/market"
+                    href="/market"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
                     Market Intelligence
                   </Link>
                   <Link
-                    to="/leadership"
+                    href="/leadership"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
                     Executive Leadership
                   </Link>
                   <Link
-                    to="/calculator"
+                    href="/calculator"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
@@ -123,7 +123,7 @@ const Header = () => {
             </div>
 
             <Link
-              to="/properties"
+              href="/properties"
               className={`font-serif text-sm font-light tracking-wide transition-all duration-300 ${
                 isActive('/properties')
                   ? 'text-amber-400 border-b border-amber-400'
@@ -134,7 +134,7 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/blog"
+              href="/blog"
               className={`font-serif text-sm font-light tracking-wide transition-all duration-300 ${
                 isActive('/blog')
                   ? 'text-amber-400 border-b border-amber-400'
@@ -166,21 +166,21 @@ const Header = () => {
               {isAboutDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-slate-800 border border-amber-500/20 shadow-lg py-2 z-10">
                   <Link
-                    to="/about"
+                    href="/about"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
                     About Murivest
                   </Link>
                   <Link
-                    to="/"
+                    href="/"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
                     Murivest Realty Group
                   </Link>
                   <Link
-                    to="/foundation"
+                    href="/foundation"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-amber-400"
                     onClick={closeAllDropdowns}
                   >
@@ -191,7 +191,7 @@ const Header = () => {
             </div>
 
             <Link
-              to="/contact"
+              href="/contact"
               className={`font-serif text-sm font-light tracking-wide transition-all duration-300 ${
                 isActive('/contact')
                   ? 'text-amber-400 border-b border-amber-400'
@@ -207,7 +207,7 @@ const Header = () => {
             <div className="flex items-center text-xs text-gray-300">
               <Phone className="h-3 w-3 mr-1" />
               <Link
-                to="tel:0115277610"
+                href="tel:0115277610"
                 className="font-serif hover:text-amber-400 transition-colors"
               >
                 +254 115 277 610
@@ -215,7 +215,7 @@ const Header = () => {
             </div>
             {currentUser ? (
               <Link
-                to="/dashboard"
+                href="/dashboard"
                 className="flex items-center bg-amber-600 hover:bg-amber-700 text-white px-3 py-2 text-xs font-serif font-medium transition-all duration-300 border border-amber-500 hover:shadow-lg hover:shadow-amber-500/25"
               >
                 <User className="h-3 w-3 mr-1.5" />
@@ -246,7 +246,7 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-gray-700">
             <nav className="flex flex-col space-y-3">
               <Link
-                to="/"
+                href="/"
                 className={`font-serif text-sm font-light tracking-wide transition-colors ${
                   isActive('/') ? 'text-amber-400' : 'text-gray-300 hover:text-amber-400'
                 } py-1`}
@@ -277,21 +277,21 @@ const Header = () => {
                 {isAboutDropdownOpen && (
                   <div className="flex flex-col pl-4 space-y-2 mt-2">
                     <Link
-                      to="/about"
+                      href="/about"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
                       About Murivest
                     </Link>
                     <Link
-                      to="/"
+                      href="/"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
                       Murivest Realty
                     </Link>
                     <Link
-                      to="/foundation"
+                      href="/foundation"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
@@ -323,28 +323,28 @@ const Header = () => {
                 {isInvestDropdownOpen && (
                   <div className="flex flex-col pl-4 space-y-2 mt-2">
                     <Link
-                      to="/process"
+                      href="/process"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
                       Investment Process
                     </Link>
                     <Link
-                      to="/market"
+                      href="/market"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
                       Market Intelligence
                     </Link>
                     <Link
-                      to="/leadership"
+                      href="/leadership"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
                       Executive Leadership
                     </Link>
                     <Link
-                      to="/calculator"
+                      href="/calculator"
                       className="text-sm text-gray-400 hover:text-amber-400"
                       onClick={closeAllDropdowns}
                     >
@@ -355,7 +355,7 @@ const Header = () => {
               </div>
 
               <Link
-                to="/properties"
+                href="/properties"
                 className={`font-serif text-sm font-light tracking-wide transition-colors ${
                   isActive('/properties')
                     ? 'text-amber-400'
@@ -366,7 +366,7 @@ const Header = () => {
                 Portfolio
               </Link>
               <Link
-                to="/blog"
+                href="/blog"
                 className={`font-serif text-sm font-light tracking-wide transition-colors ${
                   isActive('/blog')
                     ? 'text-amber-400'
@@ -377,7 +377,7 @@ const Header = () => {
                 Insights
               </Link>
               <Link
-                to="/contact"
+                href="/contact"
                 className={`font-serif text-sm font-light tracking-wide transition-colors ${
                   isActive('/contact')
                     ? 'text-amber-400'
@@ -393,7 +393,7 @@ const Header = () => {
             <div className="mt-4 pt-4 border-t border-gray-700">
               {currentUser ? (
                 <Link
-                  to="/dashboard"
+                  href="/dashboard"
                   className="flex items-center bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg font-serif font-medium transition-colors w-full justify-center"
                   onClick={closeAllDropdowns}
                 >
